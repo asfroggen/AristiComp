@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">AristiComp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login__sign_in">Inicio de sesion</string>
+    <string name="login__welcome_message">Bienvenido a Perritos felices ¿Como desea iniciar?</string>
+    <string name="login__email_hint">Correo electrónico</string>
+    <string name="login__password_hint">Contraseña</string>
+    <string name="login__password_forgotten">¿Olvidaste tu contraseña?</string>
+    <string name="login__login_button">Iniciar sesión</string>
+    <string name="login__signup_invitation">¿Aún no tienes una cuenta?</string>
+    <string name="login__signup_button">Registrate</string>
+
+
+    <string name="animation__owner">https://assets7.lottiefiles.com/packages/lf20_nobbjtyh.json</string>
+    <string name="animation__dog_walking">https://assets7.lottiefiles.com/packages/lf20_2ixzdfvy.json</string>
+    <string name="login_walker">Paseador</string>
+    <string name="login_owner">Dueño</string>
+    <string name="signup__header">Crea tu cuenta</string>
+    <string name="content_description">content</string>
+    <string name="signup__name_hint">Nombre completo</string>
+    <string name="signup__email_hint">Correo electrónico</string>
+    <string name="signup__password_hint">Contraseña</string>
+    <string name="signup__conf_password_hint">Confirma tu contraseña</string>
+    <string name="sign_up__mode_disclaimer">¿Como que tipo de usuario deseas registrarte?</string>
+    <string name="signup__signup_button">Registrarme</string>
+    <string name="signup__login_invitation">¿Ya tienes una cuenta?</string>
+    <string name="signup__login_button">Inicia sesión</string>
+</resources>
