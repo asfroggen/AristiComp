@@ -19,6 +19,8 @@
     <color name="yellow_50">#B4820B</color>
     <color name="yellow_darker">#E3A209</color>
 
+    <color name="trasnparent">#00000000</color>
+
     <color name="padlock_light">#D09306</color>
     <color name="padlock_darker">#B57C00</color>
 

@@ -63,7 +63,7 @@ class LoginFragment : Fragment() {
         with(binding){
             avWalker.gone()
 
-            llWalker.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.white)
+            llWalker.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.trasnparent)
             tvWalker.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_text))
 
             llOwner.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.yellow)
@@ -77,7 +77,7 @@ class LoginFragment : Fragment() {
         with(binding){
             avOwner.gone()
 
-            llOwner.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.white)
+            llOwner.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.trasnparent)
             tvOwner.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_text))
 
             llWalker.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.yellow)

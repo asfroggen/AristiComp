@@ -67,7 +67,7 @@ class SignUpFragment : Fragment() {
 
     private fun setOwnerMode(){
         with(binding){
-            llWalker.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.white)
+            llWalker.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.trasnparent)
             tvWalker.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_text))
 
             llOwner.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.yellow)
@@ -77,7 +77,7 @@ class SignUpFragment : Fragment() {
 
     private fun setWalkerMode(){
         with(binding){
-            llOwner.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.white)
+            llOwner.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.trasnparent)
             tvOwner.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_text))
 
             llWalker.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.yellow)
