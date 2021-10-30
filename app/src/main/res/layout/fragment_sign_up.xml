@@ -32,7 +32,7 @@
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
-            android:background="@color/colorBorder"/>
+            android:background="@color/color_border"/>
 
     </LinearLayout>
 
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginHorizontal="16dp"
-                android:text="@string/sign_up__mode_disclaimer"
+                android:text="@string/signup__mode_disclaimer"
                 android:textAlignment="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -158,6 +158,9 @@
                 android:layout_marginTop="16dp"
                 android:hint="@string/signup__name_hint"
                 app:boxCornerRadiusTopStart="20dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/mcvModeSelection">
@@ -179,6 +182,10 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:hint="@string/signup__email_hint"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tilName">
@@ -187,7 +194,7 @@
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
+                    android:inputType="textEmailAddress"
                     android:padding="16dp"
                     android:textSize="18sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -200,6 +207,11 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:hint="@string/signup__password_hint"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:passwordToggleEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tilEmail">
@@ -208,7 +220,7 @@
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
+                    android:inputType="textPassword"
                     android:padding="16dp"
                     android:textSize="18sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -221,7 +233,10 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:hint="@string/signup__conf_password_hint"
+                app:boxCornerRadiusTopStart="20dp"
                 app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tilPassword">
@@ -230,7 +245,7 @@
                     android:id="@+id/etConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
+                    android:inputType="textPassword"
                     android:padding="16dp"
                     android:textSize="18sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -257,7 +272,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:indeterminate="true"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/mbSignUp"
                 app:layout_constraintEnd_toEndOf="@id/mbSignUp"
                 app:layout_constraintStart_toStartOf="@id/mbSignUp"

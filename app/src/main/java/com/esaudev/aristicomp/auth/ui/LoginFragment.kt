@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.esaudev.aristicomp.R
 import com.esaudev.aristicomp.databinding.FragmentLoginBinding
 import com.esaudev.aristicomp.utils.gone
@@ -32,6 +33,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initModeControl()
+        initListeners()
     }
 
     private fun initModeControl(){
@@ -42,6 +44,17 @@ class LoginFragment : Fragment() {
 
             llWalker.setOnClickListener {
                 setWalkerMode()
+            }
+        }
+    }
+
+    private fun initListeners(){
+        with(binding){
+            mbPasswordForgotten.setOnClickListener {
+                findNavController().navigate(R.id.toForgotPassword)
+            }
+            mbSignUp.setOnClickListener {
+                findNavController().navigate(R.id.toSignUp)
             }
         }
     }

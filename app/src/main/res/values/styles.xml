@@ -5,4 +5,8 @@
         <item name="indicatorColor">@color/white</item>
         <item name="trackColor">@color/gray</item>
     </style>
+
+    <style name="Theme.AristiComp.Button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/asset_button_color_states</item>
+    </style>
 </resources>

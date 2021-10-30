@@ -1,29 +1,49 @@
 <resources>
-    <string name="app_name">AristiComp</string>
+
+    <string name="app_name">Perritos felices</string>
+
     <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="login__sign_in">Inicio de sesion</string>
-    <string name="login__welcome_message">Bienvenido a Perritos felices ¿Como desea iniciar?</string>
+    <string name="login__welcome_message">Bienvenido a Perritos felices ¿Cómo desea iniciar?</string>
     <string name="login__email_hint">Correo electrónico</string>
     <string name="login__password_hint">Contraseña</string>
-    <string name="login__password_forgotten">¿Olvidaste tu contraseña?</string>
+    <string name="login__password_forgotten">¿Olvídaste tu contraseña?</string>
     <string name="login__login_button">Iniciar sesión</string>
     <string name="login__signup_invitation">¿Aún no tienes una cuenta?</string>
-    <string name="login__signup_button">Registrate</string>
-
-
-    <string name="animation__owner">https://assets7.lottiefiles.com/packages/lf20_nobbjtyh.json</string>
-    <string name="animation__dog_walking">https://assets7.lottiefiles.com/packages/lf20_2ixzdfvy.json</string>
+    <string name="login__signup_button">Regístrate</string>
     <string name="login_walker">Paseador</string>
     <string name="login_owner">Dueño</string>
+
     <string name="signup__header">Crea tu cuenta</string>
-    <string name="content_description">content</string>
     <string name="signup__name_hint">Nombre completo</string>
     <string name="signup__email_hint">Correo electrónico</string>
     <string name="signup__password_hint">Contraseña</string>
     <string name="signup__conf_password_hint">Confirma tu contraseña</string>
-    <string name="sign_up__mode_disclaimer">¿Como que tipo de usuario deseas registrarte?</string>
+    <string name="signup__mode_disclaimer">¿Cómo que tipo de usuario deseas registrarte?</string>
     <string name="signup__signup_button">Registrarme</string>
     <string name="signup__login_invitation">¿Ya tienes una cuenta?</string>
     <string name="signup__login_button">Inicia sesión</string>
+
+    <string name="content_description">content</string>
+
+    <string name="animation__owner">https://assets7.lottiefiles.com/packages/lf20_nobbjtyh.json</string>
+    <string name="animation__dog_walking">https://assets7.lottiefiles.com/packages/lf20_2ixzdfvy.json</string>
+
+    <string name="forgot_password__header">Recuperar contraseña</string>
+    <string name="forgot_password__question">¿Necesitas recuperar tu contraseña?</string>
+    <string name="forgot_password__instructions">No te preocupes, ingresa tu correo electronico y te enviaremos una liga para recuperarla</string>
+    <string name="forgot_password__recover_button">Recuperar contraseña</string>
+
+    <string name="email_verification__header">Verifica tu email</string>
+    <string name="email_verification__go_sign_in_button">Iniciar sesión</string>
+    <string name="email_verification__link_sent">Correo electrónico reenviado</string>
+    <string name="email_verification__title">¡Ya casi estás ahí!</string>
+    <string name="email_verification__instructions">Hemos enviado una liga a tu correo electrónico para verificar tu identidad,
+        no olvides revisar tu bandeja de correo no deseado.</string>
+    <string name="email_verification__help_disclaimer">¿No recibiste el correo electrónico?</string>
+    <string name="email_verification__send_link">Reenviar enlace</string>
+    <string name="email_verification__resend_counter">Reenviar enlace (00:0%1$s)</string>
 </resources>
