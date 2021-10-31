@@ -6,270 +6,291 @@
     android:layout_height="match_parent"
     tools:context=".auth.ui.LoginFragment">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/avOwner"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="24dp"
-        app:lottie_rawRes="@raw/woman_owner"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        android:visibility="gone"
-        android:animateLayoutChanges="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0"/>
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/avWalker"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="24dp"
-        app:lottie_rawRes="@raw/walker"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        android:visibility="visible"
-        android:animateLayoutChanges="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0"/>
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="24dp"
-        android:visibility="visible"
-        android:src="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
-
-    <TextView
-        android:id="@+id/tvLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/login__sign_in"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivLogo" />
-
-    <TextView
-        android:id="@+id/tvWelcomeMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/login__welcome_message"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLogin" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/mcvModeSelection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginHorizontal="72dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="2dp"
-        app:strokeColor="@color/gray_20"
-        app:strokeWidth="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvWelcomeMessage">
-
-        <LinearLayout
-            android:id="@+id/llModeSelection"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:id="@+id/llWalker"
-                android:layout_width="0dp"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/avOwner"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="24dp"
+                app:lottie_rawRes="@raw/woman_owner"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:visibility="gone"
+                android:animateLayoutChanges="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"/>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/avWalker"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="24dp"
+                app:lottie_rawRes="@raw/walker"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:visibility="visible"
+                android:animateLayoutChanges="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"/>
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="24dp"
+                android:visibility="visible"
+                android:src="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingVertical="4dp"
-                android:background="@drawable/asset_left_rounded_corner"
+                android:layout_marginTop="8dp"
+                android:text="@string/login__sign_in"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+            <TextView
+                android:id="@+id/tvWelcomeMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login__welcome_message"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLogin" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mcvModeSelection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="72dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/gray_20"
+                app:strokeWidth="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWelcomeMessage">
+
+                <LinearLayout
+                    android:id="@+id/llModeSelection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/llWalker"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingVertical="4dp"
+                        android:background="@drawable/asset_left_rounded_corner"
+                        android:backgroundTint="@color/yellow"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_marginTop="2dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_man"/>
+
+                        <TextView
+                            android:id="@+id/tvWalker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/login_walker"
+                            android:textColor="@android:color/white"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llOwner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/asset_right_rounded_corner"
+                        android:paddingVertical="4dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_marginTop="2dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_dog"/>
+
+                        <TextView
+                            android:id="@+id/tvOwner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/login_owner"
+                            android:textColor="@color/gray_text"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="@string/login__email_hint"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mcvModeSelection">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/asset_email_selector"
+                    android:drawablePadding="8dp"
+                    android:inputType="textEmailAddress"
+                    android:padding="16dp"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:hint="@string/login__password_hint"
+                app:boxCornerRadiusTopStart="20dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilEmail"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/asset_key_selector"
+                    android:drawablePadding="8dp"
+                    android:inputType="textPassword"
+                    android:padding="16dp"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/mbPasswordForgotten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/asset_ripple_light"
+                android:padding="8dp"
+                android:text="@string/login__password_forgotten"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mbLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
                 android:backgroundTint="@color/yellow"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:paddingVertical="16dp"
+                android:text="@string/login__login_button"
+                android:textColor="@android:color/white"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mbPasswordForgotten" />
 
-                <ImageView
-                    android:layout_marginTop="2dp"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_man"/>
-
-                <TextView
-                    android:id="@+id/tvWalker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_walker"
-                    android:textColor="@android:color/white"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llOwner"
-                android:layout_width="0dp"
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/pbLogin"
+                style="@style/Theme.AristiComp.CircularProgressIndicator"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/asset_right_rounded_corner"
-                android:paddingVertical="4dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/mbLogin"
+                app:layout_constraintEnd_toEndOf="@id/mbLogin"
+                app:layout_constraintStart_toStartOf="@id/mbLogin"
+                app:layout_constraintTop_toTopOf="@id/mbLogin" />
 
-                <ImageView
-                    android:layout_marginTop="2dp"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_dog"/>
+            <TextView
+                android:id="@+id/tvSignUpInvitation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:padding="8dp"
+                android:text="@string/login__signup_invitation"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/mbSignUp"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mbLogin" />
 
-                <TextView
-                    android:id="@+id/tvOwner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_owner"
-                    android:textColor="@color/gray_text"/>
-            </LinearLayout>
-        </LinearLayout>
+            <TextView
+                android:id="@+id/mbSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/asset_ripple_light"
+                android:padding="8dp"
+                android:text="@string/login__signup_button"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/tvSignUpInvitation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tvSignUpInvitation"
+                app:layout_constraintTop_toTopOf="@id/tvSignUpInvitation" />
 
-    </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilEmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:hint="@string/login__email_hint"
-        app:boxCornerRadiusTopStart="20dp"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxCornerRadiusBottomStart="20dp"
-        app:boxCornerRadiusTopEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mcvModeSelection">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/asset_email_selector"
-            android:drawablePadding="8dp"
-            android:inputType="textEmailAddress"
-            android:padding="16dp"
-            android:textSize="18sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="@string/login__password_hint"
-        app:boxCornerRadiusTopStart="20dp"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxCornerRadiusBottomStart="20dp"
-        app:boxCornerRadiusTopEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilEmail"
-        app:passwordToggleEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/asset_key_selector"
-            android:drawablePadding="8dp"
-            android:inputType="textPassword"
-            android:padding="16dp"
-            android:textSize="18sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/mbPasswordForgotten"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/asset_ripple_light"
-        android:padding="8dp"
-        android:text="@string/login__password_forgotten"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword" />
-
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/pbLogin"
-        style="@style/Theme.AristiComp.CircularProgressIndicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/mbLogin"
-        app:layout_constraintEnd_toEndOf="@id/mbLogin"
-        app:layout_constraintStart_toStartOf="@id/mbLogin"
-        app:layout_constraintTop_toTopOf="@id/mbLogin" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/mbLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/yellow"
-        android:paddingVertical="16dp"
-        android:text="@string/login__login_button"
-        android:textColor="@android:color/white"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mbPasswordForgotten" />
-
-    <TextView
-        android:id="@+id/tvSignUpInvitation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:padding="8dp"
-        android:text="@string/login__signup_invitation"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/mbSignUp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/mbSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/asset_ripple_light"
-        android:padding="8dp"
-        android:text="@string/login__signup_button"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/tvSignUpInvitation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvSignUpInvitation"
-        app:layout_constraintTop_toTopOf="@id/tvSignUpInvitation" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

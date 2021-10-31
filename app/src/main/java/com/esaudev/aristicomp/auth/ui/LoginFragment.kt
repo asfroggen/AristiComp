@@ -6,17 +6,41 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.esaudev.aristicomp.R
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_EMAIL_ERROR
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_EMAIL_EMPTY
+import com.esaudev.aristicomp.auth.ui.login.LoginViewModel
+import com.esaudev.aristicomp.auth.ui.login.LoginViewState
 import com.esaudev.aristicomp.databinding.FragmentLoginBinding
 import com.esaudev.aristicomp.utils.gone
 import com.esaudev.aristicomp.utils.visible
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.flow.collect
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding
         get() = _binding!!
+
+    private val viewModel: LoginViewModel by viewModels()
+
+    @InternalCoroutinesApi
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Whenever the view is resumed, subscribe to our viewmodel's view state StateFlow
+        lifecycleScope.launchWhenResumed {
+            viewModel.viewState.collect { viewState ->
+                processViewState(viewState)
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,28 +57,43 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initModeControl()
-        initListeners()
+        initTextListeners()
+        initClickListeners()
     }
 
     private fun initModeControl(){
         with(binding){
             llOwner.setOnClickListener {
-                setOwnerMode()
+                viewModel.onModeChanged()
             }
 
             llWalker.setOnClickListener {
-                setWalkerMode()
+                viewModel.onModeChanged()
             }
         }
     }
 
-    private fun initListeners(){
+    private fun initTextListeners(){
+        with(binding){
+            etEmail.doOnTextChanged { text, _, _, _ ->
+                viewModel.onEmailChanged(text?.toString().orEmpty())
+            }
+            etPassword.doOnTextChanged { text, _, _, _ ->
+                viewModel.onEmailChanged(text?.toString().orEmpty())
+            }
+        }
+    }
+
+    private fun initClickListeners(){
         with(binding){
             mbPasswordForgotten.setOnClickListener {
                 findNavController().navigate(R.id.toForgotPassword)
             }
             mbSignUp.setOnClickListener {
                 findNavController().navigate(R.id.toSignUp)
+            }
+            mbLogin.setOnClickListener {
+                viewModel.onLoginButtonClicked()
             }
         }
     }
@@ -87,5 +126,38 @@ class LoginFragment : Fragment() {
         }
     }
 
+    private fun processViewState(viewState: LoginViewState) {
+
+        if (viewState.showOwnerMode){
+            setOwnerMode()
+        } else {
+            setWalkerMode()
+        }
+
+        if (!viewState.emailError.isNullOrEmpty()){
+            binding.etEmail.error = getLoginError(viewState.emailError)
+        }
+
+        if (viewState.showProgressBar){
+            with(binding){
+                pbLogin.visibility = View.VISIBLE
+                mbLogin.isEnabled = false
+                mbLogin.text = ""
+            }
+        } else {
+            with(binding){
+                pbLogin.visibility = View.GONE
+                mbLogin.isEnabled = true
+                mbLogin.text = getString(R.string.login__login_button)
+            }
+        }
+    }
+
+    private fun getLoginError(error: String): String {
+        return when(error){
+            LOGIN_ERROR_EMAIL_EMPTY -> "Error parseado correctamente"
+            else -> "Error desconocido"
+        }
+    }
 
 }
