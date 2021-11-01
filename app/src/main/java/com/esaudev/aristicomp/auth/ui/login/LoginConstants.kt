@@ -17,6 +17,14 @@ object LoginConstants {
     const val LOGIN_ERROR_PASSWORD_EMPTY = "password_empty"
 
     /*
+    Sign up messages provided by Firebase Auth
+     */
+    const val SIGN_UP_ERROR_USER_ALREADY_EXISTS : String = "The email address is already in use by another account."
+    const val SIGN_UP_ERROR_NAME_EMPTY = "name_empty"
+    const val SIGN_UP_ERROR_EMAIL_EMPTY = "email_empty"
+    const val SIGN_UP_ERROR_PASSWORD_EMPTY = "password_empty"
+    const val SIGN_UP_ERROR_CONF_PASSWORD_EMPTY = "password_empty"
+    /*
     Collection IDs for Firebase Firestore
     */
     const val USERS_COLLECTION = "users"

@@ -31,6 +31,11 @@
     <string name="signup__signup_button">Registrarme</string>
     <string name="signup__login_invitation">¿Ya tienes una cuenta?</string>
     <string name="signup__login_button">Inicia sesión</string>
+    <string name="signup__error_name_empty">Ingresa tu nombre para continuar</string>
+    <string name="signup__error_email_empty">Ingresa tu email para continuar</string>
+    <string name="signup__error_password_empty">Ingresa tu contraseña para continuar</string>
+    <string name="signup__error_user_already_exists">Ya existe un usuario registrado con este correo electrónico</string>
+    <string name="signup__error_unknown">Oops, algo salió mal intente de nuevo más tarde</string>
 
     <string name="content_description">content</string>
 

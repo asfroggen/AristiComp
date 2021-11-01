@@ -8,7 +8,7 @@ import com.esaudev.aristicomp.auth.ui.login.LoginViewState
 import javax.inject.Inject
 
 
-class LoginNetworkingMiddleware @Inject constructor(
+class LoginNetworkMiddleware @Inject constructor(
     private val loginRepository: AuthRepository,
 ) : Middleware<LoginViewState, LoginAction> {
 

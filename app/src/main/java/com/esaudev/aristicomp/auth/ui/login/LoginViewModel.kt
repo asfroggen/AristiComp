@@ -3,13 +3,10 @@ package com.esaudev.aristicomp.auth.ui.login
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.esaudev.aristicomp.auth.redux.Store
-import com.esaudev.aristicomp.auth.repository.AuthRepository
-import com.esaudev.aristicomp.auth.repository.AuthRepositoryFirebaseImpl
-import com.esaudev.aristicomp.auth.repository.ProdLoginService
 import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
 import com.esaudev.aristicomp.auth.ui.login.actions.LoginReducer
-import com.esaudev.aristicomp.auth.ui.login.middleware.LoggingMiddleware
-import com.esaudev.aristicomp.auth.ui.login.middleware.LoginNetworkingMiddleware
+import com.esaudev.aristicomp.auth.ui.login.middleware.DebuggingMiddleware
+import com.esaudev.aristicomp.auth.ui.login.middleware.LoginNetworkMiddleware
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -25,13 +22,14 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    loginNetworkMiddleware: LoginNetworkingMiddleware
+    loginNetworkMiddleware: LoginNetworkMiddleware
 ) : ViewModel() {
+
     private val store = Store(
         initialState = LoginViewState(),
         reducer = LoginReducer(),
         middlewares = listOf(
-            LoggingMiddleware(),
+            DebuggingMiddleware(),
             loginNetworkMiddleware,
         )
     )

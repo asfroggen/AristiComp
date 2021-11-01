@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.esaudev.aristicomp.auth.ui.SignUpFragment"
+        android:name="com.esaudev.aristicomp.auth.ui.sign_up.SignUpFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_up" >
         <action
