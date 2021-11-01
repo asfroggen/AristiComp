@@ -3,7 +3,10 @@ package com.esaudev.aristicomp.auth.ui.login
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.repository.AuthRepositoryFirebaseImpl
 import com.esaudev.aristicomp.auth.repository.ProdLoginService
+import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
+import com.esaudev.aristicomp.auth.ui.login.actions.LoginReducer
 import com.esaudev.aristicomp.auth.ui.login.middleware.LoggingMiddleware
 import com.esaudev.aristicomp.auth.ui.login.middleware.LoginNetworkingMiddleware
 import kotlinx.coroutines.flow.StateFlow
@@ -24,7 +27,7 @@ class LoginViewModel : ViewModel() {
         middlewares = listOf(
             LoggingMiddleware(),
             LoginNetworkingMiddleware(
-                loginRepository = ProdLoginService(),
+                loginRepository = AuthRepositoryFirebaseImpl(),
             ),
         )
     )
@@ -57,6 +60,14 @@ class LoginViewModel : ViewModel() {
 
     fun onModeChanged(){
         val action = LoginAction.ModeChanged
+
+        viewModelScope.launch {
+            store.dispatch(action)
+        }
+    }
+
+    fun actionReset(){
+        val action = LoginAction.ActionCompleted
 
         viewModelScope.launch {
             store.dispatch(action)

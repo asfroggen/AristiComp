@@ -14,8 +14,13 @@
     <string name="login__login_button">Iniciar sesión</string>
     <string name="login__signup_invitation">¿Aún no tienes una cuenta?</string>
     <string name="login__signup_button">Regístrate</string>
-    <string name="login_walker">Paseador</string>
-    <string name="login_owner">Dueño</string>
+    <string name="login__walker">Paseador</string>
+    <string name="login__owner">Dueño</string>
+    <string name="login__error_email_empty">Ingrese su correo electrónico</string>
+    <string name="login__error_password_empty">Ingrese su contraseña</string>
+    <string name="login__error_user_not_exists">No existe un usuario registrado con este correo electrónico</string>
+    <string name="login__error_wrong_password">Credenciales incorrectas</string>
+    <string name="login__error_unknown">Oops, algo salió mal intente de nuevo más tarde</string>
 
     <string name="signup__header">Crea tu cuenta</string>
     <string name="signup__name_hint">Nombre completo</string>

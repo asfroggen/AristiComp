@@ -1,24 +1,24 @@
-package com.esaudev.aristicomp.auth.ui
+package com.esaudev.aristicomp.auth.ui.login
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.esaudev.aristicomp.R
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_EMAIL_ERROR
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_EMAIL_EMPTY
-import com.esaudev.aristicomp.auth.ui.login.LoginViewModel
-import com.esaudev.aristicomp.auth.ui.login.LoginViewState
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_PASSWORD_EMPTY
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_UNKNOWN
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_USER_NOT_EXISTS
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_WRONG_PASSWORD
 import com.esaudev.aristicomp.databinding.FragmentLoginBinding
-import com.esaudev.aristicomp.utils.gone
-import com.esaudev.aristicomp.utils.visible
+import com.esaudev.aristicomp.utils.*
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 
@@ -79,7 +79,7 @@ class LoginFragment : Fragment() {
                 viewModel.onEmailChanged(text?.toString().orEmpty())
             }
             etPassword.doOnTextChanged { text, _, _, _ ->
-                viewModel.onEmailChanged(text?.toString().orEmpty())
+                viewModel.onPasswordChanged(text?.toString().orEmpty())
             }
         }
     }
@@ -134,10 +134,6 @@ class LoginFragment : Fragment() {
             setWalkerMode()
         }
 
-        if (!viewState.emailError.isNullOrEmpty()){
-            binding.etEmail.error = getLoginError(viewState.emailError)
-        }
-
         if (viewState.showProgressBar){
             with(binding){
                 pbLogin.visibility = View.VISIBLE
@@ -151,12 +147,22 @@ class LoginFragment : Fragment() {
                 mbLogin.text = getString(R.string.login__login_button)
             }
         }
+
+        if (viewState.showLoginError){
+            Log.v("LoggingMiddleware", "CALL TO SHOWBAR")
+            showSnackBar(getLoginError(viewState.loginError?: getString(R.string.login__error_unknown)))
+            viewModel.actionReset()
+        }
     }
 
     private fun getLoginError(error: String): String {
         return when(error){
-            LOGIN_ERROR_EMAIL_EMPTY -> "Error parseado correctamente"
-            else -> "Error desconocido"
+            LOGIN_ERROR_WRONG_PASSWORD -> getString(R.string.login__error_wrong_password)
+            LOGIN_ERROR_USER_NOT_EXISTS -> getString(R.string.login__error_user_not_exists)
+            LOGIN_ERROR_UNKNOWN -> getString(R.string.login__error_unknown)
+            LOGIN_ERROR_EMAIL_EMPTY -> getString(R.string.login__error_email_empty)
+            LOGIN_ERROR_PASSWORD_EMPTY -> getString(R.string.login__error_password_empty)
+            else -> getString(R.string.login__error_unknown)
         }
     }
 

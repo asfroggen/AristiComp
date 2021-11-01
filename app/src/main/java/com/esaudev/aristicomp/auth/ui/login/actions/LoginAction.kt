@@ -1,4 +1,4 @@
-package com.esaudev.aristicomp.auth.ui.login
+package com.esaudev.aristicomp.auth.ui.login.actions
 
 import com.esaudev.aristicomp.auth.redux.Action
 
@@ -15,6 +15,8 @@ sealed class LoginAction : Action {
     object ModeChanged : LoginAction()
     object LoginStarted : LoginAction()
     object LoginCompleted : LoginAction()
-    data class LoginFailed(val error: Throwable?) : LoginAction()
+    data class LoginFailed(val loginError: String) : LoginAction()
     object InvalidEmailSubmitted : LoginAction()
+    object InvalidPasswordSubmitted : LoginAction()
+    object ActionCompleted : LoginAction() // Use only when we trigger an action that show something eg. Toasters, Snackbars
 }

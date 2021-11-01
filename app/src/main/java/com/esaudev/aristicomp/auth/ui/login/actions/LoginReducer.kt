@@ -1,7 +1,9 @@
-package com.esaudev.aristicomp.auth.ui.login
+package com.esaudev.aristicomp.auth.ui.login.actions
 
 import com.esaudev.aristicomp.auth.redux.Reducer
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_EMAIL_EMPTY
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_PASSWORD_EMPTY
+import com.esaudev.aristicomp.auth.ui.login.LoginViewState
 
 /**
  * This reducer is responsible for handling any [LoginAction], and using that to create
@@ -32,10 +34,16 @@ class LoginReducer : Reducer<LoginViewState, LoginAction> {
                stateAfterModeChanged(currentState)
             }
             is LoginAction.LoginFailed -> {
-                stateAfterLoginFailed(currentState)
+                stateAfterLoginFailed(currentState, action)
             }
             LoginAction.InvalidEmailSubmitted -> {
                 stateWithInvalidEmailError(currentState)
+            }
+            LoginAction.InvalidPasswordSubmitted -> {
+                stateWithInvalidPasswordError(currentState)
+            }
+            LoginAction.ActionCompleted -> {
+                stateAfterActionShowed(currentState)
             }
             else -> currentState
         }
@@ -43,7 +51,14 @@ class LoginReducer : Reducer<LoginViewState, LoginAction> {
 
     private fun stateWithInvalidEmailError(currentState: LoginViewState) =
         currentState.copy(
-            emailError = LOGIN_ERROR_EMAIL_EMPTY,
+            showLoginError = true,
+            loginError = LOGIN_ERROR_EMAIL_EMPTY
+        )
+
+    private fun stateWithInvalidPasswordError(currentState: LoginViewState) =
+        currentState.copy(
+            showLoginError = true,
+            loginError = LOGIN_ERROR_PASSWORD_EMPTY
         )
 
     private fun stateAfterLoginStarted(currentState: LoginViewState) =
@@ -61,22 +76,32 @@ class LoginReducer : Reducer<LoginViewState, LoginAction> {
             showOwnerMode = !currentState.showOwnerMode,
         )
 
-    private fun stateAfterLoginFailed(currentState: LoginViewState) =
-        currentState.copy(
+    private fun stateAfterLoginFailed(
+        currentState: LoginViewState,
+        action: LoginAction.LoginFailed
+    ) = currentState.copy(
             showProgressBar = false,
+            showLoginError = true,
+            loginError = action.loginError
         )
+
+    private fun stateAfterActionShowed(
+        currentState: LoginViewState
+    ) = currentState.copy(
+        showLoginError = false
+    )
 
     private fun stateWithNewPassword(
         currentState: LoginViewState,
         action: LoginAction.PasswordChanged
     ) = currentState.copy(
-        password = action.newPassword,
+        password = action.newPassword
     )
 
     private fun stateWithNewEmail(
         currentState: LoginViewState,
         action: LoginAction.EmailChanged
     ) = currentState.copy(
-        email = action.newEmail,
+        email = action.newEmail
     )
 }

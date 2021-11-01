@@ -8,8 +8,8 @@ import com.esaudev.aristicomp.auth.redux.State
 data class LoginViewState(
     val email: String = "",
     val password: String = "",
-    val emailError: String? = null,
-    val passwordError: String? = null,
+    val loginError: String? = null,
+    val showLoginError: Boolean = false,
     val showProgressBar: Boolean = false,
     val showOwnerMode: Boolean = false
 ) : State

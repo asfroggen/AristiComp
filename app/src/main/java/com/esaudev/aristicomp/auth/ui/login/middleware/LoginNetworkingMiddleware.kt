@@ -3,7 +3,7 @@ package com.esaudev.aristicomp.auth.ui.login.middleware
 import com.esaudev.aristicomp.auth.redux.Middleware
 import com.esaudev.aristicomp.auth.redux.Store
 import com.esaudev.aristicomp.auth.repository.AuthRepository
-import com.esaudev.aristicomp.auth.ui.login.LoginAction
+import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
 import com.esaudev.aristicomp.auth.ui.login.LoginViewState
 
 
@@ -23,6 +23,11 @@ class LoginNetworkingMiddleware(
                     return
                 }
 
+                if (currentState.password.isEmpty()) {
+                    store.dispatch(LoginAction.InvalidPasswordSubmitted)
+                    return
+                }
+
                 loginUser(store, currentState)
             }
         }
@@ -34,15 +39,15 @@ class LoginNetworkingMiddleware(
     ) {
         store.dispatch(LoginAction.LoginStarted)
 
-        val isSuccessful = loginRepository.login(
+        val response = loginRepository.login(
             email = currentState.email,
             password = currentState.password,
         )
 
-        if (isSuccessful) {
+        if (response.isSuccessful) {
             store.dispatch(LoginAction.LoginCompleted)
         } else {
-            store.dispatch(LoginAction.LoginFailed(null))
+            store.dispatch(LoginAction.LoginFailed(response.error))
         }
     }
 }
