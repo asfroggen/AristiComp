@@ -19,9 +19,11 @@ import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_USER_NOT_
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_WRONG_PASSWORD
 import com.esaudev.aristicomp.databinding.FragmentLoginBinding
 import com.esaudev.aristicomp.utils.*
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
@@ -149,7 +151,6 @@ class LoginFragment : Fragment() {
         }
 
         if (viewState.showLoginError){
-            Log.v("LoggingMiddleware", "CALL TO SHOWBAR")
             showSnackBar(getLoginError(viewState.loginError?: getString(R.string.login__error_unknown)))
             viewModel.actionReset()
         }

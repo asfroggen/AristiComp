@@ -9,4 +9,9 @@
     <style name="Theme.AristiComp.Button" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/asset_button_color_states</item>
     </style>
+
+    <style name="Theme.AristiComp.Snackbar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="android:layout_margin">0dp</item>
+        <item name="cornerSize">0%</item>
+    </style>
 </resources>

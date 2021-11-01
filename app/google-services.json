@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "566679728250",
+    "project_id": "perritos-felices-3834c",
+    "storage_bucket": "perritos-felices-3834c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566679728250:android:e0c08a410c5ccdfb70cbc3",
+        "android_client_info": {
+          "package_name": "com.esaudev.aristicomp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566679728250-kkr93ae778am5cq8itra8bhjufa0ia0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.esaudev.aristicomp",
+            "certificate_hash": "4531690b99e34a725c760e1675567901ec0b31b1"
+          }
+        },
+        {
+          "client_id": "566679728250-i49e7oa23fakk92ecaj0bpe7q1j67bgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp7F5HFwMMBDcJea_CeUMVIq8I7pzRf9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566679728250-i49e7oa23fakk92ecaj0bpe7q1j67bgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

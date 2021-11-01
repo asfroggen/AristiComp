@@ -16,11 +16,11 @@ fun Fragment.showSnackBar(message: String, errorMessage: Boolean = false){
 
     if(errorMessage){
         snackbarView.setBackgroundColor(
-            requireActivity().color(R.color.brown)
+            requireActivity().color(R.color.snack_dark)
         )
     }else{
         snackbarView.setBackgroundColor(
-            requireActivity().color(R.color.brown)
+            requireActivity().color(R.color.snack_dark)
         )
     }
     snackbar.show()

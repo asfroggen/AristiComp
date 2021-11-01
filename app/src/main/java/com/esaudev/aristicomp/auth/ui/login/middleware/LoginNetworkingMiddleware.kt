@@ -5,9 +5,10 @@ import com.esaudev.aristicomp.auth.redux.Store
 import com.esaudev.aristicomp.auth.repository.AuthRepository
 import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
 import com.esaudev.aristicomp.auth.ui.login.LoginViewState
+import javax.inject.Inject
 
 
-class LoginNetworkingMiddleware(
+class LoginNetworkingMiddleware @Inject constructor(
     private val loginRepository: AuthRepository,
 ) : Middleware<LoginViewState, LoginAction> {
 

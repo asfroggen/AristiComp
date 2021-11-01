@@ -28,4 +28,7 @@
 
     <color name="button_disabled">#9D9D9D</color>
     <color name="button_enabled">#E2A618</color>
+
+    <color name="snack_green">#8BC34A</color>
+    <color name="snack_dark">#353535</color>
 </resources>
