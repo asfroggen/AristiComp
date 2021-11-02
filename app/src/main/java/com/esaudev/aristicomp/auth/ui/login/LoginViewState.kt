@@ -11,5 +11,5 @@ data class LoginViewState(
     val loginError: String? = null,
     val showLoginError: Boolean = false,
     val showProgressBar: Boolean = false,
-    val showOwnerMode: Boolean = false
+    val isUserOwner: Boolean = false
 ) : State

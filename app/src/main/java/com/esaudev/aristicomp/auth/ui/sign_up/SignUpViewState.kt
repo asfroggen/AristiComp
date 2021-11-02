@@ -11,5 +11,5 @@ data class SignUpViewState (
     val signUpSuccess: Boolean = false,
     val showProgressBar: Boolean = false,
     val showSignUpError: Boolean = false,
-    val showOwnerMode: Boolean = false
+    val isUserOwner: Boolean = false
 ): State

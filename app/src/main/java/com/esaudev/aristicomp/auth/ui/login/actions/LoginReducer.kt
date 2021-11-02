@@ -73,7 +73,7 @@ class LoginReducer : Reducer<LoginViewState, LoginAction> {
 
     private fun stateAfterModeChanged(currentState: LoginViewState) =
         currentState.copy(
-            showOwnerMode = !currentState.showOwnerMode,
+            isUserOwner = !currentState.isUserOwner,
         )
 
     private fun stateAfterLoginFailed(

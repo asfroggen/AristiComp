@@ -1,9 +1,11 @@
 package com.esaudev.aristicomp.auth.repository
 
 import com.esaudev.aristicomp.auth.data.responses.LoginResponse
+import com.esaudev.aristicomp.auth.data.responses.SaveUserResponse
 import com.esaudev.aristicomp.auth.data.responses.SignUpResponse
 import com.esaudev.aristicomp.auth.di.FirebaseModule.UsersCollection
 import com.esaudev.aristicomp.auth.models.User
+import com.esaudev.aristicomp.auth.models.UserSignUp
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.INFO_NOT_SET
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_UNKNOWN
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_UNKNOWN
@@ -11,6 +13,7 @@ import com.esaudev.aristicomp.auth.ui.login.LoginConstants.USER_NOT_LOGGED
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.SetOptions
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -31,7 +34,8 @@ class AuthRepositoryFirebaseImpl @Inject constructor(
 
             return LoginResponse(
                 isSuccessful = loginStatus,
-                uid = firebaseAuth.currentUser?.uid?: USER_NOT_LOGGED
+                uid = firebaseAuth.currentUser?.uid?: USER_NOT_LOGGED,
+                error = SIGN_UP_ERROR_UNKNOWN
             )
         } catch (e: Exception){
             return LoginResponse(
@@ -44,7 +48,7 @@ class AuthRepositoryFirebaseImpl @Inject constructor(
 
     override suspend fun signUp(name: String, email: String, password: String): SignUpResponse {
         try {
-            val user = User(
+            val user = UserSignUp(
                 name = name,
                 email = email
             )
@@ -66,14 +70,37 @@ class AuthRepositoryFirebaseImpl @Inject constructor(
 
             return SignUpResponse(
                 isSuccessful = signUpStatus,
-                user = user
+                userSignUp = user,
+                error = SIGN_UP_ERROR_UNKNOWN
             )
 
         } catch (e: Exception){
             return SignUpResponse(
                 isSuccessful = false,
-                user = User(),
+                userSignUp = UserSignUp(),
                 error = e.message?: SIGN_UP_ERROR_UNKNOWN
+            )
+        }
+    }
+
+    override suspend fun saveUser(user: User): SaveUserResponse {
+        try {
+            var saveStatus: Boolean = false
+            usersCollection.document(user.id).set(user, SetOptions.merge())
+                .addOnSuccessListener {
+                    saveStatus = true
+                }.addOnFailureListener {
+                    saveStatus = false
+                }.await()
+
+            return SaveUserResponse(
+                isSuccessful = saveStatus,
+                error = SIGN_UP_ERROR_UNKNOWN
+            )
+        } catch (e: Exception){
+            return SaveUserResponse(
+                isSuccessful = false,
+                error = SIGN_UP_ERROR_UNKNOWN
             )
         }
     }

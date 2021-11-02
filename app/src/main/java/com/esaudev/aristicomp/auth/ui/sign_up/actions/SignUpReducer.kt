@@ -1,10 +1,8 @@
 package com.esaudev.aristicomp.auth.ui.sign_up.actions
 
 import com.esaudev.aristicomp.auth.redux.Reducer
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_EMAIL_EMPTY
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_EMAIL_INVALID
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_NAME_EMPTY
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORD_EMPTY
 import com.esaudev.aristicomp.auth.ui.sign_up.SignUpViewState
 
 class SignUpReducer : Reducer<SignUpViewState, SignUpAction> {
@@ -114,7 +112,7 @@ class SignUpReducer : Reducer<SignUpViewState, SignUpAction> {
     private fun stateAfterModeChanged(
         currentState: SignUpViewState
     ) = currentState.copy(
-        showOwnerMode = !currentState.showOwnerMode
+        isUserOwner = !currentState.isUserOwner
     )
 
     private fun stateWithInvalidName(
@@ -134,6 +132,7 @@ class SignUpReducer : Reducer<SignUpViewState, SignUpAction> {
     private fun stateAfterActionShowed(
         currentState: SignUpViewState
     ) = currentState.copy(
-        showSignUpError = false
+        showSignUpError = false,
+        signUpSuccess = false
     )
 }

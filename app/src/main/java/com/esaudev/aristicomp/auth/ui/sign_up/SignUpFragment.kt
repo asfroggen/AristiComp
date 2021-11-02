@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.esaudev.aristicomp.R
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_EMAIL_EMPTY
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_EMAIL_INVALID
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_NAME_EMPTY
@@ -19,7 +18,6 @@ import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWOR
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORD_EMPTY
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORD_INSECURE
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_USER_ALREADY_EXISTS
-import com.esaudev.aristicomp.auth.ui.login.LoginViewState
 import com.esaudev.aristicomp.databinding.FragmentSignUpBinding
 import com.esaudev.aristicomp.utils.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
@@ -131,7 +129,7 @@ class SignUpFragment : Fragment() {
 
     private fun processViewState(viewState: SignUpViewState) {
 
-        if (viewState.showOwnerMode){
+        if (viewState.isUserOwner){
             setOwnerMode()
         } else {
             setWalkerMode()
@@ -158,6 +156,7 @@ class SignUpFragment : Fragment() {
 
         if (viewState.signUpSuccess){
             findNavController().navigate(R.id.toEmailVerification)
+            viewModel.actionReset()
         }
     }
 

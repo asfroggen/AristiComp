@@ -10,6 +10,9 @@ object LoginConstants {
     const val USER_NOT_LOGGED = "user_not_signed"
     const val INFO_NOT_SET = "info_not_set"
 
+    const val OWNER_USER = "owner"
+    const val WALKER_USER = "walker"
+
     /*
     Login error messages provided by Firebase Auth
      */
