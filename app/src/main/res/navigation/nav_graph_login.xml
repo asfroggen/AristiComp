@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/emailVerificationFragment"
-        android:name="com.esaudev.aristicomp.auth.ui.EmailVerificationFragment"
+        android:name="com.esaudev.aristicomp.auth.ui.email_verification.EmailVerificationFragment"
         android:label="fragment_email_verification"
         tools:layout="@layout/fragment_email_verification" />
     <fragment
