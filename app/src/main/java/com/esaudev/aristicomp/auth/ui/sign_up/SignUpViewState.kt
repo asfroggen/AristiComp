@@ -1,5 +1,6 @@
 package com.esaudev.aristicomp.auth.ui.sign_up
 
+import com.esaudev.aristicomp.auth.models.User
 import com.esaudev.aristicomp.auth.redux.State
 
 data class SignUpViewState (
@@ -11,5 +12,6 @@ data class SignUpViewState (
     val signUpSuccess: Boolean = false,
     val showProgressBar: Boolean = false,
     val showSignUpError: Boolean = false,
-    val isUserOwner: Boolean = false
+    val isUserOwner: Boolean = false,
+    val user: User = User()
 ): State

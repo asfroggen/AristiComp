@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -19,6 +20,7 @@ import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWOR
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORD_INSECURE
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_USER_ALREADY_EXISTS
 import com.esaudev.aristicomp.databinding.FragmentSignUpBinding
+import com.esaudev.aristicomp.utils.Constants.USER_BUNDLE
 import com.esaudev.aristicomp.utils.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -155,7 +157,7 @@ class SignUpFragment : Fragment() {
         }
 
         if (viewState.signUpSuccess){
-            findNavController().navigate(R.id.toEmailVerification)
+            findNavController().navigate(R.id.toEmailVerification, bundleOf(USER_BUNDLE to viewState.user))
             viewModel.actionReset()
         }
     }

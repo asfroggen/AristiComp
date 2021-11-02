@@ -1,5 +1,6 @@
 package com.esaudev.aristicomp.auth.ui.sign_up.middleware
 
+import com.esaudev.aristicomp.auth.data.responses.SignUpResponse
 import com.esaudev.aristicomp.auth.models.User
 import com.esaudev.aristicomp.auth.redux.Middleware
 import com.esaudev.aristicomp.auth.redux.Store
@@ -64,22 +65,26 @@ class SignUpNetworkMiddleware @Inject constructor(
         if (signUpResponse.isSuccessful){
 
             val saveUserResponse = loginRepository.saveUser(
-                user = User(
-                    id = signUpResponse.userSignUp.id,
-                    name = signUpResponse.userSignUp.name,
-                    email = signUpResponse.userSignUp.email,
-                    type = getUserType(currentState)
-                )
+                user = getUser(signUpResponse, currentState)
             )
 
             if (saveUserResponse.isSuccessful){
-                store.dispatch(SignUpAction.SignUpCompleted)
+                store.dispatch(SignUpAction.SignUpCompleted(getUser(signUpResponse, currentState)))
             } else {
                 store.dispatch(SignUpAction.SignUpFailed(signUpResponse.error))
             }
         } else {
             store.dispatch(SignUpAction.SignUpFailed(signUpResponse.error))
         }
+    }
+
+    private fun getUser(response: SignUpResponse, currentState: SignUpViewState): User{
+        return User(
+            id = response.userSignUp.id,
+            name = response.userSignUp.name,
+            email = response.userSignUp.email,
+            type = getUserType(currentState)
+        )
     }
 
     private fun getUserType(currentState: SignUpViewState): String {

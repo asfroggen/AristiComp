@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.esaudev.aristicomp.R
+import com.esaudev.aristicomp.auth.models.User
 import com.esaudev.aristicomp.databinding.FragmentEmailVerificationBinding
 import com.esaudev.aristicomp.databinding.FragmentSignUpBinding
+import com.esaudev.aristicomp.utils.Constants.USER_BUNDLE
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -17,6 +19,16 @@ class EmailVerificationFragment : Fragment() {
     private var _binding: FragmentEmailVerificationBinding? = null
     private val binding: FragmentEmailVerificationBinding
         get() = _binding!!
+
+    private var user: User? = User()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        arguments?.let {
+            user = it.getParcelable(USER_BUNDLE)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +50,7 @@ class EmailVerificationFragment : Fragment() {
 
     private fun initView(){
         setupResendCounter()
+        binding.tvTitle.text = getString(R.string.email_verification__title, user?.name?: "")
     }
 
     private fun initListeners(){

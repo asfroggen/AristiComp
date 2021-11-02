@@ -53,7 +53,7 @@
     <string name="email_verification__header">Verifica tu email</string>
     <string name="email_verification__go_sign_in_button">Iniciar sesión</string>
     <string name="email_verification__link_sent">Correo electrónico reenviado</string>
-    <string name="email_verification__title">¡Ya casi estás ahí!</string>
+    <string name="email_verification__title">¡Ya casi estás ahí %1$s!</string>
     <string name="email_verification__instructions">Hemos enviado una liga a tu correo electrónico para verificar tu identidad,
         no olvides revisar tu bandeja de correo no deseado.</string>
     <string name="email_verification__help_disclaimer">¿No recibiste el correo electrónico?</string>

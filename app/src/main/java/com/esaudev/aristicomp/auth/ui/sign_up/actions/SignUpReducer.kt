@@ -26,12 +26,13 @@ class SignUpReducer : Reducer<SignUpViewState, SignUpAction> {
             is SignUpAction.InvalidPasswordSubmitted -> {
                 stateWithInvalidPassword(currentState, action)
             }
+            is SignUpAction.SignUpCompleted -> {
+                stateAfterSignUpCompleted(currentState, action)
+            }
             SignUpAction.SignUpStarted -> {
                 stateAfterSignUpStarted(currentState)
             }
-            SignUpAction.SignUpCompleted -> {
-                stateAfterSignUpCompleted(currentState)
-            }
+
             SignUpAction.ModeChanged -> {
                 stateAfterModeChanged(currentState)
             }
@@ -95,18 +96,19 @@ class SignUpReducer : Reducer<SignUpViewState, SignUpAction> {
         signUpError = action.passwordError
     )
 
+    private fun stateAfterSignUpCompleted(
+        currentState: SignUpViewState,
+        action: SignUpAction.SignUpCompleted
+    ) = currentState.copy(
+        showProgressBar = false,
+        signUpSuccess = true,
+        user = action.user
+    )
 
     private fun stateAfterSignUpStarted(
         currentState: SignUpViewState
     ) = currentState.copy(
         showProgressBar = true
-    )
-
-    private fun stateAfterSignUpCompleted(
-        currentState: SignUpViewState
-    ) = currentState.copy(
-        showProgressBar = false,
-        signUpSuccess = true
     )
 
     private fun stateAfterModeChanged(
