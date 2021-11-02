@@ -3,6 +3,7 @@ package com.esaudev.aristicomp.auth.ui.login
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.repository.AuthRepository
 import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
 import com.esaudev.aristicomp.auth.ui.login.actions.LoginReducer
 import com.esaudev.aristicomp.auth.ui.login.middleware.DebuggingMiddleware
@@ -22,7 +23,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    loginNetworkMiddleware: LoginNetworkMiddleware
+    private val loginRepository: AuthRepository
 ) : ViewModel() {
 
     private val store = Store(
@@ -30,7 +31,7 @@ class LoginViewModel @Inject constructor(
         reducer = LoginReducer(),
         middlewares = listOf(
             DebuggingMiddleware(),
-            loginNetworkMiddleware,
+            LoginNetworkMiddleware(loginRepository),
         )
     )
 

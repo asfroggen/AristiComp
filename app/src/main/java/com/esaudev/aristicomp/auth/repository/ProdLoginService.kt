@@ -1,6 +1,7 @@
 package com.esaudev.aristicomp.auth.repository
 
 import com.esaudev.aristicomp.auth.data.responses.LoginResponse
+import com.esaudev.aristicomp.auth.data.responses.SignUpResponse
 import com.esaudev.aristicomp.auth.ui.login.actions.LoginReducer
 import kotlinx.coroutines.delay
 
@@ -13,5 +14,11 @@ class ProdLoginService : AuthRepository {
             isSuccessful = true,
             uid = "1234"
         )
+    }
+
+    override suspend fun signUp(name: String, email: String, password: String): SignUpResponse {
+        delay(2000)
+
+        return SignUpResponse()
     }
 }

@@ -1,0 +1,80 @@
+package com.esaudev.aristicomp.auth.ui.sign_up.middleware
+
+import com.esaudev.aristicomp.auth.redux.Middleware
+import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.repository.AuthRepository
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.EMAIL_ADDRESS_PATTERN
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORDS_NOT_MATCH
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORD_INSECURE
+import com.esaudev.aristicomp.auth.ui.login.LoginViewState
+import com.esaudev.aristicomp.auth.ui.sign_up.SignUpViewState
+import com.esaudev.aristicomp.auth.ui.sign_up.actions.SignUpAction
+import java.util.regex.Pattern
+import javax.inject.Inject
+
+class SignUpNetworkMiddleware @Inject constructor(
+    private val loginRepository: AuthRepository
+) : Middleware<SignUpViewState, SignUpAction> {
+
+    override suspend fun process(
+        action: SignUpAction,
+        currentState: SignUpViewState,
+        store: Store<SignUpViewState, SignUpAction>
+    ) {
+        when(action){
+            is SignUpAction.SignUpButtonClicked -> {
+                if (currentState.name.isEmpty()){
+                    store.dispatch(SignUpAction.InvalidNameSubmitted)
+                    return
+                }
+                if (isEmailInvalid(currentState)){
+                    store.dispatch(SignUpAction.InvalidEmailSubmitted)
+                    return
+                }
+                if (arePasswordsNotTheSame(currentState)){
+                    store.dispatch(SignUpAction.InvalidPasswordSubmitted(SIGN_UP_ERROR_PASSWORDS_NOT_MATCH))
+                    return
+                }
+
+                if (isPasswordInsecure(currentState)){
+                    store.dispatch(SignUpAction.InvalidPasswordSubmitted(SIGN_UP_ERROR_PASSWORD_INSECURE))
+                    return
+                }
+
+                signUpUser(store, currentState)
+            }
+        }
+    }
+
+    private suspend fun signUpUser(
+        store: Store<SignUpViewState, SignUpAction>,
+        currentState: SignUpViewState
+    ) {
+        store.dispatch(SignUpAction.SignUpStarted)
+
+        val response = loginRepository.signUp(
+            name = currentState.name,
+            email = currentState.email,
+            password = currentState.password
+        )
+
+        if (response.isSuccessful){
+            store.dispatch(SignUpAction.SignUpCompleted)
+        } else {
+            store.dispatch(SignUpAction.SignUpFailed(response.error))
+        }
+    }
+
+    private fun isEmailInvalid(currentState: SignUpViewState): Boolean {
+       return !(EMAIL_ADDRESS_PATTERN.matcher(currentState.email).matches())
+    }
+
+    private fun arePasswordsNotTheSame(currentState: SignUpViewState): Boolean {
+        return currentState.password != currentState.confPassword
+    }
+
+    private fun isPasswordInsecure(currentState: SignUpViewState): Boolean {
+        return currentState.password.length < 6
+    }
+
+}

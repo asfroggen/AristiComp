@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 
 class LoginNetworkMiddleware @Inject constructor(
-    private val loginRepository: AuthRepository,
+    private val loginRepository: AuthRepository
 ) : Middleware<LoginViewState, LoginAction> {
 
     override suspend fun process(

@@ -36,6 +36,9 @@
     <string name="signup__error_password_empty">Ingresa tu contraseña para continuar</string>
     <string name="signup__error_user_already_exists">Ya existe un usuario registrado con este correo electrónico</string>
     <string name="signup__error_unknown">Oops, algo salió mal intente de nuevo más tarde</string>
+    <string name="signup__error_email_invalid">Ingrese un correo electrónico valido para continuar</string>
+    <string name="signup__error_passwords_not_match">Las contraseñas deben coincidir para continuar</string>
+    <string name="signup__error_password_insecure">La contraseña debe tener al menos 6 caracteres</string>
 
     <string name="content_description">content</string>
 

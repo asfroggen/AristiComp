@@ -2,6 +2,7 @@ package com.esaudev.aristicomp.auth.ui.sign_up.actions
 
 import com.esaudev.aristicomp.auth.redux.Reducer
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_EMAIL_EMPTY
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_EMAIL_INVALID
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_NAME_EMPTY
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORD_EMPTY
 import com.esaudev.aristicomp.auth.ui.sign_up.SignUpViewState
@@ -24,6 +25,9 @@ class SignUpReducer : Reducer<SignUpViewState, SignUpAction> {
             is SignUpAction.SignUpFailed -> {
                 stateAfterSignUpFailed(currentState, action)
             }
+            is SignUpAction.InvalidPasswordSubmitted -> {
+                stateWithInvalidPassword(currentState, action)
+            }
             SignUpAction.SignUpStarted -> {
                 stateAfterSignUpStarted(currentState)
             }
@@ -38,9 +42,6 @@ class SignUpReducer : Reducer<SignUpViewState, SignUpAction> {
             }
             SignUpAction.InvalidEmailSubmitted -> {
                 stateWithInvalidEmail(currentState)
-            }
-            SignUpAction.InvalidPasswordSubmitted -> {
-                stateWithInvalidPassword(currentState)
             }
             SignUpAction.ActionCompleted -> {
                 stateAfterActionShowed(currentState)
@@ -88,6 +89,15 @@ class SignUpReducer : Reducer<SignUpViewState, SignUpAction> {
         signUpError = action.signUpError
     )
 
+    private fun stateWithInvalidPassword(
+        currentState: SignUpViewState,
+        action: SignUpAction.InvalidPasswordSubmitted
+    ) = currentState.copy(
+        showSignUpError = true,
+        signUpError = action.passwordError
+    )
+
+
     private fun stateAfterSignUpStarted(
         currentState: SignUpViewState
     ) = currentState.copy(
@@ -97,7 +107,8 @@ class SignUpReducer : Reducer<SignUpViewState, SignUpAction> {
     private fun stateAfterSignUpCompleted(
         currentState: SignUpViewState
     ) = currentState.copy(
-        showProgressBar = false
+        showProgressBar = false,
+        signUpSuccess = true
     )
 
     private fun stateAfterModeChanged(
@@ -117,14 +128,7 @@ class SignUpReducer : Reducer<SignUpViewState, SignUpAction> {
         currentState: SignUpViewState
     ) = currentState.copy(
         showSignUpError = true,
-        signUpError = SIGN_UP_ERROR_EMAIL_EMPTY
-    )
-
-    private fun stateWithInvalidPassword(
-        currentState: SignUpViewState
-    ) = currentState.copy(
-        showSignUpError = true,
-        signUpError = SIGN_UP_ERROR_PASSWORD_EMPTY
+        signUpError = SIGN_UP_ERROR_EMAIL_INVALID
     )
 
     private fun stateAfterActionShowed(

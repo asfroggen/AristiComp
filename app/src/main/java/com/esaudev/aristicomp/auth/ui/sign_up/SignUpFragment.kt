@@ -13,8 +13,11 @@ import androidx.navigation.fragment.findNavController
 import com.esaudev.aristicomp.R
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_EMAIL_EMPTY
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_EMAIL_INVALID
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_NAME_EMPTY
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORDS_NOT_MATCH
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORD_EMPTY
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORD_INSECURE
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_USER_ALREADY_EXISTS
 import com.esaudev.aristicomp.auth.ui.login.LoginViewState
 import com.esaudev.aristicomp.databinding.FragmentSignUpBinding
@@ -97,7 +100,7 @@ class SignUpFragment : Fragment() {
             }
 
             mbSignUp.setOnClickListener {
-                findNavController().navigate(R.id.toEmailVerification)
+                viewModel.onSignUpButtonClicked()
             }
 
             mbLogin.setOnClickListener {
@@ -152,6 +155,10 @@ class SignUpFragment : Fragment() {
             showSnackBar(getSignUpError(viewState.signUpError?: getString(R.string.login__error_unknown)))
             viewModel.actionReset()
         }
+
+        if (viewState.signUpSuccess){
+            findNavController().navigate(R.id.toEmailVerification)
+        }
     }
 
     private fun getSignUpError(error: String): String {
@@ -160,6 +167,9 @@ class SignUpFragment : Fragment() {
             SIGN_UP_ERROR_NAME_EMPTY -> getString(R.string.signup__error_name_empty)
             SIGN_UP_ERROR_EMAIL_EMPTY -> getString(R.string.signup__error_email_empty)
             SIGN_UP_ERROR_PASSWORD_EMPTY -> getString(R.string.signup__error_password_empty)
+            SIGN_UP_ERROR_EMAIL_INVALID -> getString(R.string.signup__error_email_invalid)
+            SIGN_UP_ERROR_PASSWORDS_NOT_MATCH -> getString(R.string.signup__error_passwords_not_match)
+            SIGN_UP_ERROR_PASSWORD_INSECURE -> getString(R.string.signup__error_password_insecure)
             else -> getString(R.string.signup__error_unknown)
         }
     }

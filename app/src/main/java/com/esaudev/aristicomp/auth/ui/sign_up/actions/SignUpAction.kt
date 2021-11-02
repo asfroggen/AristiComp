@@ -8,12 +8,12 @@ sealed class SignUpAction: Action {
     data class PasswordChanged(val newPassword: String) : SignUpAction()
     data class PasswordConfirmationChanged(val newConfPassword: String) : SignUpAction()
     data class SignUpFailed(val signUpError: String) : SignUpAction()
+    data class InvalidPasswordSubmitted(val passwordError: String) : SignUpAction()
     object ModeChanged : SignUpAction()
     object SignUpButtonClicked: SignUpAction()
     object SignUpStarted : SignUpAction()
     object SignUpCompleted : SignUpAction()
     object InvalidNameSubmitted : SignUpAction()
     object InvalidEmailSubmitted : SignUpAction()
-    object InvalidPasswordSubmitted : SignUpAction()
     object ActionCompleted : SignUpAction() // Use only when we trigger an action that show something eg. Toasters, Snackbars
 }

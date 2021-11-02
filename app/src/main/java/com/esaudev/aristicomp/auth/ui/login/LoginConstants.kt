@@ -1,11 +1,14 @@
 package com.esaudev.aristicomp.auth.ui.login
 
+import java.util.regex.Pattern
+
 object LoginConstants {
 
     /*
     Data Constants
      */
     const val USER_NOT_LOGGED = "user_not_signed"
+    const val INFO_NOT_SET = "info_not_set"
 
     /*
     Login error messages provided by Firebase Auth
@@ -20,12 +23,30 @@ object LoginConstants {
     Sign up messages provided by Firebase Auth
      */
     const val SIGN_UP_ERROR_USER_ALREADY_EXISTS : String = "The email address is already in use by another account."
+    const val SIGN_UP_ERROR_UNKNOWN: String = "Unknown"
     const val SIGN_UP_ERROR_NAME_EMPTY = "name_empty"
     const val SIGN_UP_ERROR_EMAIL_EMPTY = "email_empty"
     const val SIGN_UP_ERROR_PASSWORD_EMPTY = "password_empty"
     const val SIGN_UP_ERROR_CONF_PASSWORD_EMPTY = "password_empty"
+    const val SIGN_UP_ERROR_EMAIL_INVALID = "email_invalid"
+    const val SIGN_UP_ERROR_PASSWORDS_NOT_MATCH = "password_not_match"
+    const val SIGN_UP_ERROR_PASSWORD_INSECURE = "password_insecure"
     /*
     Collection IDs for Firebase Firestore
     */
     const val USERS_COLLECTION = "users"
+
+    /*
+    Patterns
+     */
+    val EMAIL_ADDRESS_PATTERN = Pattern.compile(
+        "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+"
+    )
+
 }

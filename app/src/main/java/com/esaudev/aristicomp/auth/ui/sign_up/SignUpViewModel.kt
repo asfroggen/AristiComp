@@ -3,10 +3,12 @@ package com.esaudev.aristicomp.auth.ui.sign_up
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.repository.AuthRepository
 import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
 import com.esaudev.aristicomp.auth.ui.login.middleware.DebuggingMiddleware
 import com.esaudev.aristicomp.auth.ui.sign_up.actions.SignUpAction
 import com.esaudev.aristicomp.auth.ui.sign_up.actions.SignUpReducer
+import com.esaudev.aristicomp.auth.ui.sign_up.middleware.SignUpNetworkMiddleware
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -14,14 +16,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
-
+    private val loginRepository: AuthRepository
 ): ViewModel() {
 
     private val store = Store(
         initialState = SignUpViewState(),
         reducer = SignUpReducer(),
         middlewares = listOf(
-            DebuggingMiddleware()
+            DebuggingMiddleware(),
+            SignUpNetworkMiddleware(loginRepository)
         )
     )
 
@@ -53,6 +56,14 @@ class SignUpViewModel @Inject constructor(
 
     fun onConfPasswordChanged(newConfPassword: String) {
         val action = SignUpAction.PasswordConfirmationChanged(newConfPassword)
+
+        viewModelScope.launch {
+            store.dispatch(action)
+        }
+    }
+
+    fun onSignUpButtonClicked() {
+        val action = SignUpAction.SignUpButtonClicked
 
         viewModelScope.launch {
             store.dispatch(action)

@@ -8,6 +8,7 @@ data class SignUpViewState (
     val password: String = "",
     val confPassword: String = "",
     val signUpError: String? = null,
+    val signUpSuccess: Boolean = false,
     val showProgressBar: Boolean = false,
     val showSignUpError: Boolean = false,
     val showOwnerMode: Boolean = false
