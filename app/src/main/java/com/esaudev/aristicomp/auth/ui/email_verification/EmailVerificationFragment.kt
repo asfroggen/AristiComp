@@ -1,8 +1,8 @@
 package com.esaudev.aristicomp.auth.ui.email_verification
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,19 +10,24 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.esaudev.aristicomp.R
+import com.esaudev.aristicomp.auth.models.Session
 import com.esaudev.aristicomp.auth.models.User
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.INFO_NOT_SET
+import com.esaudev.aristicomp.auth.utils.AuthConstants.INFO_NOT_SET
 import com.esaudev.aristicomp.databinding.FragmentEmailVerificationBinding
+import com.esaudev.aristicomp.utils.Constants.SHARED_EMAIL
+import com.esaudev.aristicomp.utils.Constants.SHARED_PASSWORD
 import com.esaudev.aristicomp.utils.Constants.USER_BUNDLE
 import com.esaudev.aristicomp.utils.Constants.USER_PASSWORD_BUNDLE
 import com.esaudev.aristicomp.walker.WalkerActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class EmailVerificationFragment : Fragment() {
+
+    @Inject
+    lateinit var sharedPrefs: SharedPreferences
 
     private var _binding: FragmentEmailVerificationBinding? = null
     private val binding: FragmentEmailVerificationBinding
@@ -112,8 +117,7 @@ class EmailVerificationFragment : Fragment() {
             viewModel.getUserData()
         }
         if (viewState.userReadyToContinue){
-            startActivity(Intent(requireContext(), WalkerActivity::class.java))
-            activity?.finish()
+            manageUserLogin(viewState)
         }
     }
 
@@ -125,6 +129,16 @@ class EmailVerificationFragment : Fragment() {
             binding.mbResend.isEnabled = false
             binding.mbResend.text = getString(R.string.email_verification__resend_counter, count.toString())
         }
+    }
+
+    private fun manageUserLogin(viewState: EmailVerificationViewState){
+        // Save user credentials in shared preferences
+        sharedPrefs.edit().putString(SHARED_EMAIL, Session.USER_LOGGED.email).apply()
+        sharedPrefs.edit().putString(SHARED_PASSWORD, viewState.password).apply()
+
+        // Navigate user to main activity (Walker/Owner)
+        startActivity(Intent(requireContext(), WalkerActivity::class.java))
+        activity?.finish()
     }
 
 }

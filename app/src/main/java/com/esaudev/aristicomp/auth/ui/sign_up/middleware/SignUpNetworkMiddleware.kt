@@ -5,15 +5,13 @@ import com.esaudev.aristicomp.auth.models.User
 import com.esaudev.aristicomp.auth.redux.Middleware
 import com.esaudev.aristicomp.auth.redux.Store
 import com.esaudev.aristicomp.auth.repository.AuthRepository
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.EMAIL_ADDRESS_PATTERN
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.OWNER_USER
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORDS_NOT_MATCH
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWORD_INSECURE
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.WALKER_USER
-import com.esaudev.aristicomp.auth.ui.login.LoginViewState
+import com.esaudev.aristicomp.auth.utils.AuthConstants.EMAIL_ADDRESS_PATTERN
+import com.esaudev.aristicomp.auth.utils.AuthConstants.OWNER_USER
+import com.esaudev.aristicomp.auth.utils.AuthConstants.SIGN_UP_ERROR_PASSWORDS_NOT_MATCH
+import com.esaudev.aristicomp.auth.utils.AuthConstants.SIGN_UP_ERROR_PASSWORD_INSECURE
+import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 import com.esaudev.aristicomp.auth.ui.sign_up.SignUpViewState
 import com.esaudev.aristicomp.auth.ui.sign_up.actions.SignUpAction
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 class SignUpNetworkMiddleware @Inject constructor(

@@ -1,6 +1,6 @@
 package com.esaudev.aristicomp.auth.di
 
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.USERS_COLLECTION
+import com.esaudev.aristicomp.auth.utils.AuthConstants.USERS_COLLECTION
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore

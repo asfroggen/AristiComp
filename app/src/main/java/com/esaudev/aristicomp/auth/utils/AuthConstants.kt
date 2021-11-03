@@ -1,8 +1,8 @@
-package com.esaudev.aristicomp.auth.ui.login
+package com.esaudev.aristicomp.auth.utils
 
 import java.util.regex.Pattern
 
-object LoginConstants {
+object AuthConstants {
 
     /*
     Data Constants

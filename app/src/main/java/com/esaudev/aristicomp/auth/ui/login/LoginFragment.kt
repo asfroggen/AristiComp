@@ -11,11 +11,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.esaudev.aristicomp.R
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_EMAIL_EMPTY
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_PASSWORD_EMPTY
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_UNKNOWN
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_USER_NOT_EXISTS
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_WRONG_PASSWORD
+import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_EMAIL_EMPTY
+import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_PASSWORD_EMPTY
+import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_UNKNOWN
+import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_USER_NOT_EXISTS
+import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_WRONG_PASSWORD
 import com.esaudev.aristicomp.databinding.FragmentLoginBinding
 import com.esaudev.aristicomp.utils.*
 import dagger.hilt.android.AndroidEntryPoint

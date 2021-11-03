@@ -8,10 +8,10 @@ import com.esaudev.aristicomp.auth.di.FirebaseModule.UsersCollection
 import com.esaudev.aristicomp.auth.models.Session
 import com.esaudev.aristicomp.auth.models.User
 import com.esaudev.aristicomp.auth.models.UserSignUp
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.INFO_NOT_SET
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_UNKNOWN
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_UNKNOWN
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.USER_NOT_LOGGED
+import com.esaudev.aristicomp.auth.utils.AuthConstants.INFO_NOT_SET
+import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_UNKNOWN
+import com.esaudev.aristicomp.auth.utils.AuthConstants.SIGN_UP_ERROR_UNKNOWN
+import com.esaudev.aristicomp.auth.utils.AuthConstants.USER_NOT_LOGGED
 import com.esaudev.aristicomp.utils.Constants.FIREBASE_USER_SIGNED
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser

@@ -1,8 +1,8 @@
 package com.esaudev.aristicomp.auth.ui.login.actions
 
 import com.esaudev.aristicomp.auth.redux.Reducer
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_EMAIL_EMPTY
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.LOGIN_ERROR_PASSWORD_EMPTY
+import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_EMAIL_EMPTY
+import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_PASSWORD_EMPTY
 import com.esaudev.aristicomp.auth.ui.login.LoginViewState
 
 /**

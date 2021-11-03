@@ -1,7 +1,7 @@
 package com.esaudev.aristicomp.auth.models
 
 import android.os.Parcelable
-import com.esaudev.aristicomp.auth.ui.login.LoginConstants.INFO_NOT_SET
+import com.esaudev.aristicomp.auth.utils.AuthConstants.INFO_NOT_SET
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
