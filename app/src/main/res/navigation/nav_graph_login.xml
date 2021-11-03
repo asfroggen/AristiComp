@@ -45,7 +45,7 @@
         tools:layout="@layout/fragment_email_verification" />
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.esaudev.aristicomp.auth.ui.ForgotPasswordFragment"
+        android:name="com.esaudev.aristicomp.auth.ui.forgot_password.PasswordForgotFragment"
         android:label="fragment_forgot_password"
         tools:layout="@layout/fragment_forgot_password" />
 </navigation>

@@ -49,6 +49,11 @@
     <string name="forgot_password__question">¿Necesitas recuperar tu contraseña?</string>
     <string name="forgot_password__instructions">No te preocupes, ingresa tu correo electronico y te enviaremos una liga para recuperarla</string>
     <string name="forgot_password__recover_button">Recuperar contraseña</string>
+    <string name="forgot_password__email_sent">Hemos enviado un correo para que recuperes tu contraseña</string>
+    <string name="forgot_password__general_error">No hemos podido encontrar tu correo electrónico</string>
+    <string name="forgot_password__empty_email_error">Ingrese su correo electrónico para continuar</string>
+    <string name="forgot_password__bad_email_error">Ingrese un correo electrónico valido</string>
+    <string name="forgot_password__unknown_error">Oops, algo salió mal intente de nuevo más tarde</string>
 
     <string name="email_verification__header">Verifica tu email</string>
     <string name="email_verification__go_sign_in_button">Iniciar sesión</string>

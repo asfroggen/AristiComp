@@ -34,6 +34,15 @@ object AuthConstants {
     const val SIGN_UP_ERROR_EMAIL_INVALID = "email_invalid"
     const val SIGN_UP_ERROR_PASSWORDS_NOT_MATCH = "password_not_match"
     const val SIGN_UP_ERROR_PASSWORD_INSECURE = "password_insecure"
+
+    /*
+    Forgot password error messages
+     */
+    const val FORGOT_ERROR_BAD_EMAIL = "The email address is badly formatted."
+    const val FORGOT_ERROR_EMAIL_NOT_FOUND = "There is no user record corresponding to this identifier. The user may have been deleted."
+    const val FORGOT_ERROR_EMAIL_EMPTY = "email_empty"
+    const val FORGOT_ERROR_GENERAL = "email_not_found"
+
     /*
     Collection IDs for Firebase Firestore
     */
