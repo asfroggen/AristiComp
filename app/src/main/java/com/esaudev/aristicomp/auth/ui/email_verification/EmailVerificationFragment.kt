@@ -1,6 +1,8 @@
 package com.esaudev.aristicomp.auth.ui.email_verification
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +11,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.esaudev.aristicomp.R
 import com.esaudev.aristicomp.auth.models.User
+import com.esaudev.aristicomp.auth.ui.login.LoginConstants.INFO_NOT_SET
 import com.esaudev.aristicomp.databinding.FragmentEmailVerificationBinding
 import com.esaudev.aristicomp.utils.Constants.USER_BUNDLE
+import com.esaudev.aristicomp.utils.Constants.USER_PASSWORD_BUNDLE
+import com.esaudev.aristicomp.walker.WalkerActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
@@ -24,6 +29,7 @@ class EmailVerificationFragment : Fragment() {
         get() = _binding!!
 
     private var user: User? = User()
+    private var password: String? = ""
 
     private val viewModel: EmailVerificationViewModel by viewModels()
 
@@ -32,6 +38,7 @@ class EmailVerificationFragment : Fragment() {
 
         arguments?.let {
             user = it.getParcelable(USER_BUNDLE)
+            password = it.getString(USER_PASSWORD_BUNDLE)
         }
 
         lifecycleScope.launchWhenResumed {
@@ -61,12 +68,22 @@ class EmailVerificationFragment : Fragment() {
     }
 
     private fun initView(){
+        if (user?.id != INFO_NOT_SET){
+            viewModel.setViewState(user!!.email, password!!)
+            viewModel.getVerificationStatus()
+        }
         binding.tvTitle.text = getString(R.string.email_verification__title, user?.name?: "")
     }
 
     private fun initObservers(){
         viewModel.resendCounter.observe(viewLifecycleOwner, {
             processCounter(it)
+        })
+
+        viewModel.verificationStatus.observe(viewLifecycleOwner, { emailVerified ->
+            if (emailVerified){
+                viewModel.emailVerified()
+            }
         })
     }
 
@@ -90,6 +107,13 @@ class EmailVerificationFragment : Fragment() {
             viewModel.initializeCounter()
             viewModel.restartCounter()
             viewModel.actionReset()
+        }
+        if (viewState.isEmailVerified){
+            viewModel.getUserData()
+        }
+        if (viewState.userReadyToContinue){
+            startActivity(Intent(requireContext(), WalkerActivity::class.java))
+            activity?.finish()
         }
     }
 

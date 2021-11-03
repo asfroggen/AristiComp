@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.esaudev.aristicomp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".AristiCompApp"
@@ -13,10 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AristiComp">
         <activity
+            android:name=".walker.WalkerActivity"
+            android:exported="false" />
+        <activity
             android:name=".auth.ui.LoginActivity"
+            android:exported="true"
             android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="true">
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

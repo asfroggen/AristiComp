@@ -21,6 +21,7 @@ import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_PASSWOR
 import com.esaudev.aristicomp.auth.ui.login.LoginConstants.SIGN_UP_ERROR_USER_ALREADY_EXISTS
 import com.esaudev.aristicomp.databinding.FragmentSignUpBinding
 import com.esaudev.aristicomp.utils.Constants.USER_BUNDLE
+import com.esaudev.aristicomp.utils.Constants.USER_PASSWORD_BUNDLE
 import com.esaudev.aristicomp.utils.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -157,7 +158,7 @@ class SignUpFragment : Fragment() {
         }
 
         if (viewState.signUpSuccess){
-            findNavController().navigate(R.id.toEmailVerification, bundleOf(USER_BUNDLE to viewState.user))
+            findNavController().navigate(R.id.toEmailVerification, bundleOf(USER_BUNDLE to viewState.user, USER_PASSWORD_BUNDLE to viewState.password))
             viewModel.actionReset()
         }
     }

@@ -1,5 +1,6 @@
 package com.esaudev.aristicomp.auth.repository
 
+import com.esaudev.aristicomp.auth.data.responses.GetUserResponse
 import com.esaudev.aristicomp.auth.data.responses.LoginResponse
 import com.esaudev.aristicomp.auth.data.responses.SaveUserResponse
 import com.esaudev.aristicomp.auth.data.responses.SignUpResponse
@@ -16,6 +17,10 @@ class ProdLoginService : AuthRepository {
             isSuccessful = true,
             uid = "1234"
         )
+    }
+
+    override suspend fun getUserData(): GetUserResponse {
+        return GetUserResponse()
     }
 
     override suspend fun signUp(name: String, email: String, password: String): SignUpResponse {

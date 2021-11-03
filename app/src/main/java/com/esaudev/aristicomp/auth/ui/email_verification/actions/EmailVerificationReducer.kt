@@ -21,6 +21,9 @@ class EmailVerificationReducer: Reducer<EmailVerificationViewState, EmailVerific
         action: EmailVerificationAction
     ): EmailVerificationViewState {
         return when(action) {
+            is EmailVerificationAction.GetUserCredentials -> {
+                stateWithUserCredentials(currentState, action)
+            }
             EmailVerificationAction.ConfirmationEmailSent -> {
                 stateAfterConfEmailSent(currentState)
             }
@@ -33,9 +36,20 @@ class EmailVerificationReducer: Reducer<EmailVerificationViewState, EmailVerific
             EmailVerificationAction.CounterInitialized -> {
                 stateAfterCounterInitialized(currentState)
             }
+            EmailVerificationAction.GetUserDataCompleted -> {
+                stateAfterGetUserData(currentState)
+            }
             else -> currentState
         }
     }
+
+    private fun stateWithUserCredentials(
+        currentState: EmailVerificationViewState,
+        action: EmailVerificationAction.GetUserCredentials
+    ) = currentState.copy(
+        email = action.email,
+        password = action.password
+    )
 
     private fun stateAfterConfEmailSent(
         currentState: EmailVerificationViewState
@@ -61,6 +75,12 @@ class EmailVerificationReducer: Reducer<EmailVerificationViewState, EmailVerific
         currentState: EmailVerificationViewState
     ) = currentState.copy(
         isCounterInitialized = true
+    )
+
+    private fun stateAfterGetUserData(
+        currentState: EmailVerificationViewState
+    ) = currentState.copy(
+        userReadyToContinue = true
     )
 
 }
