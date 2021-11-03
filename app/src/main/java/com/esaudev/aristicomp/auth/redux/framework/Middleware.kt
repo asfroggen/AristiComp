@@ -1,4 +1,4 @@
-package com.esaudev.aristicomp.auth.redux
+package com.esaudev.aristicomp.auth.redux.framework
 
 /**
  * A [Middleware] is any class that deals with side effects of actions. This can be logging,

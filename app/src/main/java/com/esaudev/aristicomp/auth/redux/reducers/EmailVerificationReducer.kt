@@ -1,9 +1,8 @@
-package com.esaudev.aristicomp.auth.ui.email_verification.actions
+package com.esaudev.aristicomp.auth.redux.reducers
 
-import com.esaudev.aristicomp.auth.redux.Reducer
+import com.esaudev.aristicomp.auth.redux.actions.EmailVerificationAction
+import com.esaudev.aristicomp.auth.redux.framework.Reducer
 import com.esaudev.aristicomp.auth.ui.email_verification.EmailVerificationViewState
-import com.esaudev.aristicomp.auth.ui.login.LoginViewState
-import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
 
 /**
  * This reducer is responsible for handling any [EmailVerificationAction], and using that to create

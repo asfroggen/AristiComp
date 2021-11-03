@@ -2,13 +2,12 @@ package com.esaudev.aristicomp.auth.ui.forgot_password
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.redux.framework.Store
 import com.esaudev.aristicomp.auth.repository.AuthRepository
-import com.esaudev.aristicomp.auth.ui.forgot_password.actions.PasswordForgotAction
-import com.esaudev.aristicomp.auth.ui.forgot_password.actions.PasswordForgotReducer
-import com.esaudev.aristicomp.auth.ui.forgot_password.middleware.PasswordForgotNetworkMiddleware
-import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
-import com.esaudev.aristicomp.auth.ui.login.middleware.DebuggingMiddleware
+import com.esaudev.aristicomp.auth.redux.actions.PasswordForgotAction
+import com.esaudev.aristicomp.auth.redux.reducers.PasswordForgotReducer
+import com.esaudev.aristicomp.auth.redux.middlewares.PasswordForgotNetworkMiddleware
+import com.esaudev.aristicomp.auth.redux.middlewares.DebuggingMiddleware
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow

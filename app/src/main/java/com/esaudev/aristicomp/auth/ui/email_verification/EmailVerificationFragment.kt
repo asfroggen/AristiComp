@@ -10,10 +10,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.esaudev.aristicomp.R
-import com.esaudev.aristicomp.auth.models.Session
+import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.auth.models.User
 import com.esaudev.aristicomp.auth.utils.AuthConstants.INFO_NOT_SET
-import com.esaudev.aristicomp.auth.utils.AuthConstants.OWNER_USER
 import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 import com.esaudev.aristicomp.databinding.FragmentEmailVerificationBinding
 import com.esaudev.aristicomp.owner.OwnerActivity

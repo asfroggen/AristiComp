@@ -2,8 +2,7 @@ package com.esaudev.aristicomp.walker
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.esaudev.aristicomp.R
-import com.esaudev.aristicomp.auth.models.Session
+import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.databinding.ActivityWalkerBinding
 
 class WalkerActivity : AppCompatActivity() {

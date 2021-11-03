@@ -21,6 +21,8 @@
     <string name="login__error_user_not_exists">No existe un usuario registrado con este correo electrónico</string>
     <string name="login__error_wrong_password">Credenciales incorrectas</string>
     <string name="login__error_no_user_type">No estas registrado en esta categoria</string>
+    <string name="login__error_email_not_verified">Verifica tu correo electrónico para continuar</string>
+    <string name="login__error_bad_email">Ingrese un correo electrónico valido</string>
     <string name="login__error_unknown">Oops, algo salió mal intente de nuevo más tarde</string>
 
     <string name="signup__header">Crea tu cuenta</string>

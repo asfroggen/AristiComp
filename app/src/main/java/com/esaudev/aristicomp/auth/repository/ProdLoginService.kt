@@ -5,7 +5,6 @@ import com.esaudev.aristicomp.auth.data.responses.LoginResponse
 import com.esaudev.aristicomp.auth.data.responses.SaveUserResponse
 import com.esaudev.aristicomp.auth.data.responses.SignUpResponse
 import com.esaudev.aristicomp.auth.models.User
-import com.esaudev.aristicomp.auth.ui.login.actions.LoginReducer
 import kotlinx.coroutines.delay
 
 class ProdLoginService : AuthRepository {

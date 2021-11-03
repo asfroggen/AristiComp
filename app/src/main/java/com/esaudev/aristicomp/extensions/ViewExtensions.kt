@@ -1,4 +1,4 @@
-package com.esaudev.aristicomp.utils
+package com.esaudev.aristicomp.extensions
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter

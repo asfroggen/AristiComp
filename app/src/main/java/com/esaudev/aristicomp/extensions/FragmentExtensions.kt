@@ -1,4 +1,4 @@
-package com.esaudev.aristicomp.utils
+package com.esaudev.aristicomp.extensions
 
 import androidx.fragment.app.Fragment
 import com.esaudev.aristicomp.R

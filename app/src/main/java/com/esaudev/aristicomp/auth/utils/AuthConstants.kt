@@ -21,6 +21,7 @@ object AuthConstants {
     const val LOGIN_ERROR_UNKNOWN : String = "Unknown"
     const val LOGIN_ERROR_EMAIL_EMPTY = "email_empty"
     const val LOGIN_ERROR_PASSWORD_EMPTY = "password_empty"
+    const val LOGIN_ERROR_BAD_EMAIL = "The email address is badly formatted."
 
     /*
     Sign up messages provided by Firebase Auth

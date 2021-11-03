@@ -1,4 +1,4 @@
-package com.esaudev.aristicomp.auth.redux
+package com.esaudev.aristicomp.auth.redux.framework
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

@@ -1,9 +1,9 @@
-package com.esaudev.aristicomp.auth.ui.login.middleware
+package com.esaudev.aristicomp.auth.redux.middlewares
 
-import com.esaudev.aristicomp.auth.redux.Middleware
-import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.redux.framework.Middleware
+import com.esaudev.aristicomp.auth.redux.framework.Store
 import com.esaudev.aristicomp.auth.repository.AuthRepository
-import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
+import com.esaudev.aristicomp.auth.redux.actions.LoginAction
 import com.esaudev.aristicomp.auth.ui.login.LoginViewState
 import javax.inject.Inject
 

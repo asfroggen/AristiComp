@@ -1,6 +1,6 @@
 package com.esaudev.aristicomp.auth.ui.forgot_password
 
-import com.esaudev.aristicomp.auth.redux.State
+import com.esaudev.aristicomp.auth.redux.framework.State
 
 data class PasswordForgotViewState (
     val email: String = "",

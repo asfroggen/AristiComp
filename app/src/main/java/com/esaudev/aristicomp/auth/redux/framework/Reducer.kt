@@ -1,4 +1,4 @@
-package com.esaudev.aristicomp.auth.redux
+package com.esaudev.aristicomp.auth.redux.framework
 
 interface Reducer<S: State, A: Action> {
 

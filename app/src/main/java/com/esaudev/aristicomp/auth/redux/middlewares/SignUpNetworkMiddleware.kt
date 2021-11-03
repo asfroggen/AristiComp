@@ -1,9 +1,9 @@
-package com.esaudev.aristicomp.auth.ui.sign_up.middleware
+package com.esaudev.aristicomp.auth.redux.middlewares
 
 import com.esaudev.aristicomp.auth.data.responses.SignUpResponse
 import com.esaudev.aristicomp.auth.models.User
-import com.esaudev.aristicomp.auth.redux.Middleware
-import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.redux.framework.Middleware
+import com.esaudev.aristicomp.auth.redux.framework.Store
 import com.esaudev.aristicomp.auth.repository.AuthRepository
 import com.esaudev.aristicomp.auth.utils.AuthConstants.EMAIL_ADDRESS_PATTERN
 import com.esaudev.aristicomp.auth.utils.AuthConstants.OWNER_USER
@@ -11,7 +11,7 @@ import com.esaudev.aristicomp.auth.utils.AuthConstants.SIGN_UP_ERROR_PASSWORDS_N
 import com.esaudev.aristicomp.auth.utils.AuthConstants.SIGN_UP_ERROR_PASSWORD_INSECURE
 import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 import com.esaudev.aristicomp.auth.ui.sign_up.SignUpViewState
-import com.esaudev.aristicomp.auth.ui.sign_up.actions.SignUpAction
+import com.esaudev.aristicomp.auth.redux.actions.SignUpAction
 import javax.inject.Inject
 
 class SignUpNetworkMiddleware @Inject constructor(

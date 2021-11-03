@@ -5,7 +5,7 @@ import com.esaudev.aristicomp.auth.data.responses.LoginResponse
 import com.esaudev.aristicomp.auth.data.responses.SaveUserResponse
 import com.esaudev.aristicomp.auth.data.responses.SignUpResponse
 import com.esaudev.aristicomp.auth.di.FirebaseModule.UsersCollection
-import com.esaudev.aristicomp.auth.models.Session
+import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.auth.models.User
 import com.esaudev.aristicomp.auth.models.UserSignUp
 import com.esaudev.aristicomp.auth.utils.AuthConstants.INFO_NOT_SET

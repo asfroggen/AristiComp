@@ -1,10 +1,10 @@
-package com.esaudev.aristicomp.auth.ui.login.middleware
+package com.esaudev.aristicomp.auth.redux.middlewares
 
 import android.util.Log
-import com.esaudev.aristicomp.auth.redux.Action
-import com.esaudev.aristicomp.auth.redux.Middleware
-import com.esaudev.aristicomp.auth.redux.State
-import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.redux.framework.Action
+import com.esaudev.aristicomp.auth.redux.framework.Middleware
+import com.esaudev.aristicomp.auth.redux.framework.State
+import com.esaudev.aristicomp.auth.redux.framework.Store
 
 /**
  * This [Middleware] is responsible for logging every [Action] that is processed to the Logcat, so

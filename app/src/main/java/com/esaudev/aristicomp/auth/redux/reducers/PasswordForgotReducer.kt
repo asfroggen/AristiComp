@@ -1,8 +1,8 @@
-package com.esaudev.aristicomp.auth.ui.forgot_password.actions
+package com.esaudev.aristicomp.auth.redux.reducers
 
-import com.esaudev.aristicomp.auth.redux.Reducer
+import com.esaudev.aristicomp.auth.redux.actions.PasswordForgotAction
+import com.esaudev.aristicomp.auth.redux.framework.Reducer
 import com.esaudev.aristicomp.auth.ui.forgot_password.PasswordForgotViewState
-import com.esaudev.aristicomp.auth.utils.AuthConstants.FORGOT_ERROR_GENERAL
 
 /**
  * This reducer is responsible for handling any [PasswordForgotAction], and using that to create

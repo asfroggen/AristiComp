@@ -1,17 +1,11 @@
-package com.esaudev.aristicomp.utils
+package com.esaudev.aristicomp.extensions
 
 import android.app.Activity
 import android.text.TextUtils
 import android.view.View
-import android.widget.EditText
-import android.widget.RadioButton
 import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import com.esaudev.aristicomp.R
-import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 
 fun Activity.color(@ColorRes color : Int ) = ContextCompat.getColor(this, color)

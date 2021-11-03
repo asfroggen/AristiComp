@@ -1,7 +1,7 @@
-package com.esaudev.aristicomp.auth.ui.sign_up.actions
+package com.esaudev.aristicomp.auth.redux.actions
 
 import com.esaudev.aristicomp.auth.models.User
-import com.esaudev.aristicomp.auth.redux.Action
+import com.esaudev.aristicomp.auth.redux.framework.Action
 
 sealed class SignUpAction: Action {
     data class NameChanged(val newName: String) : SignUpAction()

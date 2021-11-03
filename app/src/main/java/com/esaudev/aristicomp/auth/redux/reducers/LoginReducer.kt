@@ -1,10 +1,10 @@
-package com.esaudev.aristicomp.auth.ui.login.actions
+package com.esaudev.aristicomp.auth.redux.reducers
 
-import com.esaudev.aristicomp.auth.redux.Reducer
+import com.esaudev.aristicomp.auth.redux.actions.LoginAction
+import com.esaudev.aristicomp.auth.redux.framework.Reducer
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_EMAIL_EMPTY
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_PASSWORD_EMPTY
 import com.esaudev.aristicomp.auth.ui.login.LoginViewState
-import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_UNKNOWN
 import com.esaudev.aristicomp.auth.utils.AuthConstants.OWNER_USER
 import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 

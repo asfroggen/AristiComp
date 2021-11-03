@@ -1,6 +1,6 @@
 package com.esaudev.aristicomp.auth.ui.email_verification
 
-import com.esaudev.aristicomp.auth.redux.State
+import com.esaudev.aristicomp.auth.redux.framework.State
 
 data class EmailVerificationViewState (
     val email: String = "",

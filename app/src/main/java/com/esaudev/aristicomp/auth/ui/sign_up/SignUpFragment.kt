@@ -22,7 +22,7 @@ import com.esaudev.aristicomp.auth.utils.AuthConstants.SIGN_UP_ERROR_USER_ALREAD
 import com.esaudev.aristicomp.databinding.FragmentSignUpBinding
 import com.esaudev.aristicomp.utils.Constants.USER_BUNDLE
 import com.esaudev.aristicomp.utils.Constants.USER_PASSWORD_BUNDLE
-import com.esaudev.aristicomp.utils.showSnackBar
+import com.esaudev.aristicomp.extensions.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 

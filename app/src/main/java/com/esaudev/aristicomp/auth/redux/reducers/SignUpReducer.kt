@@ -1,6 +1,7 @@
-package com.esaudev.aristicomp.auth.ui.sign_up.actions
+package com.esaudev.aristicomp.auth.redux.reducers
 
-import com.esaudev.aristicomp.auth.redux.Reducer
+import com.esaudev.aristicomp.auth.redux.actions.SignUpAction
+import com.esaudev.aristicomp.auth.redux.framework.Reducer
 import com.esaudev.aristicomp.auth.utils.AuthConstants.SIGN_UP_ERROR_EMAIL_INVALID
 import com.esaudev.aristicomp.auth.utils.AuthConstants.SIGN_UP_ERROR_NAME_EMPTY
 import com.esaudev.aristicomp.auth.ui.sign_up.SignUpViewState

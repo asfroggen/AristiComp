@@ -2,13 +2,12 @@ package com.esaudev.aristicomp.auth.ui.sign_up
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.redux.framework.Store
 import com.esaudev.aristicomp.auth.repository.AuthRepository
-import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
-import com.esaudev.aristicomp.auth.ui.login.middleware.DebuggingMiddleware
-import com.esaudev.aristicomp.auth.ui.sign_up.actions.SignUpAction
-import com.esaudev.aristicomp.auth.ui.sign_up.actions.SignUpReducer
-import com.esaudev.aristicomp.auth.ui.sign_up.middleware.SignUpNetworkMiddleware
+import com.esaudev.aristicomp.auth.redux.middlewares.DebuggingMiddleware
+import com.esaudev.aristicomp.auth.redux.actions.SignUpAction
+import com.esaudev.aristicomp.auth.redux.reducers.SignUpReducer
+import com.esaudev.aristicomp.auth.redux.middlewares.SignUpNetworkMiddleware
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

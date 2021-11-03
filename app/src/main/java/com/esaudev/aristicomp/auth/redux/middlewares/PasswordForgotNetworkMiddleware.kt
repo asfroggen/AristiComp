@@ -1,11 +1,10 @@
-package com.esaudev.aristicomp.auth.ui.forgot_password.middleware
+package com.esaudev.aristicomp.auth.redux.middlewares
 
-import com.esaudev.aristicomp.auth.redux.Middleware
-import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.redux.framework.Middleware
+import com.esaudev.aristicomp.auth.redux.framework.Store
 import com.esaudev.aristicomp.auth.repository.AuthRepository
 import com.esaudev.aristicomp.auth.ui.forgot_password.PasswordForgotViewState
-import com.esaudev.aristicomp.auth.ui.forgot_password.actions.PasswordForgotAction
-import com.esaudev.aristicomp.auth.ui.login.actions.LoginAction
+import com.esaudev.aristicomp.auth.redux.actions.PasswordForgotAction
 import com.esaudev.aristicomp.auth.utils.AuthConstants.FORGOT_ERROR_EMAIL_EMPTY
 import com.esaudev.aristicomp.auth.utils.AuthConstants.FORGOT_ERROR_GENERAL
 import com.google.firebase.auth.FirebaseAuth

@@ -1,6 +1,6 @@
-package com.esaudev.aristicomp.auth.ui.login.actions
+package com.esaudev.aristicomp.auth.redux.actions
 
-import com.esaudev.aristicomp.auth.redux.Action
+import com.esaudev.aristicomp.auth.redux.framework.Action
 
 
 /**

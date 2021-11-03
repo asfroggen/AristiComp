@@ -1,4 +1,4 @@
-package com.esaudev.aristicomp.auth.redux
+package com.esaudev.aristicomp.auth.redux.framework
 
 /**
  * While this interface is empty, it is used to clearly define any class that is representative

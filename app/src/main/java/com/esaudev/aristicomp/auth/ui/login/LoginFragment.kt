@@ -12,22 +12,24 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.esaudev.aristicomp.R
-import com.esaudev.aristicomp.auth.models.Session
+import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_BAD_EMAIL
+import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_EMAIL_EMPTY
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_PASSWORD_EMPTY
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_UNKNOWN
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_USER_NOT_EXISTS
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_WRONG_PASSWORD
-import com.esaudev.aristicomp.auth.utils.AuthConstants.OWNER_USER
 import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 import com.esaudev.aristicomp.databinding.FragmentLoginBinding
+import com.esaudev.aristicomp.extensions.gone
+import com.esaudev.aristicomp.extensions.showSnackBar
+import com.esaudev.aristicomp.extensions.visible
 import com.esaudev.aristicomp.owner.OwnerActivity
-import com.esaudev.aristicomp.utils.*
 import com.esaudev.aristicomp.walker.WalkerActivity
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
-import java.security.acl.Owner
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -157,19 +159,24 @@ class LoginFragment : Fragment() {
         }
 
         if (viewState.userLoggedSuccessfully){
-
-            if (viewState.userType != Session.USER_LOGGED.type){
-                showSnackBar(getString(R.string.login__error_no_user_type))
-                viewModel.actionReset()
-            } else {
-                if (Session.USER_LOGGED.type == WALKER_USER){
-                    startActivity(Intent(requireContext(), WalkerActivity::class.java))
-                    activity?.finish()
+            if (FirebaseAuth.getInstance().currentUser?.isEmailVerified == true){
+                if (viewState.userType != Session.USER_LOGGED.type){
+                    showSnackBar(getString(R.string.login__error_no_user_type))
+                    viewModel.actionReset()
                 } else {
-                    startActivity(Intent(requireContext(), OwnerActivity::class.java))
-                    activity?.finish()
+                    if (Session.USER_LOGGED.type == WALKER_USER){
+                        startActivity(Intent(requireContext(), WalkerActivity::class.java))
+                        activity?.finish()
+                    } else {
+                        startActivity(Intent(requireContext(), OwnerActivity::class.java))
+                        activity?.finish()
+                    }
                 }
+            } else {
+                showSnackBar(getString(R.string.login__error_email_not_verified))
+                viewModel.actionReset()
             }
+
         }
 
         if (viewState.showLoginError){
@@ -185,6 +192,7 @@ class LoginFragment : Fragment() {
             LOGIN_ERROR_UNKNOWN -> getString(R.string.login__error_unknown)
             LOGIN_ERROR_EMAIL_EMPTY -> getString(R.string.login__error_email_empty)
             LOGIN_ERROR_PASSWORD_EMPTY -> getString(R.string.login__error_password_empty)
+            LOGIN_ERROR_BAD_EMAIL -> getString(R.string.login__error_bad_email)
             else -> getString(R.string.login__error_unknown)
         }
     }

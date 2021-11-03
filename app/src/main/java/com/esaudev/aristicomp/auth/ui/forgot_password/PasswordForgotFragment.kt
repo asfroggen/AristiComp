@@ -9,14 +9,13 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.esaudev.aristicomp.R
-import com.esaudev.aristicomp.auth.utils.AuthConstants
 import com.esaudev.aristicomp.auth.utils.AuthConstants.FORGOT_ERROR_BAD_EMAIL
 import com.esaudev.aristicomp.auth.utils.AuthConstants.FORGOT_ERROR_EMAIL_EMPTY
 import com.esaudev.aristicomp.auth.utils.AuthConstants.FORGOT_ERROR_EMAIL_NOT_FOUND
 import com.esaudev.aristicomp.auth.utils.AuthConstants.FORGOT_ERROR_GENERAL
 import com.esaudev.aristicomp.databinding.FragmentForgotPasswordBinding
-import com.esaudev.aristicomp.utils.hideKeyboard
-import com.esaudev.aristicomp.utils.showSnackBar
+import com.esaudev.aristicomp.extensions.hideKeyboard
+import com.esaudev.aristicomp.extensions.showSnackBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 

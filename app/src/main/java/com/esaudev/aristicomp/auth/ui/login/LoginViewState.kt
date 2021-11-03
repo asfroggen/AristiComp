@@ -1,6 +1,6 @@
 package com.esaudev.aristicomp.auth.ui.login
 
-import com.esaudev.aristicomp.auth.redux.State
+import com.esaudev.aristicomp.auth.redux.framework.State
 import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 
 /**

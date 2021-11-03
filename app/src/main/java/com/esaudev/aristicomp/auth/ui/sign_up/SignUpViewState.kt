@@ -1,7 +1,7 @@
 package com.esaudev.aristicomp.auth.ui.sign_up
 
 import com.esaudev.aristicomp.auth.models.User
-import com.esaudev.aristicomp.auth.redux.State
+import com.esaudev.aristicomp.auth.redux.framework.State
 
 data class SignUpViewState (
     val name: String = "",

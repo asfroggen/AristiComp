@@ -1,11 +1,10 @@
-package com.esaudev.aristicomp.auth.ui.email_verification.middleware
+package com.esaudev.aristicomp.auth.redux.middlewares
 
-import com.esaudev.aristicomp.auth.redux.Middleware
-import com.esaudev.aristicomp.auth.redux.Store
+import com.esaudev.aristicomp.auth.redux.framework.Middleware
+import com.esaudev.aristicomp.auth.redux.framework.Store
 import com.esaudev.aristicomp.auth.repository.AuthRepository
 import com.esaudev.aristicomp.auth.ui.email_verification.EmailVerificationViewState
-import com.esaudev.aristicomp.auth.ui.email_verification.actions.EmailVerificationAction
-import com.esaudev.aristicomp.auth.ui.sign_up.actions.SignUpAction
+import com.esaudev.aristicomp.auth.redux.actions.EmailVerificationAction
 import com.esaudev.aristicomp.utils.Constants.FIREBASE_USER_SIGNED
 import javax.inject.Inject
 
