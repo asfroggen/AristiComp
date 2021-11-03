@@ -13,6 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AristiComp">
         <activity
+            android:name=".auth.ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".owner.OwnerActivity"
             android:exported="false" />
         <activity
@@ -22,13 +32,7 @@
             android:name=".auth.ui.LoginActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>
