@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AristiComp">
         <activity
+            android:name=".owner.OwnerActivity"
+            android:exported="false" />
+        <activity
             android:name=".walker.WalkerActivity"
             android:exported="false" />
         <activity

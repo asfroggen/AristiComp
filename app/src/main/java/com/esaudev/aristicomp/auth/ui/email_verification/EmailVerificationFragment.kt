@@ -13,7 +13,10 @@ import com.esaudev.aristicomp.R
 import com.esaudev.aristicomp.auth.models.Session
 import com.esaudev.aristicomp.auth.models.User
 import com.esaudev.aristicomp.auth.utils.AuthConstants.INFO_NOT_SET
+import com.esaudev.aristicomp.auth.utils.AuthConstants.OWNER_USER
+import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 import com.esaudev.aristicomp.databinding.FragmentEmailVerificationBinding
+import com.esaudev.aristicomp.owner.OwnerActivity
 import com.esaudev.aristicomp.utils.Constants.SHARED_EMAIL
 import com.esaudev.aristicomp.utils.Constants.SHARED_PASSWORD
 import com.esaudev.aristicomp.utils.Constants.USER_BUNDLE
@@ -137,8 +140,14 @@ class EmailVerificationFragment : Fragment() {
         sharedPrefs.edit().putString(SHARED_PASSWORD, viewState.password).apply()
 
         // Navigate user to main activity (Walker/Owner)
-        startActivity(Intent(requireContext(), WalkerActivity::class.java))
-        activity?.finish()
+        if (Session.USER_LOGGED.type == WALKER_USER){
+            startActivity(Intent(requireContext(), WalkerActivity::class.java))
+            activity?.finish()
+        } else {
+            startActivity(Intent(requireContext(), OwnerActivity::class.java))
+            activity?.finish()
+        }
+
     }
 
 }
