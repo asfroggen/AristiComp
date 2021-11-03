@@ -20,9 +20,9 @@
     <string name="login__error_password_empty">Ingrese su contraseña</string>
     <string name="login__error_user_not_exists">No existe un usuario registrado con este correo electrónico</string>
     <string name="login__error_wrong_password">Credenciales incorrectas</string>
-    <string name="login__error_no_user_type">No estas registrado en esta categoria</string>
+    <string name="login__error_no_user_type">No estas registrado en esta categoría</string>
     <string name="login__error_email_not_verified">Verifica tu correo electrónico para continuar</string>
-    <string name="login__error_bad_email">Ingrese un correo electrónico valido</string>
+    <string name="login__error_bad_email">Ingrese un correo electrónico válido</string>
     <string name="login__error_unknown">Oops, algo salió mal intente de nuevo más tarde</string>
 
     <string name="signup__header">Crea tu cuenta</string>
@@ -39,7 +39,7 @@
     <string name="signup__error_password_empty">Ingresa tu contraseña para continuar</string>
     <string name="signup__error_user_already_exists">Ya existe un usuario registrado con este correo electrónico</string>
     <string name="signup__error_unknown">Oops, algo salió mal intente de nuevo más tarde</string>
-    <string name="signup__error_email_invalid">Ingrese un correo electrónico valido para continuar</string>
+    <string name="signup__error_email_invalid">Ingrese un correo electrónico válido para continuar</string>
     <string name="signup__error_passwords_not_match">Las contraseñas deben coincidir para continuar</string>
     <string name="signup__error_password_insecure">La contraseña debe tener al menos 6 caracteres</string>
 
@@ -55,7 +55,7 @@
     <string name="forgot_password__email_sent">Hemos enviado un correo para que recuperes tu contraseña</string>
     <string name="forgot_password__general_error">No hemos podido encontrar tu correo electrónico</string>
     <string name="forgot_password__empty_email_error">Ingrese su correo electrónico para continuar</string>
-    <string name="forgot_password__bad_email_error">Ingrese un correo electrónico valido</string>
+    <string name="forgot_password__bad_email_error">Ingrese un correo electrónico válido</string>
     <string name="forgot_password__unknown_error">Oops, algo salió mal intente de nuevo más tarde</string>
 
     <string name="email_verification__header">Verifica tu email</string>

@@ -1,6 +1,7 @@
 package com.esaudev.aristicomp.auth.ui.login
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,14 +26,19 @@ import com.esaudev.aristicomp.extensions.gone
 import com.esaudev.aristicomp.extensions.showSnackBar
 import com.esaudev.aristicomp.extensions.visible
 import com.esaudev.aristicomp.owner.OwnerActivity
+import com.esaudev.aristicomp.utils.Constants
 import com.esaudev.aristicomp.walker.WalkerActivity
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
+
+    @Inject
+    lateinit var sharedPrefs: SharedPreferences
 
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding
@@ -108,34 +114,6 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun setOwnerMode(){
-        with(binding){
-            avWalker.gone()
-
-            llWalker.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.trasnparent)
-            tvWalker.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_text))
-
-            llOwner.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.yellow)
-            tvOwner.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-
-            avOwner.visible()
-        }
-    }
-
-    private fun setWalkerMode(){
-        with(binding){
-            avOwner.gone()
-
-            llOwner.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.trasnparent)
-            tvOwner.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_text))
-
-            llWalker.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.yellow)
-            tvWalker.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-
-            avWalker.visible()
-        }
-    }
-
     private fun processViewState(viewState: LoginViewState) {
 
         if (viewState.isUserOwner){
@@ -164,13 +142,7 @@ class LoginFragment : Fragment() {
                     showSnackBar(getString(R.string.login__error_no_user_type))
                     viewModel.actionReset()
                 } else {
-                    if (Session.USER_LOGGED.type == WALKER_USER){
-                        startActivity(Intent(requireContext(), WalkerActivity::class.java))
-                        activity?.finish()
-                    } else {
-                        startActivity(Intent(requireContext(), OwnerActivity::class.java))
-                        activity?.finish()
-                    }
+                   manageUserLogin(viewState)
                 }
             } else {
                 showSnackBar(getString(R.string.login__error_email_not_verified))
@@ -196,5 +168,49 @@ class LoginFragment : Fragment() {
             else -> getString(R.string.login__error_unknown)
         }
     }
+
+    private fun manageUserLogin(viewState: LoginViewState){
+        // Save user credentials in shared preferences
+        sharedPrefs.edit().putString(Constants.SHARED_EMAIL, Session.USER_LOGGED.email).apply()
+        sharedPrefs.edit().putString(Constants.SHARED_PASSWORD, viewState.password).apply()
+
+        // Navigate user to main activity (Walker/Owner)
+        if (Session.USER_LOGGED.type == WALKER_USER){
+            startActivity(Intent(requireContext(), WalkerActivity::class.java))
+            activity?.finish()
+        } else {
+            startActivity(Intent(requireContext(), OwnerActivity::class.java))
+            activity?.finish()
+        }
+    }
+
+    private fun setOwnerMode(){
+        with(binding){
+            avWalker.gone()
+
+            llWalker.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.trasnparent)
+            tvWalker.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_text))
+
+            llOwner.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.yellow)
+            tvOwner.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+
+            avOwner.visible()
+        }
+    }
+
+    private fun setWalkerMode(){
+        with(binding){
+            avOwner.gone()
+
+            llOwner.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.trasnparent)
+            tvOwner.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_text))
+
+            llWalker.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.yellow)
+            tvWalker.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+
+            avWalker.visible()
+        }
+    }
+
 
 }
