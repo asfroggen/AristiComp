@@ -46,7 +46,14 @@ class LoginNetworkMiddleware @Inject constructor(
         )
 
         if (response.isSuccessful) {
-            store.dispatch(LoginAction.LoginCompleted)
+
+            val userResponse = loginRepository.getUserData()
+
+            if (userResponse.isSuccessful){
+                store.dispatch(LoginAction.LoginCompleted)
+            } else {
+                store.dispatch(LoginAction.LoginFailed(userResponse.error))
+            }
         } else {
             store.dispatch(LoginAction.LoginFailed(response.error))
         }

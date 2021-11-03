@@ -1,5 +1,6 @@
 package com.esaudev.aristicomp.auth.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,16 +12,22 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.esaudev.aristicomp.R
+import com.esaudev.aristicomp.auth.models.Session
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_EMAIL_EMPTY
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_PASSWORD_EMPTY
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_UNKNOWN
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_USER_NOT_EXISTS
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_WRONG_PASSWORD
+import com.esaudev.aristicomp.auth.utils.AuthConstants.OWNER_USER
+import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 import com.esaudev.aristicomp.databinding.FragmentLoginBinding
+import com.esaudev.aristicomp.owner.OwnerActivity
 import com.esaudev.aristicomp.utils.*
+import com.esaudev.aristicomp.walker.WalkerActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
+import java.security.acl.Owner
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -146,6 +153,22 @@ class LoginFragment : Fragment() {
                 pbLogin.visibility = View.GONE
                 mbLogin.isEnabled = true
                 mbLogin.text = getString(R.string.login__login_button)
+            }
+        }
+
+        if (viewState.userLoggedSuccessfully){
+
+            if (viewState.userType != Session.USER_LOGGED.type){
+                showSnackBar(getString(R.string.login__error_no_user_type))
+                viewModel.actionReset()
+            } else {
+                if (Session.USER_LOGGED.type == WALKER_USER){
+                    startActivity(Intent(requireContext(), WalkerActivity::class.java))
+                    activity?.finish()
+                } else {
+                    startActivity(Intent(requireContext(), OwnerActivity::class.java))
+                    activity?.finish()
+                }
             }
         }
 

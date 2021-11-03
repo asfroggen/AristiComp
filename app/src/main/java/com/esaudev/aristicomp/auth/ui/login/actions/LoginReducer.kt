@@ -4,6 +4,9 @@ import com.esaudev.aristicomp.auth.redux.Reducer
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_EMAIL_EMPTY
 import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_PASSWORD_EMPTY
 import com.esaudev.aristicomp.auth.ui.login.LoginViewState
+import com.esaudev.aristicomp.auth.utils.AuthConstants.LOGIN_ERROR_UNKNOWN
+import com.esaudev.aristicomp.auth.utils.AuthConstants.OWNER_USER
+import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 
 /**
  * This reducer is responsible for handling any [LoginAction], and using that to create
@@ -68,13 +71,19 @@ class LoginReducer : Reducer<LoginViewState, LoginAction> {
 
     private fun stateAfterLoginCompleted(currentState: LoginViewState) =
         currentState.copy(
-            showProgressBar = false,
+            userLoggedSuccessfully = true,
+            showProgressBar = false
         )
 
-    private fun stateAfterModeChanged(currentState: LoginViewState) =
-        currentState.copy(
-            isUserOwner = !currentState.isUserOwner,
+    private fun stateAfterModeChanged(currentState: LoginViewState): LoginViewState {
+        val userType = !currentState.isUserOwner
+
+        return currentState.copy(
+            isUserOwner = userType,
+            userType = if (userType) OWNER_USER else WALKER_USER
         )
+    }
+
 
     private fun stateAfterLoginFailed(
         currentState: LoginViewState,
@@ -88,7 +97,8 @@ class LoginReducer : Reducer<LoginViewState, LoginAction> {
     private fun stateAfterActionShowed(
         currentState: LoginViewState
     ) = currentState.copy(
-        showLoginError = false
+        showLoginError = false,
+        userLoggedSuccessfully = false
     )
 
     private fun stateWithNewPassword(
