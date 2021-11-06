@@ -15,7 +15,7 @@ import com.esaudev.aristicomp.auth.models.User
 import com.esaudev.aristicomp.auth.utils.AuthConstants.INFO_NOT_SET
 import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 import com.esaudev.aristicomp.databinding.FragmentEmailVerificationBinding
-import com.esaudev.aristicomp.owner.OwnerActivity
+import com.esaudev.aristicomp.owner.ui.OwnerActivity
 import com.esaudev.aristicomp.utils.Constants.SHARED_EMAIL
 import com.esaudev.aristicomp.utils.Constants.SHARED_PASSWORD
 import com.esaudev.aristicomp.utils.Constants.USER_BUNDLE

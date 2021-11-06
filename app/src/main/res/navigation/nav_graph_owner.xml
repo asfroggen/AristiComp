@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav"
+    app:startDestination="@id/ownerWalksFragment">
+
+    <fragment
+        android:id="@+id/ownerPetsFragment"
+        android:name="com.esaudev.aristicomp.owner.ui.pets.OwnerPetsFragment"
+        android:label="fragment_owner_pets"
+        tools:layout="@layout/fragment_owner_pets" >
+        <action
+            android:id="@+id/ownerPetsToNewPetFragment"
+            app:destination="@id/ownerNewPetFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/ownerWalksFragment"
+        android:name="com.esaudev.aristicomp.owner.ui.walks.OwnerWalksFragment"
+        android:label="fragment_owner_home"
+        tools:layout="@layout/fragment_owner_walks" />
+    <fragment
+        android:id="@+id/ownerNewPetFragment"
+        android:name="com.esaudev.aristicomp.owner.ui.pets.new_pet.OwnerNewPetFragment"
+        android:label="OwnerNewPetFragment"
+        tools:layout="@layout/fragment_owner_new_pet"/>
+
+</navigation>

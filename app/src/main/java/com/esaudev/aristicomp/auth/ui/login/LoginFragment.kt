@@ -25,7 +25,7 @@ import com.esaudev.aristicomp.databinding.FragmentLoginBinding
 import com.esaudev.aristicomp.extensions.gone
 import com.esaudev.aristicomp.extensions.showSnackBar
 import com.esaudev.aristicomp.extensions.visible
-import com.esaudev.aristicomp.owner.OwnerActivity
+import com.esaudev.aristicomp.owner.ui.OwnerActivity
 import com.esaudev.aristicomp.utils.Constants
 import com.esaudev.aristicomp.walker.WalkerActivity
 import com.google.firebase.auth.FirebaseAuth

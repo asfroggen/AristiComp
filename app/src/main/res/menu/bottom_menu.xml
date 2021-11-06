@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ownerWalksFragment"
+        android:title="@string/owner__bottom_menu_walks"
+        android:icon="@drawable/ic_park_filled"/>
+
+    <item
+        android:id="@+id/ownerPetsFragment"
+        android:title="@string/owner__bottom_menu_pets"
+        android:icon="@drawable/ic_dog_footprint"/>
+</menu>

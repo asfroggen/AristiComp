@@ -67,4 +67,24 @@
     <string name="email_verification__help_disclaimer">¿No recibiste el correo electrónico?</string>
     <string name="email_verification__send_link">Reenviar enlace</string>
     <string name="email_verification__resend_counter">Reenviar enlace (00:0%1$s)</string>
+
+    <string name="owner__bottom_menu_walks">Mis paseos</string>
+    <string name="owner__bottom_menu_pets">Mis perritos</string>
+
+    <string name="owner_pets__pets_header">Tus perritos</string>
+    <string name="owner_pets__pets_empty">Los perritos que agregues a tu cuenta aparecerán en esta sección</string>
+
+    <string name="owner_pets__new_pet_header">Agregar perrito</string>
+    <string name="owner_pets__new_pet_name_hint">Nombre</string>
+    <string name="owner_pets__new_pet_weight_hint">Peso (kg)</string>
+    <string name="owner_pets__new_pet_age_hint">Edad (años)</string>
+    <string name="owner_pets__new_pet_race_hint">Raza</string>
+    <string name="owner_pets__new_pet_save_button">Guardar</string>
+    <string name="owner_pets__new_pet_success">Perrito guardado correctamente</string>
+    <string name="owner_pets__new_pet_fill_data">Rellene todos los campos para continuar</string>
+
+    <string name="read_storage_permission_denied">Oops, parece que no aceptaste los permisos necesarios. Puedes hacerlo desde configuración.</string>
+    <string name="image_selection_failed">Oops, parece que algo salió mal.</string>
+
+    <string name="errors__general_error">>Oops, algo salió mal intente de nuevo más tarde</string>
 </resources>

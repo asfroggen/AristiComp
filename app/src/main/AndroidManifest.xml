@@ -3,6 +3,7 @@
     package="com.esaudev.aristicomp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".AristiCompApp"
@@ -23,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".owner.OwnerActivity"
+            android:name=".owner.ui.OwnerActivity"
             android:exported="false" />
         <activity
             android:name=".walker.WalkerActivity"

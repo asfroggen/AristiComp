@@ -1,10 +1,16 @@
-package com.esaudev.aristicomp.owner
+package com.esaudev.aristicomp.owner.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.esaudev.aristicomp.R
 import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.databinding.ActivityOwnerBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OwnerActivity : AppCompatActivity() {
 
     private var _binding : ActivityOwnerBinding? = null
@@ -15,6 +21,10 @@ class OwnerActivity : AppCompatActivity() {
         _binding = ActivityOwnerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvPrueba.text = Session.USER_LOGGED.toString()
+        val navController = findNavController(R.id.fcvOwnerContainer)
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bnvOwner)
+
+        bottomNavigation.setupWithNavController(navController)
+
     }
 }

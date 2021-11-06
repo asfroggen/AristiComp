@@ -5,11 +5,10 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.esaudev.aristicomp.R
 import com.esaudev.aristicomp.auth.ui.LoginActivity
 import com.esaudev.aristicomp.auth.utils.AuthConstants.WALKER_USER
 import com.esaudev.aristicomp.model.Session
-import com.esaudev.aristicomp.owner.OwnerActivity
+import com.esaudev.aristicomp.owner.ui.OwnerActivity
 import com.esaudev.aristicomp.utils.Constants.SHARED_EMAIL
 import com.esaudev.aristicomp.utils.Constants.SHARED_PASSWORD
 import com.esaudev.aristicomp.walker.WalkerActivity

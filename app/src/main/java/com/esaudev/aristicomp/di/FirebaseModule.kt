@@ -1,6 +1,7 @@
-package com.esaudev.aristicomp.auth.di
+package com.esaudev.aristicomp.di
 
 import com.esaudev.aristicomp.auth.utils.AuthConstants.USERS_COLLECTION
+import com.esaudev.aristicomp.utils.Constants.PETS_COLLECTION
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -35,7 +36,17 @@ object FirebaseModule {
         return firestore.collection(USERS_COLLECTION)
     }
 
+    @PetsCollection
+    @Singleton
+    @Provides
+    fun providePetsCollection(
+        firestore: FirebaseFirestore
+    ): CollectionReference {
+        return firestore.collection(PETS_COLLECTION)
+    }
+
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
     annotation class UsersCollection
+    annotation class PetsCollection
 }
