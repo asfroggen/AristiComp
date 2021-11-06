@@ -28,6 +28,7 @@ object Constants {
 
     // Firebase querys
     const val PETS_COLLECTION = "pets"
+    const val OWNER_ID_LABEL = "ownerID"
     const val DOG_IMAGE: String = "dog_image"
 
     // Network

@@ -6,9 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcvPet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +28,7 @@
                 android:layout_margin="8dp"
                 tools:src="@mipmap/ic_launcher"
                 android:scaleType="centerCrop"
-                app:shapeAppearanceOverlay="@style/Theme.AristiComp.Rounded_20"
+                app:shapeAppearanceOverlay="@style/Theme.AristiComp.Rounded_10"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>

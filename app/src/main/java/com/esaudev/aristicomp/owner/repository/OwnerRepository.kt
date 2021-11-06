@@ -11,5 +11,9 @@ interface OwnerRepository {
 
     suspend fun savePet(pet: Pet): Flow<DataState<Boolean>>
 
+    suspend fun getPetsByOwner(ownerID: String): Flow<DataState<List<Pet>>>
+
     fun uploadPetImage(activity: Activity, imageFileURI: Uri?, imageType: String, fragment: Fragment)
+
+
 }

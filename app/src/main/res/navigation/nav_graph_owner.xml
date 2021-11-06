@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/ownerPetsFragment"
-        android:name="com.esaudev.aristicomp.owner.ui.pets.OwnerPetsFragment"
+        android:name="com.esaudev.aristicomp.owner.ui.pets.my_pets.OwnerPetsFragment"
         android:label="fragment_owner_pets"
         tools:layout="@layout/fragment_owner_pets" >
         <action

@@ -2,6 +2,7 @@ package com.esaudev.aristicomp.owner.repository
 
 import android.app.Activity
 import android.net.Uri
+import android.service.autofill.Dataset
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.esaudev.aristicomp.di.FirebaseModule
@@ -9,6 +10,7 @@ import com.esaudev.aristicomp.model.Pet
 import com.esaudev.aristicomp.owner.ui.pets.new_pet.OwnerNewPetFragment
 import com.esaudev.aristicomp.utils.Constants
 import com.esaudev.aristicomp.utils.Constants.NETWORK_UNKNOWN_ERROR
+import com.esaudev.aristicomp.utils.Constants.OWNER_ID_LABEL
 import com.esaudev.aristicomp.utils.DataState
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.SetOptions
@@ -41,6 +43,31 @@ class OwnerRepositoryImpl @Inject constructor(
             }
             emit(DataState.Finished)
         } catch (e: Exception){
+            emit(DataState.Error(NETWORK_UNKNOWN_ERROR))
+            emit(DataState.Finished)
+        }
+    }
+
+    override suspend fun getPetsByOwner(ownerID: String): Flow<DataState<List<Pet>>> = flow {
+        emit(DataState.Loading)
+        try {
+
+            var isSuccessful = false
+            val pets = petsCollection
+                .whereEqualTo(OWNER_ID_LABEL, ownerID)
+                .get()
+                .await()
+                .toObjects(Pet::class.java)
+
+            isSuccessful = pets.size > 0
+
+            if (isSuccessful){
+                emit(DataState.Success(pets))
+            } else {
+                emit(DataState.Error(NETWORK_UNKNOWN_ERROR))
+            }
+            emit(DataState.Finished)
+        } catch (e: Exception) {
             emit(DataState.Error(NETWORK_UNKNOWN_ERROR))
             emit(DataState.Finished)
         }
