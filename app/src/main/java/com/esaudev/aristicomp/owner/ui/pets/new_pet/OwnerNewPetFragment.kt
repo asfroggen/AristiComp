@@ -2,6 +2,7 @@ package com.esaudev.aristicomp.owner.ui.pets.new_pet
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -17,9 +18,7 @@ import androidx.fragment.app.viewModels
 import com.esaudev.aristicomp.R
 import com.esaudev.aristicomp.databinding.FragmentOwnerNewPetBinding
 import com.esaudev.aristicomp.databinding.FragmentOwnerPetsBinding
-import com.esaudev.aristicomp.extensions.loadURI
-import com.esaudev.aristicomp.extensions.showSnackBar
-import com.esaudev.aristicomp.extensions.toast
+import com.esaudev.aristicomp.extensions.*
 import com.esaudev.aristicomp.model.Pet
 import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.utils.Constants
@@ -27,6 +26,7 @@ import com.esaudev.aristicomp.utils.Constants.DEFAULT_DOG_IMAGE
 import com.esaudev.aristicomp.utils.Constants.DOG_IMAGE
 import com.esaudev.aristicomp.utils.DataState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_owner.*
 import java.io.IOException
 
 @AndroidEntryPoint
@@ -198,6 +198,24 @@ class OwnerNewPetFragment : Fragment() {
                 Log.e("Request cancelled", "Image selection cancelled")
             }
         }
+    }
+
+    private fun viewBottomNav(visibility: Boolean){
+        if (visibility){
+            requireActivity().bnvOwner.visibleFromBottom()
+        } else {
+            requireActivity().bnvOwner.goneToBottom()
+        }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        viewBottomNav(false)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        viewBottomNav(true)
     }
 
 

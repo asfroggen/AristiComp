@@ -50,3 +50,33 @@ private fun View.hide(hidingStrategy: Int, animate: Boolean = true) {
         visibility = hidingStrategy
     }
 }
+
+fun View.goneToBottom(animate: Boolean = true) {
+    hideBottom(View.GONE, animate)
+}
+
+private fun View.hideBottom(hidingStrategy: Int, animate: Boolean = true) {
+    if (animate) {
+        animate().translationY(height.toFloat()).setDuration(300).alpha(0.0f).setListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
+                super.onAnimationEnd(animation)
+                visibility = hidingStrategy
+            }
+        })
+    } else {
+        visibility = hidingStrategy
+    }
+}
+
+fun View.visibleFromBottom(animate: Boolean= true) {
+    if (animate) {
+        animate().translationY(0f).setDuration(250).alpha(1f).setListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationStart(animation: Animator) {
+                super.onAnimationStart(animation)
+                visibility = View.VISIBLE
+            }
+        })
+    } else {
+        visibility = View.VISIBLE
+    }
+}

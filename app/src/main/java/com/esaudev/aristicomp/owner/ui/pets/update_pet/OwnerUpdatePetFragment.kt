@@ -18,10 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.esaudev.aristicomp.R
 import com.esaudev.aristicomp.databinding.FragmentOwnerUpdatePetBinding
-import com.esaudev.aristicomp.extensions.load
-import com.esaudev.aristicomp.extensions.loadURI
-import com.esaudev.aristicomp.extensions.showSnackBar
-import com.esaudev.aristicomp.extensions.toast
+import com.esaudev.aristicomp.extensions.*
 import com.esaudev.aristicomp.model.Pet
 import com.esaudev.aristicomp.utils.Constants
 import com.esaudev.aristicomp.utils.Constants.PET_BUNDLE
@@ -283,9 +280,9 @@ class OwnerUpdatePetFragment : Fragment() {
 
     private fun viewBottomNav(visibility: Boolean){
         if (visibility){
-            requireActivity().bnvOwner.visibility = View.VISIBLE
+            requireActivity().bnvOwner.visibleFromBottom()
         } else {
-            requireActivity().bnvOwner.visibility = View.GONE
+            requireActivity().bnvOwner.goneToBottom()
         }
     }
 
