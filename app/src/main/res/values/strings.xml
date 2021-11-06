@@ -83,8 +83,16 @@
     <string name="owner_pets__new_pet_success">Perrito guardado correctamente</string>
     <string name="owner_pets__new_pet_fill_data">Rellene todos los campos para continuar</string>
 
+    <string name="owner_update_pet__header">Actualizar perrito</string>
+    <string name="owner_update_pet__update_button">Actualizar</string>
+    <string name="owner_update_pet__delete_button">Eliminar</string>
+    <string name="owner_update_pet__delete_warning">¿Esta seguro? Si elimina este perrito se perderá todo registro de él</string>
+    <string name="owner_update_pet__delete_success">Perrito eliminado correctamente</string>
+
     <string name="read_storage_permission_denied">Oops, parece que no aceptaste los permisos necesarios. Puedes hacerlo desde configuración.</string>
     <string name="image_selection_failed">Oops, parece que algo salió mal.</string>
 
     <string name="errors__general_error">>Oops, algo salió mal intente de nuevo más tarde</string>
+    <string name="ok">Si</string>
+    <string name="cancel">Cancelar</string>
 </resources>

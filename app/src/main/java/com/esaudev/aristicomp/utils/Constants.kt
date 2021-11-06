@@ -16,6 +16,7 @@ object Constants {
     // Bundles
     const val USER_BUNDLE = "user_bundle"
     const val USER_PASSWORD_BUNDLE = "user_password_bundle"
+    const val PET_BUNDLE = "pet_bundle"
 
     // Firebase
     var FIREBASE_USER_SIGNED: FirebaseUser? = null

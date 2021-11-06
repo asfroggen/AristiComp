@@ -17,6 +17,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/ownerPetsToUpdatePetFragment"
+            app:destination="@id/ownerUpdatePetFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/ownerWalksFragment"
@@ -28,5 +35,10 @@
         android:name="com.esaudev.aristicomp.owner.ui.pets.new_pet.OwnerNewPetFragment"
         android:label="OwnerNewPetFragment"
         tools:layout="@layout/fragment_owner_new_pet"/>
+    <fragment
+        android:id="@+id/ownerUpdatePetFragment"
+        android:name="com.esaudev.aristicomp.owner.ui.pets.update_pet.OwnerUpdatePetFragment"
+        android:label="fragment_owner_update_pet"
+        tools:layout="@layout/fragment_owner_update_pet" />
 
 </navigation>

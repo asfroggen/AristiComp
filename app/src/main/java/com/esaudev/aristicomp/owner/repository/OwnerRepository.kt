@@ -13,6 +13,8 @@ interface OwnerRepository {
 
     suspend fun getPetsByOwner(ownerID: String): Flow<DataState<List<Pet>>>
 
+    suspend fun deletePet(pet: Pet): Flow<DataState<Boolean>>
+
     fun uploadPetImage(activity: Activity, imageFileURI: Uri?, imageType: String, fragment: Fragment)
 
 

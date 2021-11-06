@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +17,7 @@ import com.esaudev.aristicomp.extensions.toast
 import com.esaudev.aristicomp.model.Pet
 import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.owner.ui.adapters.OwnerPetAdapter
+import com.esaudev.aristicomp.utils.Constants.PET_BUNDLE
 import com.esaudev.aristicomp.utils.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -95,7 +97,7 @@ class OwnerPetsFragment : Fragment(), OwnerPetAdapter.OnOwnerPetClickListener {
     }
 
     override fun onOwnerPetClickListener(pet: Pet) {
-        activity?.toast(pet.name)
+        findNavController().navigate(R.id.ownerPetsToUpdatePetFragment, bundleOf(PET_BUNDLE to pet))
     }
 
 }

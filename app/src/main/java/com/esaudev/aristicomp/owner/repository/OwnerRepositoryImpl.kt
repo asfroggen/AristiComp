@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.esaudev.aristicomp.di.FirebaseModule
 import com.esaudev.aristicomp.model.Pet
 import com.esaudev.aristicomp.owner.ui.pets.new_pet.OwnerNewPetFragment
+import com.esaudev.aristicomp.owner.ui.pets.update_pet.OwnerUpdatePetFragment
 import com.esaudev.aristicomp.utils.Constants
 import com.esaudev.aristicomp.utils.Constants.NETWORK_UNKNOWN_ERROR
 import com.esaudev.aristicomp.utils.Constants.OWNER_ID_LABEL
@@ -73,6 +74,29 @@ class OwnerRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun deletePet(pet: Pet): Flow<DataState<Boolean>> = flow {
+        emit(DataState.Loading)
+        try {
+
+            var isSuccessful = false
+            petsCollection.document(pet.id)
+                .delete()
+                .addOnSuccessListener { isSuccessful = true }
+                .addOnFailureListener { isSuccessful = false }
+                .await()
+
+            if (isSuccessful){
+                emit(DataState.Success(isSuccessful))
+            } else {
+                emit(DataState.Error(NETWORK_UNKNOWN_ERROR))
+            }
+            emit(DataState.Finished)
+        } catch (e: Exception) {
+            emit(DataState.Error(NETWORK_UNKNOWN_ERROR))
+            emit(DataState.Finished)
+        }
+    }
+
     override fun uploadPetImage(
         activity: Activity,
         imageFileURI: Uri?,
@@ -99,6 +123,7 @@ class OwnerRepositoryImpl @Inject constructor(
                     .addOnSuccessListener { uri ->
                         when(fragment) {
                             is OwnerNewPetFragment -> fragment.uploadImageSuccess(uri.toString())
+                            is OwnerUpdatePetFragment -> fragment.uploadImageSuccess(uri.toString())
                         }
                     }
             }
@@ -112,6 +137,7 @@ class OwnerRepositoryImpl @Inject constructor(
 
                 when(fragment) {
                     is OwnerNewPetFragment -> fragment.uploadImageFailure()
+                    is OwnerUpdatePetFragment -> fragment.uploadImageFailure()
                 }
             }
     }
