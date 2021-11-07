@@ -58,6 +58,10 @@ object FirebaseModule {
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
     annotation class UsersCollection
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
     annotation class PetsCollection
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
     annotation class WalksCollection
 }

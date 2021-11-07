@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.esaudev.aristicomp.R
 import com.esaudev.aristicomp.databinding.FragmentOwnerWalksBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OwnerWalksFragment : Fragment() {
 
     private var _binding: FragmentOwnerWalksBinding? = null
@@ -23,6 +26,20 @@ class OwnerWalksFragment : Fragment() {
             .inflate(inflater, container, false)
             .apply { _binding = this }
             .root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initListeners()
+    }
+
+    private fun initListeners(){
+        with(binding){
+            fabNewWalk.setOnClickListener {
+                findNavController().navigate(R.id.ownerWalksToNewWalkFragment)
+            }
+        }
     }
 
 }

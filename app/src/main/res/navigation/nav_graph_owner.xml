@@ -29,7 +29,15 @@
         android:id="@+id/ownerWalksFragment"
         android:name="com.esaudev.aristicomp.owner.ui.walks.my_walks.OwnerWalksFragment"
         android:label="fragment_owner_home"
-        tools:layout="@layout/fragment_owner_walks" />
+        tools:layout="@layout/fragment_owner_walks" >
+        <action
+            android:id="@+id/ownerWalksToNewWalkFragment"
+            app:destination="@id/ownerNewWalkFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/ownerNewPetFragment"
         android:name="com.esaudev.aristicomp.owner.ui.pets.new_pet.OwnerNewPetFragment"
@@ -40,5 +48,10 @@
         android:name="com.esaudev.aristicomp.owner.ui.pets.update_pet.OwnerUpdatePetFragment"
         android:label="fragment_owner_update_pet"
         tools:layout="@layout/fragment_owner_update_pet" />
+    <fragment
+        android:id="@+id/ownerNewWalkFragment"
+        android:name="com.esaudev.aristicomp.owner.ui.walks.new_walk.OwnerNewWalkFragment"
+        android:label="fragment_owner_new_walk"
+        tools:layout="@layout/fragment_owner_new_walk" />
 
 </navigation>
