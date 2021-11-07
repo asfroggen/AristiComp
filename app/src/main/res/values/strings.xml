@@ -89,6 +89,25 @@
     <string name="owner_update_pet__delete_warning">¿Esta seguro? Si elimina este perrito se perderá todo registro de él</string>
     <string name="owner_update_pet__delete_success">Perrito eliminado correctamente</string>
 
+    <string name="owner_walks__header">Tus paseos</string>
+    <string name="owner_walks__walks_open">Paseos abiertos</string>
+    <string name="owner_walks__walks_done">Paseos pasados</string>
+    <string name="owner_walks__walks_scheduled">Paseos programados</string>
+    <string name="owner_walks__no_walks">Opps, parece que no tienes paseos registrados aún</string>
+
+    <string name="owner_new_walk__header">Solicitar un paseo</string>
+    <string name="owner_new_walk__general_data">Datos generales</string>
+    <string name="owner_new_walk__select_pet">Seleccione su perrito</string>
+    <string name="owner_new_walk__select_pet_hint">Perrito</string>
+    <string name="owner_new_walk__comments_hint">Comentarios adicionales…</string>
+    <string name="owner_new_walk__date_label">Fecha</string>
+    <string name="owner_new_walk__time_label">Hora</string>
+    <string name="owner_new_walk__walk_time">Duración del paseo</string>
+    <string name="owner_new_walk__set_date_button">Seleccionar dia</string>
+    <string name="owner_new_walk__set_time_button">Seleccionar hora</string>
+    <string name="owner_new_walk__get_walk_button">Publicar</string>
+
+
     <string name="read_storage_permission_denied">Oops, parece que no aceptaste los permisos necesarios. Puedes hacerlo desde configuración.</string>
     <string name="image_selection_failed">Oops, parece que algo salió mal.</string>
 

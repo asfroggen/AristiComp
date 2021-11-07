@@ -11,8 +11,10 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 import com.esaudev.aristicomp.di.FirebaseModule.UsersCollection
 import com.esaudev.aristicomp.di.FirebaseModule.PetsCollection
-import com.esaudev.aristicomp.owner.repository.OwnerRepository
-import com.esaudev.aristicomp.owner.repository.OwnerRepositoryImpl
+import com.esaudev.aristicomp.owner.repository.pets.OwnerPetsRepository
+import com.esaudev.aristicomp.owner.repository.pets.OwnerPetsRepositoryImpl
+import com.esaudev.aristicomp.owner.repository.walks.OwnerWalksRepository
+import com.esaudev.aristicomp.owner.repository.walks.OwnerWalksRepositoryImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -32,11 +34,21 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideOwnerRepository(
+    fun provideOwnerPetsRepository(
         @PetsCollection petsCollection: CollectionReference
-    ): OwnerRepository{
-        return OwnerRepositoryImpl(
+    ): OwnerPetsRepository {
+        return OwnerPetsRepositoryImpl(
             petsCollection
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun provideOwnerWalksRepository(
+        @FirebaseModule.WalksCollection walksCollection: CollectionReference
+    ): OwnerWalksRepository {
+        return OwnerWalksRepositoryImpl(
+            walksCollection
         )
     }
 }

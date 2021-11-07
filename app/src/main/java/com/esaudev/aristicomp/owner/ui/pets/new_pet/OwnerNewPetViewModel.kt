@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.esaudev.aristicomp.model.Pet
-import com.esaudev.aristicomp.owner.repository.OwnerRepository
+import com.esaudev.aristicomp.owner.repository.pets.OwnerPetsRepository
 import com.esaudev.aristicomp.utils.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OwnerNewPetViewModel @Inject constructor(
-    private val ownerRepository: OwnerRepository
+    private val ownerPetsRepository: OwnerPetsRepository
 ): ViewModel() {
 
     private val _savePetState: MutableLiveData<DataState<Boolean>> = MutableLiveData()
@@ -27,7 +27,7 @@ class OwnerNewPetViewModel @Inject constructor(
 
     fun savePet(pet: Pet){
         viewModelScope.launch {
-            ownerRepository.savePet(pet)
+            ownerPetsRepository.savePet(pet)
                 .onEach { dataState ->
                     _savePetState.value = dataState
                 }.launchIn(viewModelScope)
@@ -35,6 +35,6 @@ class OwnerNewPetViewModel @Inject constructor(
     }
 
     fun uploadPetImage(activity: Activity, imageFileURI: Uri?, imageType: String, fragment: Fragment){
-        ownerRepository.uploadPetImage(activity, imageFileURI, imageType, fragment)
+        ownerPetsRepository.uploadPetImage(activity, imageFileURI, imageType, fragment)
     }
 }

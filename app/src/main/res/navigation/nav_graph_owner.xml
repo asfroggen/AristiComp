@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/ownerWalksFragment"
-        android:name="com.esaudev.aristicomp.owner.ui.walks.OwnerWalksFragment"
+        android:name="com.esaudev.aristicomp.owner.ui.walks.my_walks.OwnerWalksFragment"
         android:label="fragment_owner_home"
         tools:layout="@layout/fragment_owner_walks" />
     <fragment

@@ -1,4 +1,4 @@
-package com.esaudev.aristicomp.owner.repository
+package com.esaudev.aristicomp.owner.repository.pets
 
 import android.app.Activity
 import android.net.Uri
@@ -7,7 +7,7 @@ import com.esaudev.aristicomp.model.Pet
 import com.esaudev.aristicomp.utils.DataState
 import kotlinx.coroutines.flow.Flow
 
-interface OwnerRepository {
+interface OwnerPetsRepository {
 
     suspend fun savePet(pet: Pet): Flow<DataState<Boolean>>
 
@@ -16,6 +16,5 @@ interface OwnerRepository {
     suspend fun deletePet(pet: Pet): Flow<DataState<Boolean>>
 
     fun uploadPetImage(activity: Activity, imageFileURI: Uri?, imageType: String, fragment: Fragment)
-
 
 }

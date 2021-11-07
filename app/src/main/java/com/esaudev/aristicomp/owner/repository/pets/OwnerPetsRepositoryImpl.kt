@@ -1,8 +1,7 @@
-package com.esaudev.aristicomp.owner.repository
+package com.esaudev.aristicomp.owner.repository.pets
 
 import android.app.Activity
 import android.net.Uri
-import android.service.autofill.Dataset
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.esaudev.aristicomp.di.FirebaseModule
@@ -22,9 +21,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-class OwnerRepositoryImpl @Inject constructor(
+class OwnerPetsRepositoryImpl @Inject constructor(
     @FirebaseModule.PetsCollection private val petsCollection: CollectionReference
-): OwnerRepository {
+): OwnerPetsRepository {
     override suspend fun savePet(pet: Pet): Flow<DataState<Boolean>> = flow {
         emit(DataState.Loading)
         try {

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.esaudev.aristicomp.model.Pet
-import com.esaudev.aristicomp.owner.repository.OwnerRepository
+import com.esaudev.aristicomp.owner.repository.pets.OwnerPetsRepository
 import com.esaudev.aristicomp.utils.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OwnerPetsViewModel @Inject constructor(
-    private val ownerRepository: OwnerRepository
+    private val ownerPetsRepository: OwnerPetsRepository
 ): ViewModel() {
 
     private val _getPetsState: MutableLiveData<DataState<List<Pet>>> = MutableLiveData()
@@ -24,7 +24,7 @@ class OwnerPetsViewModel @Inject constructor(
 
     fun getPetsByOwner(ownerID: String){
         viewModelScope.launch {
-            ownerRepository.getPetsByOwner(ownerID)
+            ownerPetsRepository.getPetsByOwner(ownerID)
                 .onEach { dataState ->
                     _getPetsState.value = dataState
                 }.launchIn(viewModelScope)
