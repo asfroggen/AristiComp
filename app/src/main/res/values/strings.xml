@@ -114,6 +114,7 @@
     <string name="owner_new_walk__select_date">Dia del paseo</string>
     <string name="owner_new_walk__select_time">Hora del paseo</string>
     <string name="owner_new_walk__select_data">Seleccione el dia y la mascota para publicar el paseo</string>
+    <string name="owner_new_walk__select_data_error">El dia del paseo es inválido, seleccione otro para continuar</string>
     <string name="owner_new_walk__publish_success">Paseo publicado correctamente</string>
 
 

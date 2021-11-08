@@ -38,6 +38,10 @@ class OwnerNewWalkFragment : Fragment() {
     private var petList: List<Pet> = listOf()
     private lateinit var petsAdapter: ArrayAdapter<String>
 
+    private var mSelectedDate: String = ""
+    private var mSelectedTime: String = ""
+    private var mSelectedFullDate: String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -104,10 +108,19 @@ class OwnerNewWalkFragment : Fragment() {
 
     private fun handleSaveWalk(){
         if (allDataFilled()){
-            viewModel.saveWalk(getWalk())
+            if (isDateAvailable()){
+                viewModel.saveWalk(getWalk())
+            } else {
+                showSnackBar(getString(R.string.owner_new_walk__select_data_error))
+            }
         } else {
             showSnackBar(getString(R.string.owner_new_walk__select_data))
         }
+    }
+
+    private fun isDateAvailable(): Boolean{
+        mSelectedFullDate = "$mSelectedDate $mSelectedTime"
+        return mSelectedFullDate.hasNotPassed()
     }
 
     private fun getWalk(): Walk {
@@ -122,7 +135,8 @@ class OwnerNewWalkFragment : Fragment() {
             comments = binding.etComments.text.toString(),
             petName =petSelected.name,
             petImage = petSelected.image,
-            petRace = petSelected.race
+            petRace = petSelected.race,
+            fullDate = mSelectedFullDate
         )
     }
 
@@ -131,7 +145,7 @@ class OwnerNewWalkFragment : Fragment() {
     }
 
     private fun allDataFilled(): Boolean {
-        return binding.etPet.text.toString() != getString(R.string.owner_new_walk__select_pet_hint) &&
+        return binding.etPet.text.isNotEmpty() &&
                 binding.tvDate.text.toString() != getString(R.string.owner_new_walk__select_date) &&
                 binding.tvTime.text.toString() != getString(R.string.owner_new_walk__select_time)
     }
@@ -158,7 +172,20 @@ class OwnerNewWalkFragment : Fragment() {
     private fun showDatePickerDialog() {
         val newFragment = DatePickerFragment.newInstance(DatePickerDialog.OnDateSetListener { _, year, month, day ->
             // +1 because January is zero
-            val selectedDate = year.toString() + "-" + (month + 1) + "-" + day.toString()
+            var dayFormatted = day.toString()
+            var monthFormatted = (month+1).toString()
+
+            if (day<10){
+                dayFormatted = "0${day}"
+            }
+
+            if (month<10){
+                monthFormatted = "0${month+1}"
+            }
+
+            val selectedDate = "$year-$monthFormatted-$dayFormatted"
+
+            mSelectedDate = selectedDate
 
             binding.tvDate.text = selectedDate.toDate()
         })
@@ -181,7 +208,21 @@ class OwnerNewWalkFragment : Fragment() {
             val hour = picker.hour
             val minute = picker.minute
 
-            val walkTime = "$hour:$minute"
+            var hourFormatted = hour.toString()
+            var minuteFormatted = minute.toString()
+
+            if (minute<10){
+                minuteFormatted = "0${minute}"
+            }
+
+            if (hour<10){
+                hourFormatted = "0${hour}"
+            }
+
+            val walkTime = "$hourFormatted:$minuteFormatted"
+            val completeTime = "$hourFormatted:$minuteFormatted:00"
+
+            mSelectedTime = completeTime
 
             binding.tvTime.text = walkTime.toTime()
         }

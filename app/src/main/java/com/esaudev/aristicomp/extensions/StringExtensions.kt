@@ -1,8 +1,11 @@
 package com.esaudev.aristicomp.extensions
 
 import android.text.format.DateFormat
+import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.*
+
+private const val BASE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 
 fun String.toDate(): String{
     val formatDate = SimpleDateFormat("yyyy-MM-dd", Locale("es", "ES"))
@@ -21,4 +24,19 @@ fun String.toTime(): String{
 
     val clock = DateFormat.format("hh:mm a", time)
     return clock.toString()
+}
+
+fun String.hasNotPassed(): Boolean{
+    val utcDate = this.getDateFromString()
+    val todayDate = Calendar.getInstance()
+    val today = todayDate.time
+    Log.d("TAG_ESAU_TODAY", today.toString())
+    Log.d("TAG_ESAU_UTC", utcDate.toString())
+    return utcDate > today
+}
+
+fun String.getDateFromString(): Date {
+    val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    formatter.timeZone = TimeZone.getDefault()
+    return formatter.parse(this)?: Date()
 }

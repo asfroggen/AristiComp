@@ -20,5 +20,6 @@ data class Walk (
     val comments: String = "",
     val petImage: String = "",
     val petName: String = "",
-    val petRace: String = ""
+    val petRace: String = "",
+    val fullDate: String = ""
         ): Parcelable
