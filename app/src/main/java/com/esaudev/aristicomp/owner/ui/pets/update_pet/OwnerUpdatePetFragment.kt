@@ -211,6 +211,7 @@ class OwnerUpdatePetFragment : Fragment() {
 
     private fun getPet(): Pet{
         return Pet(
+            id = mPet.id,
             name = binding.etName.text.toString(),
             age = binding.etAge.text.toString(),
             weight = binding.etWeight.text.toString(),
