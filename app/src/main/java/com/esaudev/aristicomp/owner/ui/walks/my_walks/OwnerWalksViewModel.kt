@@ -23,9 +23,9 @@ class OwnerWalksViewModel @Inject constructor(
     val getWalksByType: LiveData<DataState<List<Walk>>>
         get() = _getWalksByType
 
-    fun getWalksByType(type: String = "", ownerID: String) {
+    fun getWalksByTypeAndOwner(type: String, ownerID: String) {
         viewModelScope.launch {
-            ownerWalksRepository.getWalksByOwner(ownerID)
+            ownerWalksRepository.getWalksBTypeAndOwner(type, ownerID)
                 .onEach { dataState ->
                     _getWalksByType.value = dataState
                 }.launchIn(viewModelScope)

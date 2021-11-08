@@ -5,9 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.esaudev.aristicomp.databinding.ItemOwnerWalkBinding
-import com.esaudev.aristicomp.databinding.ItemPetBinding
 import com.esaudev.aristicomp.extensions.load
-import com.esaudev.aristicomp.model.Pet
+import com.esaudev.aristicomp.extensions.toDate
 import com.esaudev.aristicomp.model.Walk
 
 class OwnerWalkAdapter(
@@ -41,7 +40,7 @@ class OwnerWalkAdapter(
             sivPet.load(item.petImage)
             tvName.text = item.petName
             tvRace.text = item.petRace
-            tvOwner.text = item.ownerName
+            tvDate.text = item.date
             mcvWalk.setOnClickListener { itemClickListener.onOwnerWalkClickListener(item) }
         }
     }

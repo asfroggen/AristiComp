@@ -8,5 +8,5 @@ interface OwnerWalksRepository {
 
     suspend fun saveWalk(walk: Walk): Flow<DataState<Boolean>>
 
-    suspend fun getWalksByOwner(ownerID: String): Flow<DataState<List<Walk>>>
+    suspend fun getWalksBTypeAndOwner(type: String, ownerID: String): Flow<DataState<List<Walk>>>
 }

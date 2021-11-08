@@ -5,6 +5,7 @@ import com.esaudev.aristicomp.di.FirebaseModule
 import com.esaudev.aristicomp.model.Walk
 import com.esaudev.aristicomp.utils.Constants
 import com.esaudev.aristicomp.utils.Constants.OWNER_ID_LABEL
+import com.esaudev.aristicomp.utils.Constants.STATUS_LABEL
 import com.esaudev.aristicomp.utils.DataState
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.SetOptions
@@ -40,19 +41,20 @@ class OwnerWalksRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getWalksByOwner(ownerID: String): Flow<DataState<List<Walk>>> = flow {
+    override suspend fun getWalksBTypeAndOwner(type: String, ownerID: String): Flow<DataState<List<Walk>>> = flow {
         emit(DataState.Loading)
         try {
 
             var isSuccessFul = false
             val walks = walksCollection
                 .whereEqualTo(OWNER_ID_LABEL, ownerID)
+                .whereEqualTo(STATUS_LABEL, type)
                 .get()
                 .await()
                 .toObjects(Walk::class.java)
 
             isSuccessFul = walks.size > 0
-            Log.d("TAG_ESAU", walks.toString())
+
             if (isSuccessFul){
                 emit(DataState.Success(walks))
             } else {
@@ -60,7 +62,7 @@ class OwnerWalksRepositoryImpl @Inject constructor(
             }
             emit(DataState.Finished)
         } catch (e: Exception) {
-            Log.d("TAG_ESAU", e.toString())
+
             emit(DataState.Error(Constants.NETWORK_UNKNOWN_ERROR))
             emit(DataState.Finished)
         }

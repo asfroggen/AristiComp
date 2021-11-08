@@ -33,7 +33,6 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
 
     private val viewModel: OwnerWalksViewModel by viewModels()
     private var walksAdapter: OwnerWalkAdapter? = null
-    private var walkList: List<Walk> = listOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +51,6 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
         initComponents()
         initDropdown()
         initObservers()
-        initWalks()
         initListeners()
     }
 
@@ -80,18 +78,13 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
 
     private fun initObservers(){
         viewModel.getWalksByType.observe(viewLifecycleOwner, { dataState ->
-            Log.d("TAG_ESAU", dataState.toString())
             when(dataState){
-                is DataState.Loading -> Unit
+                is DataState.Loading -> showProgressbar()
                 is DataState.Success -> handleSuccess(dataState.data)
                 is DataState.Error -> handleError()
                 else -> Unit
             }
         })
-    }
-
-    private fun initWalks(){
-        viewModel.getWalksByType(ownerID = Session.USER_LOGGED.id)
     }
 
     private fun showProgressbar(){
@@ -107,13 +100,14 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
     }
 
     private fun handleSuccess(walks: List<Walk>){
+        hideProgressbar()
         binding.gEmptyState.visibility = View.GONE
         binding.gSuccessState.visibility = View.VISIBLE
-        walkList = walks
-        walksAdapter?.submitList(walkList.filter { it.status == WalkStatus.PENDING.toString() })
+        walksAdapter?.submitList(walks)
     }
 
     private fun handleError(){
+        hideProgressbar()
         binding.gEmptyState.visibility = View.VISIBLE
         binding.gSuccessState.visibility = View.GONE
     }
@@ -121,9 +115,9 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
     private fun initTextListeners(){
         binding.etType.doOnTextChanged { text, _, _, _ ->
             when(text.toString()){
-                getString(R.string.owner_walks__select_active) -> walksAdapter?.submitList(walkList.filter { it.status == WalkStatus.PENDING.toString() })
-                getString(R.string.owner_walks__select_past) -> walksAdapter?.submitList(walkList.filter { it.status == WalkStatus.PAST.toString() })
-                getString(R.string.owner_walks__select_accepted) -> walksAdapter?.submitList(walkList.filter { it.status == WalkStatus.ACCEPTED.toString() })
+                getString(R.string.owner_walks__select_active) -> viewModel.getWalksByTypeAndOwner(type = WalkStatus.PENDING.toString(),ownerID = Session.USER_LOGGED.id)
+                getString(R.string.owner_walks__select_past) -> viewModel.getWalksByTypeAndOwner(type = WalkStatus.PAST.toString(),ownerID = Session.USER_LOGGED.id)
+                getString(R.string.owner_walks__select_accepted) -> viewModel.getWalksByTypeAndOwner(type = WalkStatus.ACCEPTED.toString(),ownerID = Session.USER_LOGGED.id)
                 else -> Unit
             }
         }

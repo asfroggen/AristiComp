@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:background="@color/black"
+    tools:background="@color/white"
     android:orientation="horizontal"
     android:gravity="center"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,29 +12,29 @@
         android:id="@+id/sivPet"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_margin="8dp"
-        android:translationZ="1dp"
-        android:elevation="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginVertical="8dp"
+        android:translationZ="3dp"
         app:shapeAppearanceOverlay="@style/Theme.AristiComp.Rounded_10"
-        tools:src="@mipmap/ic_launcher" />
+        tools:src="@drawable/ic_new_pet" />
     
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:id="@+id/mcvWalk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-20dp"
-        android:layout_marginEnd="32dp"
-        app:cardElevation="0dp"
-        app:cardCornerRadius="16dp">
+        android:layout_marginStart="-4dp"
+        android:layout_marginEnd="16dp"
+        android:translationZ="2dp"
+        android:background="@drawable/asset_right_rounded_corner">
         
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp">
+            android:layout_marginStart="12dp">
             
             <TextView
                 android:id="@+id/tvName"
-                android:layout_width="match_parent"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:textStyle="bold"
@@ -44,7 +44,7 @@
 
             <TextView
                 android:id="@+id/tvRace"
-                android:layout_width="match_parent"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 tools:text="Schnauzer"
@@ -52,16 +52,26 @@
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
-                android:id="@+id/tvOwner"
-                android:layout_width="match_parent"
+                android:id="@+id/tvDate"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="8dp"
-                tools:text="Viernes 5 de Septiembre"
+                tools:text="Miercoles 5 de Septiembre"
                 app:layout_constraintTop_toBottomOf="@id/tvRace"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 
 </LinearLayout>
