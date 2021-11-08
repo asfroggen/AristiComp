@@ -2,12 +2,12 @@ package com.esaudev.aristicomp.owner.ui.walks.my_walks
 
 import android.os.Bundle
 import android.text.InputType
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -19,7 +19,6 @@ import com.esaudev.aristicomp.extensions.toast
 import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.model.Walk
 import com.esaudev.aristicomp.model.WalkStatus
-import com.esaudev.aristicomp.owner.ui.adapters.OwnerPetAdapter
 import com.esaudev.aristicomp.owner.ui.adapters.OwnerWalkAdapter
 import com.esaudev.aristicomp.utils.DataState
 import dagger.hilt.android.AndroidEntryPoint
@@ -80,11 +79,30 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
         viewModel.getWalksByType.observe(viewLifecycleOwner, { dataState ->
             when(dataState){
                 is DataState.Loading -> showProgressbar()
-                is DataState.Success -> handleSuccess(dataState.data)
-                is DataState.Error -> handleError()
+                is DataState.Success -> handleWalksSuccess(dataState.data)
+                is DataState.Error -> handleWalksError()
                 else -> Unit
             }
         })
+
+        viewModel.deleteWalkState.observe(viewLifecycleOwner, { dataState ->
+            when(dataState){
+                is DataState.Loading -> showProgressbar()
+                is DataState.Success -> handleDeleteSuccess()
+                is DataState.Error -> handleDeleteError()
+                else -> Unit
+            }
+        })
+    }
+
+    private fun handleDeleteSuccess(){
+        hideProgressbar()
+        refreshWalks()
+    }
+
+    private fun handleDeleteError(){
+        hideProgressbar()
+        showSnackBar(getString(R.string.errors__general_error))
     }
 
     private fun showProgressbar(){
@@ -99,14 +117,14 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
         binding.pbWalks.visibility = View.GONE
     }
 
-    private fun handleSuccess(walks: List<Walk>){
+    private fun handleWalksSuccess(walks: List<Walk>){
         hideProgressbar()
         binding.gEmptyState.visibility = View.GONE
         binding.gSuccessState.visibility = View.VISIBLE
         walksAdapter?.submitList(walks)
     }
 
-    private fun handleError(){
+    private fun handleWalksError(){
         hideProgressbar()
         binding.gEmptyState.visibility = View.VISIBLE
         binding.gSuccessState.visibility = View.GONE
@@ -128,6 +146,15 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
         initDropdown()
     }
 
+    private fun refreshWalks(){
+        when(binding.etType.text.toString()){
+            getString(R.string.owner_walks__select_active) -> viewModel.getWalksByTypeAndOwner(type = WalkStatus.PENDING.toString(),ownerID = Session.USER_LOGGED.id)
+            getString(R.string.owner_walks__select_past) -> viewModel.getWalksByTypeAndOwner(type = WalkStatus.PAST.toString(),ownerID = Session.USER_LOGGED.id)
+            getString(R.string.owner_walks__select_accepted) -> viewModel.getWalksByTypeAndOwner(type = WalkStatus.ACCEPTED.toString(),ownerID = Session.USER_LOGGED.id)
+            else -> Unit
+        }
+    }
+
     private fun initListeners(){
         with(binding){
             fabNewWalk.setOnClickListener {
@@ -136,8 +163,28 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
         }
     }
 
-    override fun onOwnerWalkClickListener(pet: Walk) {
-        activity?.toast("Clicked")
+    private fun showAlertDialog(walk: Walk){
+        activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setMessage(R.string.owner_walks__delete_warining)
+                setPositiveButton(R.string.ok) { _, _ ->
+                    viewModel.deleteWalk(walk)
+                }
+                setNegativeButton(R.string.cancel) { dialog, _ ->
+                    dialog.dismiss()
+                }
+            }
+            builder.show()
+        }
+    }
+
+    override fun onOwnerWalkClickListener(walk: Walk) {
+
+    }
+
+    override fun onOwnerDeleteClickListener(walk: Walk) {
+        showAlertDialog(walk)
     }
 
 }

@@ -68,5 +68,28 @@ class OwnerWalksRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun deleteWalk(walk: Walk): Flow<DataState<Boolean>> = flow {
+        emit(DataState.Loading)
+        try {
+
+            var isSuccessful = false
+            walksCollection.document(walk.id)
+                .delete()
+                .addOnSuccessListener { isSuccessful = true }
+                .addOnFailureListener { isSuccessful = false }
+                .await()
+
+            if (isSuccessful){
+                emit(DataState.Success(isSuccessful))
+            } else {
+                emit(DataState.Error(Constants.NETWORK_UNKNOWN_ERROR))
+            }
+            emit(DataState.Finished)
+        } catch (e: Exception) {
+            emit(DataState.Error(Constants.NETWORK_UNKNOWN_ERROR))
+            emit(DataState.Finished)
+        }
+    }
+
 
 }

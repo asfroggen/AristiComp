@@ -31,4 +31,17 @@ class OwnerWalksViewModel @Inject constructor(
                 }.launchIn(viewModelScope)
         }
     }
+
+    private val _deleteWalkState: MutableLiveData<DataState<Boolean>> = MutableLiveData()
+    val deleteWalkState: LiveData<DataState<Boolean>>
+        get() = _deleteWalkState
+
+    fun deleteWalk(walk: Walk) {
+        viewModelScope.launch {
+            ownerWalksRepository.deleteWalk(walk)
+                .onEach { dataState ->
+                    _deleteWalkState.value = dataState
+                }.launchIn(viewModelScope)
+        }
+    }
 }

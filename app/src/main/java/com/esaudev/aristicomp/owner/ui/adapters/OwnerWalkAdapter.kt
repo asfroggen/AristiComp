@@ -15,6 +15,7 @@ class OwnerWalkAdapter(
 
     interface OnOwnerWalkClickListener{
         fun onOwnerWalkClickListener(walk: Walk)
+        fun onOwnerDeleteClickListener(walk: Walk)
     }
 
     private object DiffUtilCallback: DiffUtil.ItemCallback<Walk>() {
@@ -41,7 +42,9 @@ class OwnerWalkAdapter(
             tvName.text = item.petName
             tvRace.text = item.petRace
             tvDate.text = item.date
-            mcvWalk.setOnClickListener { itemClickListener.onOwnerWalkClickListener(item) }
+
+            binding.root.setOnClickListener { itemClickListener.onOwnerWalkClickListener(item) }
+            ivDelete.setOnClickListener { itemClickListener.onOwnerDeleteClickListener(item) }
         }
     }
 }
