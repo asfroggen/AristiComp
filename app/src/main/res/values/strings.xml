@@ -99,6 +99,7 @@
     <string name="owner_walks__select_accepted">Paseos programados</string>
     <string name="owner_walks__select_type">Seleccione un filtro</string>
     <string name="owner_walks__delete_warining">¿Esta seguro? Esta por eliminar definitivamente este paseo</string>
+    <string name="owner_walks__date_overdue">Fecha vencida</string>
 
     <string name="owner_new_walk__header">Solicitar un paseo</string>
     <string name="owner_new_walk__general_data">Datos generales</string>
@@ -116,7 +117,6 @@
     <string name="owner_new_walk__select_data">Seleccione el dia y la mascota para publicar el paseo</string>
     <string name="owner_new_walk__select_data_error">El dia del paseo es inválido, seleccione otro para continuar</string>
     <string name="owner_new_walk__publish_success">Paseo publicado correctamente</string>
-
 
     <string name="read_storage_permission_denied">Oops, parece que no aceptaste los permisos necesarios. Puedes hacerlo desde configuración.</string>
     <string name="image_selection_failed">Oops, parece que algo salió mal.</string>

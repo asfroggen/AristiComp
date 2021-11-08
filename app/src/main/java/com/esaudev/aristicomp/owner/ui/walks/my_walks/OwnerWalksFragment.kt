@@ -54,7 +54,7 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
     }
 
     private fun initComponents(){
-        walksAdapter = OwnerWalkAdapter(this)
+        walksAdapter = OwnerWalkAdapter(requireContext(), this)
         binding.rvWalks.adapter = walksAdapter
         val linearLayoutManager =  LinearLayoutManager(requireContext())
         binding.rvWalks.layoutManager = linearLayoutManager

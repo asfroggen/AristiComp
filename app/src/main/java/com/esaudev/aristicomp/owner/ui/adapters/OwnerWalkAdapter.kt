@@ -1,15 +1,20 @@
 package com.esaudev.aristicomp.owner.ui.adapters
 
+import android.content.Context
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.esaudev.aristicomp.R
 import com.esaudev.aristicomp.databinding.ItemOwnerWalkBinding
+import com.esaudev.aristicomp.extensions.hasNotPassed
 import com.esaudev.aristicomp.extensions.load
 import com.esaudev.aristicomp.extensions.toDate
 import com.esaudev.aristicomp.model.Walk
 
 class OwnerWalkAdapter(
+    private val context: Context,
     private val itemClickListener: OnOwnerWalkClickListener
 ): ListAdapter<Walk, BaseViewHolder<*>>(DiffUtilCallback) {
 
@@ -41,7 +46,13 @@ class OwnerWalkAdapter(
             sivPet.load(item.petImage)
             tvName.text = item.petName
             tvRace.text = item.petRace
-            tvDate.text = item.date
+
+            if (item.fullDate.hasNotPassed()){
+                tvDate.text = item.date
+            } else {
+                tvDate.setTypeface(null, Typeface.BOLD)
+                tvDate.text = context.getString(R.string.owner_walks__date_overdue)
+            }
 
             binding.root.setOnClickListener { itemClickListener.onOwnerWalkClickListener(item) }
             ivDelete.setOnClickListener { itemClickListener.onOwnerDeleteClickListener(item) }
