@@ -123,11 +123,11 @@
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/owner_new_walk__select_date"
                 app:layout_constraintEnd_toStartOf="@+id/mbSetDate"
                 app:layout_constraintBottom_toBottomOf="@id/mbSetDate"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/mbSetDate"
-                tools:text="Sab 7, Septiembre" />
+                app:layout_constraintTop_toTopOf="@+id/mbSetDate" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mbSetDate"
@@ -184,12 +184,11 @@
                 android:id="@+id/tvTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/owner_new_walk__select_time"
                 app:layout_constraintEnd_toEndOf="@+id/tvDate"
                 app:layout_constraintBottom_toBottomOf="@id/mbSetTime"
                 app:layout_constraintStart_toStartOf="@+id/tvDate"
-                app:layout_constraintTop_toTopOf="@+id/mbSetTime"
-                tools:text="12:00 AM" />
-
+                app:layout_constraintTop_toTopOf="@+id/mbSetTime"/>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/mbSetTime"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -221,6 +220,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tilComments"
                 app:layout_constraintVertical_bias="0"/>
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/pbSaveWalk"
+                style="@style/Theme.AristiComp.CircularProgressIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/mbSaveWalk"
+                app:layout_constraintEnd_toEndOf="@id/mbSaveWalk"
+                app:layout_constraintStart_toStartOf="@id/mbSaveWalk"
+                app:layout_constraintTop_toTopOf="@id/mbSaveWalk" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -12,6 +12,7 @@ object Constants {
 
     // General
     const val VALUE_REQUIRED = "value_required"
+    const val TO_BE_DEFINED = "to_be_defined"
 
     // Bundles
     const val USER_BUNDLE = "user_bundle"

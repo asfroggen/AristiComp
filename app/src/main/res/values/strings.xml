@@ -106,6 +106,10 @@
     <string name="owner_new_walk__set_date_button">Seleccionar dia</string>
     <string name="owner_new_walk__set_time_button">Seleccionar hora</string>
     <string name="owner_new_walk__get_walk_button">Publicar</string>
+    <string name="owner_new_walk__select_date">Dia del paseo</string>
+    <string name="owner_new_walk__select_time">Hora del paseo</string>
+    <string name="owner_new_walk__select_data">Seleccione el dia y la mascota para publicar el paseo</string>
+    <string name="owner_new_walk__publish_success">Paseo publicado correctamente</string>
 
 
     <string name="read_storage_permission_denied">Oops, parece que no aceptaste los permisos necesarios. Puedes hacerlo desde configuración.</string>
@@ -114,4 +118,5 @@
     <string name="errors__general_error">>Oops, algo salió mal intente de nuevo más tarde</string>
     <string name="ok">Si</string>
     <string name="cancel">Cancelar</string>
+    <string name="base_fragment__pick_date_title">Selecciona la hora del paseo</string>
 </resources>
