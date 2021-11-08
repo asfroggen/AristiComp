@@ -3,6 +3,7 @@ package com.esaudev.aristicomp.owner.ui.adapters
 import android.content.Context
 import android.graphics.Typeface
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -12,6 +13,7 @@ import com.esaudev.aristicomp.extensions.hasNotPassed
 import com.esaudev.aristicomp.extensions.load
 import com.esaudev.aristicomp.extensions.toDate
 import com.esaudev.aristicomp.model.Walk
+import com.esaudev.aristicomp.model.WalkStatus
 
 class OwnerWalkAdapter(
     private val context: Context,
@@ -54,7 +56,13 @@ class OwnerWalkAdapter(
                 tvDate.text = context.getString(R.string.owner_walks__date_overdue)
             }
 
-            binding.root.setOnClickListener { itemClickListener.onOwnerWalkClickListener(item) }
+            when(item.status){
+                WalkStatus.ACCEPTED.toString() -> ivDelete.setImageResource(R.drawable.ic_accepted_time)
+                WalkStatus.PAST.toString() -> ivDelete.visibility = View.GONE
+                WalkStatus.PENDING.toString() -> ivDelete.setImageResource(R.drawable.ic_delete)
+            }
+
+            root.setOnClickListener { itemClickListener.onOwnerWalkClickListener(item) }
             ivDelete.setOnClickListener { itemClickListener.onOwnerDeleteClickListener(item) }
         }
     }

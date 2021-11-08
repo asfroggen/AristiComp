@@ -180,11 +180,19 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
     }
 
     override fun onOwnerWalkClickListener(walk: Walk) {
-
+        when(walk.status){
+            WalkStatus.PENDING.toString() -> Unit
+            WalkStatus.PAST.toString() -> Unit
+            WalkStatus.ACCEPTED.toString() -> Unit
+        }
     }
 
     override fun onOwnerDeleteClickListener(walk: Walk) {
-        showAlertDialog(walk)
+        when(walk.status){
+            WalkStatus.PENDING.toString() -> showAlertDialog(walk)
+            WalkStatus.PAST.toString() -> Unit
+            WalkStatus.ACCEPTED.toString() -> Unit
+        }
     }
 
 }
