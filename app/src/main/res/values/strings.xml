@@ -94,6 +94,10 @@
     <string name="owner_walks__walks_done">Paseos pasados</string>
     <string name="owner_walks__walks_scheduled">Paseos programados</string>
     <string name="owner_walks__no_walks">Opps, parece que no tienes paseos registrados aún</string>
+    <string name="owner_walks__select_active">Paseos abiertos</string>
+    <string name="owner_walks__select_past">Paseos anteriores</string>
+    <string name="owner_walks__select_accepted">Paseos programados</string>
+    <string name="owner_walks__select_type">Seleccione un filtro</string>
 
     <string name="owner_new_walk__header">Solicitar un paseo</string>
     <string name="owner_new_walk__general_data">Datos generales</string>

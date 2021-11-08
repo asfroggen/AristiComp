@@ -1,5 +1,6 @@
 package com.esaudev.aristicomp.owner.repository.walks
 
+import android.util.Log
 import com.esaudev.aristicomp.di.FirebaseModule
 import com.esaudev.aristicomp.model.Walk
 import com.esaudev.aristicomp.utils.Constants
@@ -51,7 +52,7 @@ class OwnerWalksRepositoryImpl @Inject constructor(
                 .toObjects(Walk::class.java)
 
             isSuccessFul = walks.size > 0
-
+            Log.d("TAG_ESAU", walks.toString())
             if (isSuccessFul){
                 emit(DataState.Success(walks))
             } else {
@@ -59,6 +60,7 @@ class OwnerWalksRepositoryImpl @Inject constructor(
             }
             emit(DataState.Finished)
         } catch (e: Exception) {
+            Log.d("TAG_ESAU", e.toString())
             emit(DataState.Error(Constants.NETWORK_UNKNOWN_ERROR))
             emit(DataState.Finished)
         }

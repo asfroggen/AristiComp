@@ -111,19 +111,23 @@ class OwnerNewWalkFragment : Fragment() {
     }
 
     private fun getWalk(): Walk {
+        val petSelected = getPet(binding.etPet.text.toString())
         return Walk(
-            petID = getPetID(binding.etPet.text.toString()),
+            petID = petSelected.id,
             ownerID = Session.USER_LOGGED.id,
-            status = WalkStatus.ACCEPTED.toString(),
+            status = WalkStatus.PENDING.toString(),
             date = binding.tvDate.text.toString(),
             time = binding.tvTime.text.toString(),
             ownerName = Session.USER_LOGGED.name,
-            comments = binding.etComments.text.toString()
+            comments = binding.etComments.text.toString(),
+            petName =petSelected.name,
+            petImage = petSelected.image,
+            petRace = petSelected.race
         )
     }
 
-    private fun getPetID(name: String): String{
-        return petList[petsAdapter.getPosition(name)].id
+    private fun getPet(name: String): Pet{
+        return petList[petsAdapter.getPosition(name)]
     }
 
     private fun allDataFilled(): Boolean {
