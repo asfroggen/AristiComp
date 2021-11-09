@@ -45,6 +45,7 @@ class OwnerPastWalkFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initView()
+        initListeners()
     }
 
     private fun initView(){
@@ -67,6 +68,12 @@ class OwnerPastWalkFragment : Fragment() {
             }
 
             tvWalker.text = walk.walkerName
+        }
+    }
+
+    private fun initListeners(){
+        with(binding){
+            mbBack.setOnClickListener { activity?.onBackPressed() }
         }
     }
 }

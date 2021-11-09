@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque">
 
-    <item android:drawable="@color/brown"/>
+    <item android:drawable="@color/yellow_splash"/>
 
     <item
         android:left="100dp"
@@ -10,7 +10,7 @@
         android:top="260dp"
         android:bottom="260dp"
         android:gravity="center"
-        android:drawable="@drawable/ic_logo">
+        android:drawable="@drawable/ic_dog_splash">
     </item>
 
 </layer-list>

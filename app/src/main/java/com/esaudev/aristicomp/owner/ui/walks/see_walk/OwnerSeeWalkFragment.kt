@@ -44,6 +44,7 @@ class OwnerSeeWalkFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initView()
+        initListeners()
     }
 
     private fun initView(){
@@ -69,5 +70,9 @@ class OwnerSeeWalkFragment : Fragment() {
         }
     }
 
-
+    private fun initListeners(){
+        with(binding){
+            mbBack.setOnClickListener { activity?.onBackPressed() }
+        }
+    }
 }
