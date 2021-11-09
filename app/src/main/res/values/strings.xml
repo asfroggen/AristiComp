@@ -135,6 +135,7 @@
     <string name="walker_walk__age_placeholder">%1$s años</string>
     <string name="walker_walk__comments">Comentarios</string>
     <string name="walker_walk__no_comments">Sin comentarios</string>
+    <string name="walker_walk__walk_accepted">Paseo aceptado correctamente</string>
 
     <string name="read_storage_permission_denied">Oops, parece que no aceptaste los permisos necesarios. Puedes hacerlo desde configuración.</string>
     <string name="image_selection_failed">Oops, parece que algo salió mal.</string>

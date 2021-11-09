@@ -7,4 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface WalkerWalksRepository {
 
     suspend fun getWalksAvailable(): Flow<DataState<List<Walk>>>
+
+    suspend fun acceptWalk(walk: Walk): Flow<DataState<Boolean>>
 }
