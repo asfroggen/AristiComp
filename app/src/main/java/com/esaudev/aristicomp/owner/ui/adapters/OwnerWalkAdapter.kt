@@ -57,9 +57,20 @@ class OwnerWalkAdapter(
             }
 
             when(item.status){
-                WalkStatus.ACCEPTED.toString() -> ivDelete.setImageResource(R.drawable.ic_accepted_time)
-                WalkStatus.PAST.toString() -> ivDelete.visibility = View.GONE
-                WalkStatus.PENDING.toString() -> ivDelete.setImageResource(R.drawable.ic_delete)
+                WalkStatus.ACCEPTED.toString() -> {
+                    ivDelete.setImageResource(R.drawable.ic_accepted_time)
+                    ivDelete.visibility = View.VISIBLE
+                    tvSee.visibility = View.GONE
+                }
+                WalkStatus.PAST.toString() -> {
+                    ivDelete.visibility = View.GONE
+                    tvSee.visibility = View.VISIBLE
+                }
+                WalkStatus.PENDING.toString() -> {
+                    ivDelete.setImageResource(R.drawable.ic_delete)
+                    tvSee.visibility = View.GONE
+                    ivDelete.visibility = View.VISIBLE
+                }
             }
 
             root.setOnClickListener { itemClickListener.onOwnerWalkClickListener(item) }

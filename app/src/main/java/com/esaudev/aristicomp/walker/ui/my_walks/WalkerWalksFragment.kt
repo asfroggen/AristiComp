@@ -78,9 +78,9 @@ class WalkerWalksFragment : Fragment(), WalkerWalkAdapter.OnWalkerWalkClickListe
 
     private fun handleSuccess(walks: List<Walk>){
         hideProgressbar()
+        walksAdapter?.submitList(walks)
         binding.gEmptyState.visibility = View.GONE
         binding.gSuccessState.visibility = View.VISIBLE
-        walksAdapter?.submitList(walks)
     }
 
     private fun handleError(){

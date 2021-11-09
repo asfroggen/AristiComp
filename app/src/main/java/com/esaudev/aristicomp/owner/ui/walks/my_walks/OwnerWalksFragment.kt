@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
+import androidx.core.os.bundleOf
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -20,6 +21,7 @@ import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.model.Walk
 import com.esaudev.aristicomp.model.WalkStatus
 import com.esaudev.aristicomp.owner.ui.adapters.OwnerWalkAdapter
+import com.esaudev.aristicomp.utils.Constants.WALK_BUNDLE
 import com.esaudev.aristicomp.utils.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -119,9 +121,9 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
 
     private fun handleWalksSuccess(walks: List<Walk>){
         hideProgressbar()
+        walksAdapter?.submitList(walks)
         binding.gEmptyState.visibility = View.GONE
         binding.gSuccessState.visibility = View.VISIBLE
-        walksAdapter?.submitList(walks)
     }
 
     private fun handleWalksError(){
@@ -182,8 +184,8 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
     override fun onOwnerWalkClickListener(walk: Walk) {
         when(walk.status){
             WalkStatus.PENDING.toString() -> Unit
-            WalkStatus.PAST.toString() -> Unit
-            WalkStatus.ACCEPTED.toString() -> Unit
+            WalkStatus.PAST.toString() -> findNavController().navigate(R.id.ownerWalksFragmentToOwnerPastWalkFragment, bundleOf(WALK_BUNDLE to walk))
+            WalkStatus.ACCEPTED.toString() -> findNavController().navigate(R.id.ownerWalksFragmentToOwnerSeeWalkFragment, bundleOf(WALK_BUNDLE to walk))
         }
     }
 

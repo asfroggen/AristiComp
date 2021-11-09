@@ -118,6 +118,13 @@
     <string name="owner_new_walk__select_data_error">El dia del paseo es inválido, seleccione otro para continuar</string>
     <string name="owner_new_walk__publish_success">Paseo publicado correctamente</string>
 
+
+    <string name="owner_see_walk__header">Paseo pasado</string>
+    <string name="owner_see_walk__walker_label">Paseo realizado por: </string>
+
+    <string name="owner_scheduled_walk__header">Paseo programado</string>
+    <string name="owner_scheduled_walk__walker_label">El paseo será realizado por: </string>
+
     <string name="walker__bottom_menu_search">Buscar paseos</string>
     <string name="walker__bottom_menu_walks">Mis paseos</string>
 

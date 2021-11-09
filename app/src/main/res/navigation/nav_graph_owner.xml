@@ -37,6 +37,20 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/ownerWalksFragmentToOwnerSeeWalkFragment"
+            app:destination="@id/ownerSeeWalkFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/ownerWalksFragmentToOwnerPastWalkFragment"
+            app:destination="@id/ownerPastWalkFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/ownerNewPetFragment"
@@ -53,5 +67,15 @@
         android:name="com.esaudev.aristicomp.owner.ui.walks.new_walk.OwnerNewWalkFragment"
         android:label="fragment_owner_new_walk"
         tools:layout="@layout/fragment_owner_new_walk" />
+    <fragment
+        android:id="@+id/ownerSeeWalkFragment"
+        android:name="com.esaudev.aristicomp.owner.ui.walks.see_walk.OwnerSeeWalkFragment"
+        android:label="fragment_owner_see_walk"
+        tools:layout="@layout/fragment_owner_see_walk" />
+    <fragment
+        android:id="@+id/ownerPastWalkFragment"
+        android:name="com.esaudev.aristicomp.owner.ui.walks.past_walk.OwnerPastWalkFragment"
+        android:label="fragment_owner_past_walk"
+        tools:layout="@layout/fragment_owner_past_walk" />
 
 </navigation>
