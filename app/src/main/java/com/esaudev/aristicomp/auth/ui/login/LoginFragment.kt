@@ -27,7 +27,7 @@ import com.esaudev.aristicomp.extensions.showSnackBar
 import com.esaudev.aristicomp.extensions.visible
 import com.esaudev.aristicomp.owner.ui.OwnerActivity
 import com.esaudev.aristicomp.utils.Constants
-import com.esaudev.aristicomp.walker.WalkerActivity
+import com.esaudev.aristicomp.walker.ui.WalkerActivity
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi

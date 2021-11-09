@@ -27,7 +27,7 @@
             android:name=".owner.ui.OwnerActivity"
             android:exported="false" />
         <activity
-            android:name=".walker.WalkerActivity"
+            android:name=".walker.ui.WalkerActivity"
             android:exported="false" />
         <activity
             android:name=".auth.ui.LoginActivity"

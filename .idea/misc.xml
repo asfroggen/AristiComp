@@ -14,6 +14,7 @@
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/drawable/asset_ripple_light.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/drawable/asset_rounded_corner.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/drawable/asset_top_rounded_corner.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/drawable/asset_top_side_rounded_corner.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/drawable/background_splash.xml" value="0.3828125" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/drawable/ic_accepted_time.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/drawable/ic_back.xml" value="0.3828125" />
@@ -32,7 +33,7 @@
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/activity_owner.xml" value="0.22" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/activity_splash.xml" value="0.3229166666666667" />
-        <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/activity_walker.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/activity_walker.xml" value="0.2" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/fragment_email_verification.xml" value="0.25" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/fragment_forgot_password.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/fragment_login.xml" value="0.33" />
@@ -44,10 +45,15 @@
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/fragment_owner_walks.xml" value="0.25" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/fragment_sign_in.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/fragment_walker_search.xml" value="0.22" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/fragment_walker_walk.xml" value="0.25" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/fragment_walker_walks.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/item_dropdown.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/item_owner_walk.xml" value="0.33" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/item_pet.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/layout/item_walker_walk.xml" value="0.22" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/menu/bottom_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/AristiComp/app/src/main/res/menu/walker_bottom_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

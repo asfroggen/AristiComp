@@ -118,6 +118,24 @@
     <string name="owner_new_walk__select_data_error">El dia del paseo es inválido, seleccione otro para continuar</string>
     <string name="owner_new_walk__publish_success">Paseo publicado correctamente</string>
 
+    <string name="walker__bottom_menu_search">Buscar paseos</string>
+    <string name="walker__bottom_menu_walks">Mis paseos</string>
+
+    <string name="walker_search__header">Paseos disponibles</string>
+    <string name="walker_search__item_walk">Ver</string>
+    <string name="walker_search__date_overdue">Fecha vencida</string>
+    <string name="walker_search__date_overdue_disclaimer">La fecha de este paseo ha vencido</string>
+    <string name="walker_search__no_walks">Oops, parece que no hay paseos registrados aún</string>
+
+    <string name="walker_walk__header">Ver paseo</string>
+    <string name="walker_walk__accept_walk_button">Aceptar paseo</string>
+    <string name="walker_walk__duration">Duración</string>
+    <string name="walker_walk__owner">Dueño</string>
+    <string name="walker_walk__date">Fecha</string>
+    <string name="walker_walk__age_placeholder">%1$s años</string>
+    <string name="walker_walk__comments">Comentarios</string>
+    <string name="walker_walk__no_comments">Sin comentarios</string>
+
     <string name="read_storage_permission_denied">Oops, parece que no aceptaste los permisos necesarios. Puedes hacerlo desde configuración.</string>
     <string name="image_selection_failed">Oops, parece que algo salió mal.</string>
 

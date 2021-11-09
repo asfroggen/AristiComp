@@ -11,7 +11,7 @@ import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.owner.ui.OwnerActivity
 import com.esaudev.aristicomp.utils.Constants.SHARED_EMAIL
 import com.esaudev.aristicomp.utils.Constants.SHARED_PASSWORD
-import com.esaudev.aristicomp.walker.WalkerActivity
+import com.esaudev.aristicomp.walker.ui.WalkerActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

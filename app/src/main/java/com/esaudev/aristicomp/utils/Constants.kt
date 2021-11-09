@@ -18,10 +18,11 @@ object Constants {
     const val USER_BUNDLE = "user_bundle"
     const val USER_PASSWORD_BUNDLE = "user_password_bundle"
     const val PET_BUNDLE = "pet_bundle"
+    const val WALK_BUNDLE ="walk_bundle"
 
     // Firebase
     var FIREBASE_USER_SIGNED: FirebaseUser? = null
-    const val DEFAULT_DOG_IMAGE = "https://firebasestorage.googleapis.com/v0/b/perritos-felices-3834c.appspot.com/o/default_dog.png?alt=media&token=4dfc7618-261e-4696-aec6-a745a69b6e38"
+    const val DEFAULT_DOG_IMAGE = "https://firebasestorage.googleapis.com/v0/b/perritos-felices-3834c.appspot.com/o/mechita.png?alt=media&token=62108e37-6473-429e-8ade-043deab08f83"
 
     // Shared preferences
     const val ENCRYPTED_SHARED_PREFERENCES_NAME = "ENCRYPTED_SHARED_PREFERENCES_NAME"

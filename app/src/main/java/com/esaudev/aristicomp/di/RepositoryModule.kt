@@ -15,6 +15,8 @@ import com.esaudev.aristicomp.owner.repository.pets.OwnerPetsRepository
 import com.esaudev.aristicomp.owner.repository.pets.OwnerPetsRepositoryImpl
 import com.esaudev.aristicomp.owner.repository.walks.OwnerWalksRepository
 import com.esaudev.aristicomp.owner.repository.walks.OwnerWalksRepositoryImpl
+import com.esaudev.aristicomp.walker.repository.WalkerWalksRepository
+import com.esaudev.aristicomp.walker.repository.WalkerWalksRepositoryImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -48,6 +50,16 @@ object RepositoryModule {
         @FirebaseModule.WalksCollection walksCollection: CollectionReference
     ): OwnerWalksRepository {
         return OwnerWalksRepositoryImpl(
+            walksCollection
+        )
+    }
+
+    @Singleton
+    @Provides
+    fun provideWalkerWalksRepository(
+        @FirebaseModule.WalksCollection walksCollection: CollectionReference
+    ): WalkerWalksRepository {
+        return WalkerWalksRepositoryImpl(
             walksCollection
         )
     }

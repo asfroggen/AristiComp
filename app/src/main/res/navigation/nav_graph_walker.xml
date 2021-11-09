@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_walker"
+    app:startDestination="@id/walkerSearchFragment">
+
+    <fragment
+        android:id="@+id/walkerSearchFragment"
+        android:name="com.esaudev.aristicomp.walker.ui.search_walks.WalkerSearchFragment"
+        android:label="fragment_walker_search"
+        tools:layout="@layout/fragment_walker_search" >
+        <action
+            android:id="@+id/walkerSearchToWalkerWalkFragment"
+            app:destination="@id/walkerWalkFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/walkerWalksFragment"
+        android:name="com.esaudev.aristicomp.walker.ui.my_walks.WalkerWalksFragment"
+        android:label="fragment_walker_walks"
+        tools:layout="@layout/fragment_walker_walks" />
+    <fragment
+        android:id="@+id/walkerWalkFragment"
+        android:name="com.esaudev.aristicomp.walker.ui.walk.WalkerWalkFragment"
+        android:label="fragment_walker_walk"
+        tools:layout="@layout/fragment_walker_walk" />
+</navigation>

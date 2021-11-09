@@ -45,7 +45,7 @@ class OwnerWalksRepositoryImpl @Inject constructor(
         emit(DataState.Loading)
         try {
 
-            var isSuccessFul = false
+            var isSuccessful = false
             val walks = walksCollection
                 .whereEqualTo(OWNER_ID_LABEL, ownerID)
                 .whereEqualTo(STATUS_LABEL, type)
@@ -53,9 +53,9 @@ class OwnerWalksRepositoryImpl @Inject constructor(
                 .await()
                 .toObjects(Walk::class.java)
 
-            isSuccessFul = walks.size > 0
+            isSuccessful = walks.size > 0
 
-            if (isSuccessFul){
+            if (isSuccessful){
                 emit(DataState.Success(walks))
             } else {
                 emit(DataState.Error(Constants.NETWORK_UNKNOWN_ERROR))

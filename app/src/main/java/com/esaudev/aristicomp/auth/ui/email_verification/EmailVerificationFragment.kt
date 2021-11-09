@@ -20,7 +20,7 @@ import com.esaudev.aristicomp.utils.Constants.SHARED_EMAIL
 import com.esaudev.aristicomp.utils.Constants.SHARED_PASSWORD
 import com.esaudev.aristicomp.utils.Constants.USER_BUNDLE
 import com.esaudev.aristicomp.utils.Constants.USER_PASSWORD_BUNDLE
-import com.esaudev.aristicomp.walker.WalkerActivity
+import com.esaudev.aristicomp.walker.ui.WalkerActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject

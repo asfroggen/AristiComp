@@ -136,7 +136,8 @@ class OwnerNewWalkFragment : Fragment() {
             petName =petSelected.name,
             petImage = petSelected.image,
             petRace = petSelected.race,
-            fullDate = mSelectedFullDate
+            fullDate = mSelectedFullDate,
+            petAge = petSelected.age
         )
     }
 
