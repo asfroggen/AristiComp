@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".walker.ui.accept_walk.WalkerWalkFragment">
+    tools:context=".walker.ui.past_walk.WalkerPastFragment">
 
     <ScrollView
         android:layout_width="0dp"
@@ -247,36 +247,6 @@
                         app:layout_constraintTop_toBottomOf="@id/tvCommentsLabel"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/mbAcceptWalk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="16dp"
-                        android:layout_marginTop="32dp"
-                        app:layout_goneMarginTop="40dp"
-                        android:backgroundTint="@color/yellow"
-                        android:paddingVertical="16dp"
-                        android:text="@string/walker_walk__accept_walk_button"
-                        android:textColor="@android:color/white"
-                        app:cornerRadius="20dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvComments"
-                        app:layout_constraintVertical_bias=".4"/>
-
-                    <com.google.android.material.progressindicator.CircularProgressIndicator
-                        android:id="@+id/pbAcceptWalk"
-                        style="@style/Theme.AristiComp.CircularProgressIndicator"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:indeterminate="true"
-                        android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="@id/mbAcceptWalk"
-                        app:layout_constraintEnd_toEndOf="@id/mbAcceptWalk"
-                        app:layout_constraintStart_toStartOf="@id/mbAcceptWalk"
-                        app:layout_constraintTop_toTopOf="@id/mbAcceptWalk" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

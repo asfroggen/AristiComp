@@ -1,4 +1,4 @@
-package com.esaudev.aristicomp.walker.ui.walk
+package com.esaudev.aristicomp.walker.ui.accept_walk
 
 import android.content.Context
 import android.os.Bundle
@@ -8,13 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.esaudev.aristicomp.R
-import com.esaudev.aristicomp.databinding.FragmentWalkerSearchBinding
 import com.esaudev.aristicomp.databinding.FragmentWalkerWalkBinding
 import com.esaudev.aristicomp.extensions.goneToBottom
 import com.esaudev.aristicomp.extensions.load
 import com.esaudev.aristicomp.extensions.showSnackBar
 import com.esaudev.aristicomp.extensions.visibleFromBottom
-import com.esaudev.aristicomp.model.Pet
 import com.esaudev.aristicomp.model.Session
 import com.esaudev.aristicomp.model.Walk
 import com.esaudev.aristicomp.model.WalkStatus

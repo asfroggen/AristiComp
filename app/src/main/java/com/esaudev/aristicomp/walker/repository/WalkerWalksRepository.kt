@@ -8,5 +8,9 @@ interface WalkerWalksRepository {
 
     suspend fun getWalksAvailable(): Flow<DataState<List<Walk>>>
 
+    suspend fun getWalksByTypeAndWalker(type: String, walkerID: String): Flow<DataState<List<Walk>>>
+
     suspend fun acceptWalk(walk: Walk): Flow<DataState<Boolean>>
+
+    suspend fun finishWalk(walk: Walk): Flow<DataState<Boolean>>
 }

@@ -6,6 +6,7 @@ import com.esaudev.aristicomp.model.WalkStatus
 import com.esaudev.aristicomp.utils.Constants
 import com.esaudev.aristicomp.utils.Constants.NETWORK_UNKNOWN_ERROR
 import com.esaudev.aristicomp.utils.Constants.STATUS_LABEL
+import com.esaudev.aristicomp.utils.Constants.WALKER_ID_LABEL
 import com.esaudev.aristicomp.utils.DataState
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.SetOptions
@@ -54,7 +55,58 @@ class WalkerWalksRepositoryImpl @Inject constructor(
         awaitClose { subscription.remove() }
     }
 
+    override suspend fun getWalksByTypeAndWalker(type: String, walkerID: String): Flow<DataState<List<Walk>>> = flow {
+        emit(DataState.Loading)
+        try {
+
+            var isSuccessful = false
+            val walks = walksCollection
+                .whereEqualTo(WALKER_ID_LABEL, walkerID)
+                .whereEqualTo(STATUS_LABEL, type)
+                .get()
+                .await()
+                .toObjects(Walk::class.java)
+
+            isSuccessful = walks.size > 0
+
+            if (isSuccessful){
+                emit(DataState.Success(walks))
+            } else {
+                emit(DataState.Error(Constants.NETWORK_UNKNOWN_ERROR))
+            }
+            emit(DataState.Finished)
+        } catch (e: Exception) {
+
+            emit(DataState.Error(Constants.NETWORK_UNKNOWN_ERROR))
+            emit(DataState.Finished)
+        }
+    }
+
     override suspend fun acceptWalk(walk: Walk): Flow<DataState<Boolean>> = flow {
+        emit(DataState.Loading)
+        try {
+
+            var isSuccessful = false
+            walksCollection
+                .document(walk.id)
+                .set(walk, SetOptions.merge())
+                .addOnSuccessListener { isSuccessful = true }
+                .addOnFailureListener { isSuccessful = false }
+                .await()
+
+            if (isSuccessful){
+                emit(DataState.Success(isSuccessful))
+            } else {
+                emit(DataState.Error(NETWORK_UNKNOWN_ERROR))
+            }
+            emit(DataState.Finished)
+        } catch (e: Exception) {
+            emit(DataState.Error(NETWORK_UNKNOWN_ERROR))
+            emit(DataState.Finished)
+        }
+    }
+
+    override suspend fun finishWalk(walk: Walk): Flow<DataState<Boolean>> = flow {
         emit(DataState.Loading)
         try {
 

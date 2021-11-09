@@ -22,10 +22,35 @@
         android:id="@+id/walkerWalksFragment"
         android:name="com.esaudev.aristicomp.walker.ui.my_walks.WalkerWalksFragment"
         android:label="fragment_walker_walks"
-        tools:layout="@layout/fragment_walker_walks" />
+        tools:layout="@layout/fragment_walker_walks" >
+        <action
+            android:id="@+id/walkerWalksFragmentToWalkerFinishFragment"
+            app:destination="@id/walkerFinishFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/walkerWalksFragmentToWalkerPastFragment"
+            app:destination="@id/walkerPastFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/walkerWalkFragment"
-        android:name="com.esaudev.aristicomp.walker.ui.walk.WalkerWalkFragment"
+        android:name="com.esaudev.aristicomp.walker.ui.accept_walk.WalkerWalkFragment"
         android:label="fragment_walker_walk"
         tools:layout="@layout/fragment_walker_walk" />
+    <fragment
+        android:id="@+id/walkerFinishFragment"
+        android:name="com.esaudev.aristicomp.walker.ui.finish_walk.WalkerFinishFragment"
+        android:label="fragment_walker_finish"
+        tools:layout="@layout/fragment_walker_finish" />
+    <fragment
+        android:id="@+id/walkerPastFragment"
+        android:name="com.esaudev.aristicomp.walker.ui.past_walk.WalkerPastFragment"
+        android:label="fragment_walker_past"
+        tools:layout="@layout/fragment_walker_past" />
 </navigation>

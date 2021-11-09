@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".walker.ui.accept_walk.WalkerWalkFragment">
+    tools:context=".walker.ui.finish_walk.WalkerFinishFragment">
 
     <ScrollView
         android:layout_width="0dp"
@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="@string/walker_walk__header"
+                    android:text="@string/walker_walk__header_finish"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:textSize="20sp"
@@ -249,7 +249,7 @@
                         app:layout_constraintEnd_toEndOf="parent"/>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/mbAcceptWalk"
+                        android:id="@+id/mbFinishWalk"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="16dp"
@@ -257,7 +257,7 @@
                         app:layout_goneMarginTop="40dp"
                         android:backgroundTint="@color/yellow"
                         android:paddingVertical="16dp"
-                        android:text="@string/walker_walk__accept_walk_button"
+                        android:text="@string/walker_walk__finish_walk_button"
                         android:textColor="@android:color/white"
                         app:cornerRadius="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -267,16 +267,16 @@
                         app:layout_constraintVertical_bias=".4"/>
 
                     <com.google.android.material.progressindicator.CircularProgressIndicator
-                        android:id="@+id/pbAcceptWalk"
+                        android:id="@+id/pbFinishWalk"
                         style="@style/Theme.AristiComp.CircularProgressIndicator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:indeterminate="true"
                         android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="@id/mbAcceptWalk"
-                        app:layout_constraintEnd_toEndOf="@id/mbAcceptWalk"
-                        app:layout_constraintStart_toStartOf="@id/mbAcceptWalk"
-                        app:layout_constraintTop_toTopOf="@id/mbAcceptWalk" />
+                        app:layout_constraintBottom_toBottomOf="@id/mbFinishWalk"
+                        app:layout_constraintEnd_toEndOf="@id/mbFinishWalk"
+                        app:layout_constraintStart_toStartOf="@id/mbFinishWalk"
+                        app:layout_constraintTop_toTopOf="@id/mbFinishWalk" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
