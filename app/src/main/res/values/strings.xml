@@ -134,6 +134,7 @@
     <string name="walker_search__date_overdue">Fecha vencida</string>
     <string name="walker_search__date_overdue_disclaimer">La fecha de este paseo ha vencido</string>
     <string name="walker_search__no_walks">Oops, parece que no hay paseos registrados aún</string>
+    <string name="walker_search__log_out_warining">¿Esta seguro? Esta por cerrar su sesión actual</string>
 
     <string name="walker_walk__header">Ver paseo</string>
     <string name="walker_walk__header_finish">Terminar paseo</string>

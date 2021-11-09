@@ -11,4 +11,6 @@ interface OwnerWalksRepository {
     suspend fun getWalksBTypeAndOwner(type: String, ownerID: String): Flow<DataState<List<Walk>>>
 
     suspend fun deleteWalk(walk: Walk): Flow<DataState<Boolean>>
+
+    suspend fun logOut(): Flow<DataState<Boolean>>
 }

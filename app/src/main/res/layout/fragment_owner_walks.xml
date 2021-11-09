@@ -30,6 +30,29 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <ImageView
+                android:id="@+id/ivLogOut"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_logout"
+                android:visibility="visible"
+                app:layout_constraintTop_toTopOf="@id/tvHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tvHeader"/>
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/pbLogOut"
+                style="@style/Theme.AristiComp.CircularProgressIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="@id/tvHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tvHeader" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilSelectType"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"

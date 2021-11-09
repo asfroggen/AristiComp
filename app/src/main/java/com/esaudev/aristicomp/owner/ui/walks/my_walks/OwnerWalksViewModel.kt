@@ -44,4 +44,17 @@ class OwnerWalksViewModel @Inject constructor(
                 }.launchIn(viewModelScope)
         }
     }
+
+    private val _logOutState: MutableLiveData<DataState<Boolean>> = MutableLiveData()
+    val logOutState: LiveData<DataState<Boolean>>
+        get() = _logOutState
+
+    fun logOut(){
+        viewModelScope.launch {
+            ownerWalksRepository.logOut()
+                .onEach { dataState ->
+                    _logOutState.value = dataState
+                }.launchIn(viewModelScope)
+        }
+    }
 }

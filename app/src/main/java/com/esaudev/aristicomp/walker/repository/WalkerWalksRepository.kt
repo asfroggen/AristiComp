@@ -13,4 +13,6 @@ interface WalkerWalksRepository {
     suspend fun acceptWalk(walk: Walk): Flow<DataState<Boolean>>
 
     suspend fun finishWalk(walk: Walk): Flow<DataState<Boolean>>
+
+    suspend fun logOut(): Flow<DataState<Boolean>>
 }

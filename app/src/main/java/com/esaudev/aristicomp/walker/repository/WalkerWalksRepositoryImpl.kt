@@ -8,6 +8,7 @@ import com.esaudev.aristicomp.utils.Constants.NETWORK_UNKNOWN_ERROR
 import com.esaudev.aristicomp.utils.Constants.STATUS_LABEL
 import com.esaudev.aristicomp.utils.Constants.WALKER_ID_LABEL
 import com.esaudev.aristicomp.utils.DataState
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.SetOptions
 import kotlinx.coroutines.channels.awaitClose
@@ -18,7 +19,8 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class WalkerWalksRepositoryImpl @Inject constructor(
-    @FirebaseModule.WalksCollection private val walksCollection: CollectionReference
+    @FirebaseModule.WalksCollection private val walksCollection: CollectionReference,
+    private val firebaseAuth: FirebaseAuth
 ): WalkerWalksRepository {
     override suspend fun getWalksAvailable(): Flow<DataState<List<Walk>>> = callbackFlow {
 
@@ -126,6 +128,18 @@ class WalkerWalksRepositoryImpl @Inject constructor(
             emit(DataState.Finished)
         } catch (e: Exception) {
             emit(DataState.Error(NETWORK_UNKNOWN_ERROR))
+            emit(DataState.Finished)
+        }
+    }
+
+    override suspend fun logOut(): Flow<DataState<Boolean>> = flow {
+        emit(DataState.Loading)
+        try {
+            firebaseAuth.signOut()
+            emit(DataState.Success(true))
+            emit(DataState.Finished)
+        } catch (e: Exception){
+            emit(DataState.Error(Constants.NETWORK_UNKNOWN_ERROR))
             emit(DataState.Finished)
         }
     }

@@ -1,5 +1,7 @@
 package com.esaudev.aristicomp.owner.ui.walks.my_walks
 
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputType
 import androidx.fragment.app.Fragment
@@ -14,6 +16,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.esaudev.aristicomp.R
+import com.esaudev.aristicomp.auth.ui.LoginActivity
 import com.esaudev.aristicomp.databinding.FragmentOwnerWalksBinding
 import com.esaudev.aristicomp.extensions.showSnackBar
 import com.esaudev.aristicomp.extensions.toast
@@ -24,6 +27,8 @@ import com.esaudev.aristicomp.owner.ui.adapters.OwnerWalkAdapter
 import com.esaudev.aristicomp.utils.Constants.WALK_BUNDLE
 import com.esaudev.aristicomp.utils.DataState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_owner_walks.*
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener {
@@ -34,6 +39,9 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
 
     private val viewModel: OwnerWalksViewModel by viewModels()
     private var walksAdapter: OwnerWalkAdapter? = null
+
+    @Inject
+    lateinit var sharedPrefs: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -95,7 +103,42 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
                 else -> Unit
             }
         })
+
+        viewModel.logOutState.observe(viewLifecycleOwner, { dataState ->
+            when(dataState){
+                is DataState.Loading -> showLogOutProgressBar()
+                is DataState.Success -> handleLogOutSuccess()
+                is DataState.Error -> handleLogOutError()
+                else -> Unit
+            }
+        })
     }
+
+    private fun showLogOutProgressBar(){
+        binding.ivLogOut.visibility = View.GONE
+        binding.pbLogOut.visibility = View.VISIBLE
+    }
+
+    private fun hideLogOutProgressBar(){
+        binding.ivLogOut.visibility = View.VISIBLE
+        binding.pbLogOut.visibility = View.GONE
+    }
+
+    private fun handleLogOutSuccess(){
+        hideLogOutProgressBar()
+        clearUserPreferences()
+        startActivity(Intent(requireContext(), LoginActivity::class.java))
+        activity?.finish()
+    }
+
+    private fun handleLogOutError(){
+        hideLogOutProgressBar()
+        clearUserPreferences()
+        startActivity(Intent(requireContext(), LoginActivity::class.java))
+        activity?.finish()
+    }
+
+    private fun clearUserPreferences() = sharedPrefs.edit().clear().apply()
 
     private fun handleDeleteSuccess(){
         hideProgressbar()
@@ -162,6 +205,9 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
             fabNewWalk.setOnClickListener {
                 findNavController().navigate(R.id.ownerWalksToNewWalkFragment)
             }
+            ivLogOut.setOnClickListener {
+                showLogOutDialog()
+            }
         }
     }
 
@@ -172,6 +218,22 @@ class OwnerWalksFragment : Fragment(), OwnerWalkAdapter.OnOwnerWalkClickListener
                 setMessage(R.string.owner_walks__delete_warining)
                 setPositiveButton(R.string.ok) { _, _ ->
                     viewModel.deleteWalk(walk)
+                }
+                setNegativeButton(R.string.cancel) { dialog, _ ->
+                    dialog.dismiss()
+                }
+            }
+            builder.show()
+        }
+    }
+
+    private fun showLogOutDialog(){
+        activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setMessage(R.string.walker_search__log_out_warining)
+                setPositiveButton(R.string.ok) { _, _ ->
+                    viewModel.logOut()
                 }
                 setNegativeButton(R.string.cancel) { dialog, _ ->
                     dialog.dismiss()

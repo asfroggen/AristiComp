@@ -47,20 +47,24 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun provideOwnerWalksRepository(
-        @FirebaseModule.WalksCollection walksCollection: CollectionReference
+        @FirebaseModule.WalksCollection walksCollection: CollectionReference,
+        firebaseAuth: FirebaseAuth
     ): OwnerWalksRepository {
         return OwnerWalksRepositoryImpl(
-            walksCollection
+            walksCollection,
+            firebaseAuth
         )
     }
 
     @Singleton
     @Provides
     fun provideWalkerWalksRepository(
-        @FirebaseModule.WalksCollection walksCollection: CollectionReference
+        @FirebaseModule.WalksCollection walksCollection: CollectionReference,
+        firebaseAuth: FirebaseAuth
     ): WalkerWalksRepository {
         return WalkerWalksRepositoryImpl(
-            walksCollection
+            walksCollection,
+            firebaseAuth
         )
     }
 }

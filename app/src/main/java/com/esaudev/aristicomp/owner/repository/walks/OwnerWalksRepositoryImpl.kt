@@ -7,6 +7,7 @@ import com.esaudev.aristicomp.utils.Constants
 import com.esaudev.aristicomp.utils.Constants.OWNER_ID_LABEL
 import com.esaudev.aristicomp.utils.Constants.STATUS_LABEL
 import com.esaudev.aristicomp.utils.DataState
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.SetOptions
 import kotlinx.coroutines.flow.Flow
@@ -15,7 +16,8 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class OwnerWalksRepositoryImpl @Inject constructor(
-    @FirebaseModule.WalksCollection private val walksCollection: CollectionReference
+    @FirebaseModule.WalksCollection private val walksCollection: CollectionReference,
+    private val firebaseAuth: FirebaseAuth
 ): OwnerWalksRepository {
     override suspend fun saveWalk(walk: Walk): Flow<DataState<Boolean>> = flow {
         emit(DataState.Loading)
@@ -91,5 +93,16 @@ class OwnerWalksRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun logOut(): Flow<DataState<Boolean>> = flow {
+        emit(DataState.Loading)
+        try {
+            firebaseAuth.signOut()
+            emit(DataState.Success(true))
+            emit(DataState.Finished)
+        } catch (e: Exception){
+            emit(DataState.Error(Constants.NETWORK_UNKNOWN_ERROR))
+            emit(DataState.Finished)
+        }
+    }
 
 }
