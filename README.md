@@ -5,7 +5,7 @@ orquestado por [AristiDevs](https://www.youtube.com/watch?v=SI7vGES9fPA), el cua
 premisa es ayudar a resolver alguna problemática (cual sea que se te haya ocurrido).
 
 
-##¿Qué es?
+## ¿Qué es?
 
 
 Perritos felices es una aplicación móvil que busca satisfacer las necesidades fisiológicas y de esparcimiento 
@@ -26,7 +26,7 @@ ya sea como dueño de un perrito o como paseador dependiendo sus necesidades.
 > Tipos de usuario
 
 
-##¿Qué puede hacer un dueño?
+## ¿Qué puede hacer un dueño?
 
 
 Cualquier persona que se registre como dueño de un perrito podrá dar de alta a sus perritos en el sistema, así como publicar 
@@ -40,7 +40,7 @@ un paseo para un día y una hora dada esperando la respuesta de un paseador.
 > Funciones que pueden realizar los dueños de un perrito
 
 
-##¿Qué puede hacer un paseador?
+## ¿Qué puede hacer un paseador?
 
 
 Como paseador estas al servicio de los perritos que necesitan el paseo, una vez un usuario dueño publica un nuevo paseo, este 
@@ -52,7 +52,7 @@ le darás el paseo que se merece, si señor, nada como ganarse la vida paseando 
 ![](https://firebasestorage.googleapis.com/v0/b/perritos-felices-3834c.appspot.com/o/Screenshot_1636502070.png?alt=media&token=1dc40b60-661b-4128-a0b6-0cf999958008)
 > Funciones que pueden realizar los peseadores de perritos
 
-##Datos técnicos
+## Datos técnicos
 
 
 La aplicación esta divida por features (login, owner y walker) el login fue implementado bajo la arquitectura MVI, el resto de 
