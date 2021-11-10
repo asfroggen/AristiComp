@@ -39,6 +39,7 @@
                 android:layout_marginTop="16dp"
                 android:hint="@string/owner_walks__select_type"
                 android:textColorHint="@color/color_secondary"
+                android:focusedByDefault="false"
                 app:boxCornerRadiusBottomEnd="16dp"
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
@@ -51,6 +52,7 @@
                     android:id="@+id/etType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusedByDefault="false"
                     android:inputType="none"
                     android:padding="16dp" />
             </com.google.android.material.textfield.TextInputLayout>

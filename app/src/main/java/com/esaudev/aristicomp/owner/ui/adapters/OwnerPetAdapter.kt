@@ -38,6 +38,7 @@ class OwnerPetAdapter(
 
             ivImage.load(item.image)
             tvName.text = item.name
+            tvRace.text = item.race
             mcvPet.setOnClickListener { itemClickListener.onOwnerPetClickListener(item) }
         }
     }

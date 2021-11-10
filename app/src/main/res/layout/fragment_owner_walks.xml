@@ -39,7 +39,8 @@
                 android:visibility="visible"
                 app:layout_constraintTop_toTopOf="@id/tvHeader"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/tvHeader"/>
+                app:layout_constraintBottom_toBottomOf="@id/tvHeader"
+                app:tint="?attr/colorOnSurface" />
 
             <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/pbLogOut"
@@ -60,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
+                android:focusedByDefault="false"
                 android:hint="@string/owner_walks__select_type"
                 android:textColorHint="@color/color_secondary"
                 app:boxCornerRadiusBottomEnd="16dp"
@@ -74,6 +76,7 @@
                     android:id="@+id/etType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusedByDefault="false"
                     android:inputType="none"
                     android:padding="16dp" />
             </com.google.android.material.textfield.TextInputLayout>

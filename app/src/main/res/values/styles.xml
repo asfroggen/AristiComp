@@ -15,6 +15,10 @@
         <item name="cornerSize">0%</item>
     </style>
 
+    <style name="Theme.AristiComp.Rounded">
+        <item name="cornerSize">50%</item>
+    </style>
+
     <style name="Theme.AristiComp.Rounded_20">
         <item name="cornerSize">20%</item>
     </style>

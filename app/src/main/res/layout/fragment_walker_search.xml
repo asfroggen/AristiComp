@@ -39,7 +39,8 @@
                 android:visibility="visible"
                 app:layout_constraintTop_toTopOf="@id/tvHeader"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/tvHeader"/>
+                app:layout_constraintBottom_toBottomOf="@id/tvHeader"
+                app:tint="?attr/colorOnSurface" />
 
             <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/pbLogOut"
