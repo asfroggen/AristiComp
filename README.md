@@ -2,7 +2,7 @@
 
 Bienvenid@ al repositorio de perritos felices, este proyecto nació debido a la invitación al Hackathon 
 orquestado por [AristiDevs](https://www.youtube.com/watch?v=SI7vGES9fPA), el cual tiene como fecha limite de entrega el 14 de noviembre del 2021 y cuya 
-premisa es ayudar a resolver alguna problemática (cual sea que se te haya ocurrido).
+premisa es ayudar a resolver cualquier problematica que se te ocurra y que mejor que ayudar a nuestros amigos perrunos.
 
 
 ## ¿Qué es?
