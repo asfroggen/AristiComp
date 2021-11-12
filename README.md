@@ -39,14 +39,31 @@ un paseo para un día y una hora dada esperando la respuesta de un paseador.
 
 
 Como paseador estas al servicio de los perritos que necesitan el paseo, una vez un usuario dueño publica un nuevo paseo, este 
-aparecerá en tu sección de “Buscar paseos”, podrás aceptar dicho paseo y entonces una vez llegue el día recogerás al perrito y 
+aparecerá en tu sección de “Buscar paseos” (increíblemente todo en tiempo real OO:), podrás aceptar dicho paseo y entonces una vez llegue el día recogerás al perrito y 
 le darás el paseo que se merece, si señor, nada como ganarse la vida paseando perritos.
 
 ![](https://firebasestorage.googleapis.com/v0/b/perritos-felices-3834c.appspot.com/o/walker.png?alt=media&token=2ca382ca-cbb5-4b44-92dd-92f5e7171041)
 > Funciones que pueden realizar los peseadores de perritos
+
+## Alcances
+
+
+En el barrio donde vivo hay un chico que ofrece sus servicios como paseador de perro y de él fue que tome la inspiración para esta aplicación. Como pasos 
+futuros en caso de querer continuar con la aplicación serian:
+
+- Implementar un sistema de calificación de paseadores y perros (así es, luego hay perros bien tremendos XD)
+- Implementar un sistema de pagos ya sea in-app o pago en efectivo
+- Implementar un sistema de gestión de ubicación para tener un control del recorrido que hace el perrito (saber que ruta tomó el paseador)
+
 
 ## Datos técnicos
 
 
 La aplicación esta divida por features (login, owner y walker) el login fue implementado bajo la arquitectura MVI, el resto de 
 features fueron implementados con MVVM. Como backend se hizo uso únicamente de Firebase (Firebase auth, firestore y Storage).
+
+
+Muchas gracias por tomarse la molestia de leer hasta aqui. 
+
+
+Un saludo.
