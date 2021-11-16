@@ -67,3 +67,9 @@ Muchas gracias por tomarse la molestia de leer hasta aqui.
 
 
 Un saludo.
+
+
+## Descarga el APK 
+
+
+https://drive.google.com/file/d/1ZjwE0W5c_MlgzpMUvqsh71eY8EXFG3nf/view?usp=drivesdk
